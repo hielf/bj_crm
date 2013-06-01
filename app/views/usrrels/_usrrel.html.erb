@@ -1,0 +1,7 @@
+
+  <!-- <fieldset> -->
+	<%= f.input :name, disabled: true, :label => '上级用户', :required => false %>
+	<%= f.input :usrrels, :label => '下级用户', :collection => @userlist, :required => false,
+	 						:input_html => { :multiple => true } %>
+
+  <!-- </fieldset> -->

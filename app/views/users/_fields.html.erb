@@ -1,5 +1,8 @@
-<%= f.input :name, :label => '姓名', :required => false %>
-<%= f.input :email, :label => 'Email', :required => false %>
+<%= f.input :name, :label => '姓名', :required => true %>
+<%= f.input :usercode, :label => '用户代码', :required => false %>
+<%= f.input :usertype, :collection => @usertype, 
+						:label => '用户类型' %>
+<!-- # f.input :usertype, :label => '用户类型', :required => false -->
 <%= f.input :password, :label => '密码', :class => "help-inline", :required => false %>
-<%= f.input :password_confirmation, :label => '确认' %>
+<%= f.input :password_confirmation, :label => '确认密码' %>
 <!-- # f.association :userpositions, :collection => @userpositions, :label => '岗位', :input_html => { :multiple => true } -->

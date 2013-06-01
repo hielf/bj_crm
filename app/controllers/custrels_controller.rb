@@ -1,0 +1,2 @@
+class CustrelsController < ApplicationController
+end

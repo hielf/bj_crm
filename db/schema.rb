@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417181951) do
+ActiveRecord::Schema.define(:version => 20130601142253) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -113,6 +113,23 @@ ActiveRecord::Schema.define(:version => 20130417181951) do
   add_index "brokers", ["broker_code"], :name => "index_brokers_on_broker_code", :unique => true
   add_index "brokers", ["broker_name"], :name => "index_brokers_on_broker_name"
 
+  create_table "custrels", :force => true do |t|
+    t.integer  "usr"
+    t.integer  "cust"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "custs", :force => true do |t|
+    t.string   "fullname"
+    t.string   "phone"
+    t.string   "company"
+    t.string   "workaddress"
+    t.string   "custtype"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "departments", :force => true do |t|
     t.string   "code"
     t.string   "name"
@@ -134,6 +151,14 @@ ActiveRecord::Schema.define(:version => 20130417181951) do
   end
 
   add_index "deptindices", ["department_id", "month_id", "indextype"], :name => "index_deptindices_on_department_id_and_month_id_and_indextype", :unique => true
+
+  create_table "dicts", :force => true do |t|
+    t.string   "name"
+    t.string   "dict_type"
+    t.integer  "code"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "flowpositionrels", :force => true do |t|
     t.integer  "step"
@@ -166,9 +191,18 @@ ActiveRecord::Schema.define(:version => 20130417181951) do
     t.string   "salt"
     t.boolean  "admin",              :default => false
     t.string   "usercode"
+    t.boolean  "ismgr"
+    t.string   "usertype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "usrrels", :force => true do |t|
+    t.integer  "mgr"
+    t.integer  "usr"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "workflowexes", :force => true do |t|
     t.integer  "flowid"

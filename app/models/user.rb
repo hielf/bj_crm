@@ -14,13 +14,27 @@
 
 class User < ActiveRecord::Base
   attr_accessor   :password
-  attr_accessible :name, :email, :password, :usercode, :password_confirmation, :userposition_ids
+  attr_accessible :name, :email, :password, :usercode, :password_confirmation, :userposition_ids,
+                  :usertype, :lowerusr, :usrrels
   
   has_many :userpositionrels, :dependent => :destroy, 
                               :foreign_key => "userid"
   has_many :userpositions, :through => :userpositionrels, 
                            :source => :position
-  
+
+  # has_many :usrrels, :dependent => :destroy, :foreign_key => "mgr"
+  # has_many :users, :through => :usrrels, :source => :mgr
+
+  has_many :usrrels, :dependent => :destroy,
+                     :foreign_key => "mgr",
+                     :class_name => "Usrrel"
+  # has_many :reverse_usrrels, :dependent => :destroy,
+  #                            :foreign_key => "usr",
+  #                            :class_name => "Usrrel"
+  has_many :lowerusr, :through => :usrrels, :source => :mgr
+  # has_many :followers, :through => :reverse_relationships,
+  #                      :source  => :follower
+                              
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,  :presence   => true,

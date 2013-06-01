@@ -12,11 +12,13 @@ class UsersController < ApplicationController
   def show
     @user  = User.find(params[:id])
     @title = @user.name
+    @userlist = User.all
   end
 
   def new
     @user  = User.new
     @title = "注册"
+    @usertype = get_dict_by_type("userType")
   end
   
   def create

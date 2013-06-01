@@ -1,0 +1,9 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+	<%= f.input :mgr, disabled: true, :label => '上级用户', :required => false %>
+	<%= f.input :usr, :label => '下级用户', :collection => @usertype, :required => false %>
+	<div class="form-actions">
+		<%= f.submit "确认", :class => 'btn btn-primary' %>
+	</div>
+  </fieldset>
+<% end %>
