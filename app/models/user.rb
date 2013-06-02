@@ -15,33 +15,26 @@
 class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :usercode, :password_confirmation, :userposition_ids,
-                  :usertype, :lowerusr, :usrrels
+                  :usertype, :user_ids
   
   has_many :userpositionrels, :dependent => :destroy, 
                               :foreign_key => "userid"
   has_many :userpositions, :through => :userpositionrels, 
                            :source => :position
 
-  # has_many :usrrels, :dependent => :destroy, :foreign_key => "mgr"
-  # has_many :users, :through => :usrrels, :source => :mgr
+  has_many :usrrels,  :dependent => :destroy, :foreign_key => "mgr"
+  has_many :users, :through => :usrrels, :source => :mgr
+  
+  # has_many :reverse_usrrels,  :dependent => :destroy, 
+  #                             :foreign_key => "usr",
+  #                             :class_name => "Usrrel"
+  # has_many :upusr,            :through => :reverse_usrrels, 
+  #                             :source => :usr
 
-  has_many :usrrels, :dependent => :destroy,
-                     :foreign_key => "mgr",
-                     :class_name => "Usrrel"
-  # has_many :reverse_usrrels, :dependent => :destroy,
-  #                            :foreign_key => "usr",
-  #                            :class_name => "Usrrel"
-  has_many :lowerusr, :through => :usrrels, :source => :mgr
-  # has_many :followers, :through => :reverse_relationships,
-  #                      :source  => :follower
-                              
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,  :presence   => true,
                     :length     => { :maximum => 20 }
-  # validates :email, :presence   => true,
-  #                   :format     => { :with => email_regex  },
-  #                   :uniqueness => { :case_sensitive => false }
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 5..20 }
