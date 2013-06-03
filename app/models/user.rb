@@ -2,20 +2,23 @@
 #
 # Table name: users
 #
-#  id                 :integer(4)      not null, primary key
+#  id                 :integer         not null, primary key
 #  name               :string(255)
 #  email              :string(255)
-#  created_at         :datetime
-#  updated_at         :datetime
+#  created_at         :datetime        not null
+#  updated_at         :datetime        not null
 #  encrypted_password :string(255)
 #  salt               :string(255)
-#  admin              :boolean(1)      default(FALSE)
+#  admin              :boolean         default(FALSE)
+#  usercode           :string(255)
+#  ismgr              :boolean
+#  usertype           :string(255)
 #
 
 class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :usercode, :password_confirmation, :userposition_ids,
-                  :usertype, :user_ids
+                  :usertype, :underling_ids
   
   has_many :userpositionrels, :dependent => :destroy, 
                               :foreign_key => "userid"
@@ -23,18 +26,15 @@ class User < ActiveRecord::Base
                            :source => :position
 
   has_many :usrrels,  :dependent => :destroy, :foreign_key => "mgr"
-  has_many :users, :through => :usrrels, :source => :mgr
-  
-  # has_many :reverse_usrrels,  :dependent => :destroy, 
-  #                             :foreign_key => "usr",
-  #                             :class_name => "Usrrel"
-  # has_many :upusr,            :through => :reverse_usrrels, 
-  #                             :source => :usr
+  has_many :underlings, :through => :usrrels, :source => :superior
+  # has_one  :superior, :through => :usrrels, :source => :underlings
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,  :presence   => true,
                     :length     => { :maximum => 20 }
+  validates :usercode, :presence   => true,
+                       :uniqueness => true                 
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 5..20 }

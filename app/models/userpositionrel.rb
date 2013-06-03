@@ -7,3 +7,15 @@ class Userpositionrel < ActiveRecord::Base
   validates :userid, :presence => true
   validates :positionid, :presence => true
 end
+# == Schema Information
+#
+# Table name: userpositionrels
+#
+#  id         :integer         not null, primary key
+#  userid     :integer
+#  positionid :integer
+#  expiredate :date
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+

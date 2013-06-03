@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @title = @user.name
     @userlist = User.all
+    @usertype = get_dict_by_type("userType")
   end
 
   def new
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     @title = "用户设置"
     @userpositions = Userposition.all
+    @usertype = get_dict_by_type("userType")
   end
   
   def update
