@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601142253) do
+ActiveRecord::Schema.define(:version => 20130604162232) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(:version => 20130601142253) do
   add_index "brokers", ["branch_id"], :name => "index_brokers_on_branch_id"
   add_index "brokers", ["broker_code"], :name => "index_brokers_on_broker_code", :unique => true
   add_index "brokers", ["broker_name"], :name => "index_brokers_on_broker_name"
+
+  create_table "custloans", :force => true do |t|
+    t.integer  "cust"
+    t.integer  "status"
+    t.datetime "begindate"
+    t.datetime "enddate"
+    t.integer  "operator"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "custrels", :force => true do |t|
     t.integer  "usr"

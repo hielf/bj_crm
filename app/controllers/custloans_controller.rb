@@ -1,0 +1,2 @@
+class CustloansController < ApplicationController
+end

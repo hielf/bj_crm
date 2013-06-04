@@ -1,6 +1,14 @@
 class Cust < ActiveRecord::Base
   attr_accessible :company, :custtype, :fullname, :phone, :workaddress
   
+  has_many :custrel, :class_name => "Custrel", :foreign_key => "cust"  
+  has_many :user, :through => :custrel, :source => :user
+  
+  # has_many :userpositionrels, :dependent => :destroy, 
+  #                             :foreign_key => "positionid"
+  # has_many :users,            :through => :userpositionrels, 
+  #                             :source => :user
+  
 end
 # == Schema Information
 #
