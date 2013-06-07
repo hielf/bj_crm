@@ -4,7 +4,7 @@ class CreateCustloans < ActiveRecord::Migration
       t.integer :cust_id
       t.integer :status
       t.integer :user_id
-      t.number :total_amount
+      t.decimal :total_amount
       t.integer :guarantee_type
       t.datetime :begin_date
       t.datetime :end_date

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607051958) do
+ActiveRecord::Schema.define(:version => 20130607071745) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -114,13 +114,19 @@ ActiveRecord::Schema.define(:version => 20130607051958) do
   add_index "brokers", ["broker_name"], :name => "index_brokers_on_broker_name"
 
   create_table "custloans", :force => true do |t|
-    t.integer  "cust"
+    t.integer  "cust_id"
     t.integer  "status"
-    t.datetime "begindate"
-    t.datetime "enddate"
-    t.integer  "operator"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.float    "total_amount"
+    t.integer  "guarantee_type"
+    t.datetime "begin_date"
+    t.datetime "end_date"
+    t.string   "pawn"
+    t.integer  "bank"
+    t.string   "bank_contact"
+    t.string   "mobile"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "custrels", :force => true do |t|

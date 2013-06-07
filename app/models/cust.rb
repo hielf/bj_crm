@@ -3,12 +3,8 @@ class Cust < ActiveRecord::Base
   
   has_many :custrel#, :class_name => "Custrel", :foreign_key => "cust"  
   has_many :users, :through => :custrel, :source => :user
-  # belongs_to :custrel
-   
-  # has_many :userpositionrels, :dependent => :destroy, 
-  #                             :foreign_key => "positionid"
-  # has_many :users,            :through => :userpositionrels, 
-  #                             :source => :user
+
+  has_many :custloans
   
 end
 # == Schema Information
