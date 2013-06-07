@@ -29,8 +29,8 @@ class User < ActiveRecord::Base
   has_many :underlings, :through => :usrrels, :source => :superior
   # has_one  :superior, :through => :usrrels, :source => :underlings
   
-  has_many :custrels, :dependent => :destroy, :foreign_key => "usr"
-  has_many :custs, :through => :custrels, :source => :cust
+  has_many :custrels
+  has_many :custs, :through => :custrels
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   

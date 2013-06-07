@@ -1,21 +1,10 @@
 class Custrel < ActiveRecord::Base
-  attr_accessible :cust, :usr
+  attr_accessible :cust_id, :user_id
   
-  belongs_to :user, :class_name => "User", :foreign_key => "usr"
-  belongs_to :cust, :class_name => "Cust", :foreign_key => "cust"
+  belongs_to :user
+  belongs_to :cust#, :class_name => "Cust", :foreign_key => "cust"
+  # has_many :custs, :class_name => "Cust", :primary_key => "cust_id"
   
-  validates :cust, :presence => true
-  validates :usr, :presence => true
-  
+  # validates :cust, :presence => true
+  # validates :usr, :presence => true
 end
-# == Schema Information
-#
-# Table name: custrels
-#
-#  id         :integer         not null, primary key
-#  usr        :integer
-#  cust       :integer
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
-#
-

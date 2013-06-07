@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604162232) do
+ActiveRecord::Schema.define(:version => 20130607051958) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(:version => 20130604162232) do
   end
 
   create_table "custrels", :force => true do |t|
-    t.integer  "usr"
-    t.integer  "cust"
+    t.integer  "user_id"
+    t.integer  "cust_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

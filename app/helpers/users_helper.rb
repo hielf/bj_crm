@@ -4,4 +4,8 @@ module UsersHelper
                                                     :class => "gravatar",
                                                     :gravatar => options  )
   end
+  
+  def user_type(user)
+    get_dict("userType", user.usertype).code
+  end
 end

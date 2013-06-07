@@ -1,0 +1,12 @@
+<tr>
+	<td><%= cust.fullname %></td>
+	<td><%= cust.phone %></td>
+	<td><%= cust.company %></td>
+	<td><%= cust.workaddress %></td>
+	<td><%= get_dict_by_id(cust.custtype).name %></td>
+	<td>
+	<% if user_type(current_user) == 3 %>
+		<%= link_to "挂接", edit_custrel_path(cust), :class => 'btn btn-mini btn-success pull-right' %>
+	<% end %>
+	</td>	
+</tr>
