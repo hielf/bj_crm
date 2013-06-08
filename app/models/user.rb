@@ -52,6 +52,25 @@ class User < ActiveRecord::Base
     userpositionrels.create!(:positionid => position.id )
   end
   
+  def self.owncusts(user)
+    if user
+      user.underlings.each do |t|
+        @custs = t.custs
+      end
+    else
+      @custs = nil
+    end
+    @custs
+  end
+  
+  def self.manager?(user)
+    # if user
+      (user && Dict.find_by_id(user.usertype).code == 3) ? true : false
+    # else
+      
+    # end
+  end
+  
   class << self
     def authenticate(usercode, submmited_password)
       user = User.find_by_usercode(usercode)

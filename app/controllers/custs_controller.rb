@@ -3,7 +3,13 @@ class CustsController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
   
   def index
-    @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
+    # @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
+    if User.manager?(current_user)
+      @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
+    else
+      @custs = User.owncusts(current_user).order("fullname").paginate(:page =>
+                                                                       params[:page]).per_page(20)
+    end
     @title = "客户"
   end
   
