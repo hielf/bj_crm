@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130607071745) do
+ActiveRecord::Schema.define(:version => 20130609180905) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20130607071745) do
     t.string   "mobile"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "current_step"
   end
 
   create_table "custrels", :force => true do |t|
@@ -182,6 +183,30 @@ ActiveRecord::Schema.define(:version => 20130607071745) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "flowid"
+  end
+
+  create_table "loanstepones", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.string   "companyname"
+    t.string   "companyaddress"
+    t.string   "custname"
+    t.string   "phone"
+    t.float    "request_amont"
+    t.integer  "guarantee_type"
+    t.float    "request_interest"
+    t.string   "special_request"
+    t.string   "current_loan_status"
+    t.string   "estate_address"
+    t.string   "estate_area"
+    t.string   "estate_owner"
+    t.string   "stream_status"
+    t.integer  "cust_request_type"
+    t.integer  "custtype"
+    t.integer  "invoice_status"
+    t.integer  "tex_status"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "userpositionrels", :force => true do |t|
