@@ -1,6 +1,11 @@
 class CustloansController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
   
+  def index
+    @custloan  = Custloan.find(params[:id])
+    @title = "信贷记录"
+  end  
+  
   def show
     @custloan  = Custloan.find(params[:id])
     @title = "信贷记录"
@@ -8,6 +13,8 @@ class CustloansController < ApplicationController
   
   def new
     @custloan  = Custloan.new
+    @loanstepone = Loanstepone.new
+    @cust = Cust.find(params[:cust_id])
     @title = "新建信贷流程"
     @banks = get_dict_by_type("custBank")
   end
@@ -15,7 +22,7 @@ class CustloansController < ApplicationController
   def create
     @custloan = Custloan.new(params[:custloan])
     if @custloan.save
-      redirect_to @custloan, :flash => { :success => "信贷流程建立"}
+      redirect_to @cust, :flash => { :success => "信贷流程建立"}
     else  
       @title = "新建信贷流程"
       render 'new'

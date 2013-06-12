@@ -1,9 +1,24 @@
 class Custloan < ActiveRecord::Base
   attr_accessible :bank, :bank_contact, :begin_date, :cust_id, :end_date, :guarantee_type, :mobile, 
-                  :pawn, :status, :total_amount, :user_id
+                  :pawn, :status, :total_amount, :user_id, :current_step
   
   belongs_to :cust
   
+  def self.nextstep(id)
+    custloan = Custloan.find(id)
+    current_step = custloan.current_step
+    if current_step >= 1 && current_step < 10
+      current_step+1
+    end
+  end
+  
+  def self.prevstep(id)
+    custloan = Custloan.find(id)
+    current_step = custloan.current_step
+    if current_step <= 10 && current_step > 1
+      current_step-1
+    end
+  end
 end
 # == Schema Information
 #
