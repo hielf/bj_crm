@@ -16,6 +16,7 @@ class CustsController < ApplicationController
   def show
     @cust  = Cust.find(params[:id])
     @title = @cust.fullname
+    @custloans = @cust.custloans
   end
   
   def new

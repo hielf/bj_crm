@@ -6,11 +6,11 @@
   <div class="tab-content">
     <div class="tab-pane active" id="1">
 			<div>
-				<%= link_to '新建信贷流程', new_cust_loan_path(@cust), :class => 'btn' %>
+				<%= link_to '新建信贷流程', new_cust_custloan_path(@cust), :class => 'btn btn-primary' %>
 			</div>
     </div>
     <div class="tab-pane" id="2">
-
+			<%= render 'custtab2' %>
     </div>
   </div>
 </div>

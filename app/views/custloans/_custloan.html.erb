@@ -1,0 +1,16 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>申请进度</th>
+      <th>起始日期</th>
+			<th>还款日期</th>
+    </tr>
+  </thead>
+  <tbody>
+		<tr>
+			<td><%= @cust_loan.current_step %></td>
+			<td><%= @cust_loan.begin_date %></td>
+			<td><%= @cust_loan.end_date %></td>
+		</tr>
+	</tbody>
+</table>

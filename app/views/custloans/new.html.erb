@@ -1,14 +1,12 @@
 <div class="page-header">
-  <h1>客户信贷记录</h1>
+  <h1>初步可行性</h1>
 </div>
 <%= simple_form_for @custloan, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-		<%= f.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
-		<%= f.input :total_amount, :label => '借款金额', :required => true %>
-		<%= f.input :begin_date, as: :date, :label => '借款提款日', :required => false %>
+	<%= render 'fields', :f => f %>
 	<div class="form-actions">
 		<%= f.submit "确认", :class => 'btn btn-primary' %>
-		<%= link_to '取消', root_path, :class => 'btn' %>
+		<%= link_to '取消', cust_path(@cust), :class => 'btn' %>
 	</div>
   </fieldset>
 <% end %>

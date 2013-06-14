@@ -1,0 +1,26 @@
+<%= f.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+<%= f.input :total_amount, :label => '要求贷款金额', :required => true, input_html: { value: 0 } %>
+<%= f.input :begin_date, as: :date, :label => '要求放款时间', :required => false %>
+
+<%= f.simple_fields_for :loanstepones do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :companyname, :input_html => { :class => "span4" }, :label => '公司名称' %>
+	<%= p.input :companyaddress, :input_html => { :class => "span6" }, :label => '办公地址' %>
+	<%= p.input :custname, :label => '客户姓名' %>
+	<%= p.input :phone, :label => '联系电话' %>
+	<%= p.input :guarantee_type, :collection => @guaranteetype, :label => '贷款性质' %>
+	<%= p.input :request_interest, :label => '要求贷款利率' %>
+	<%= p.input :special_request, :input_html => { :class => "span6" }, :label => '特殊要求' %>
+	<%= p.input :current_loan_status, :label => '当前负债情况' %>
+	</br>
+	<%= p.input :estate_address, :input_html => { :class => "span6" }, 
+							:label => '地址' %>
+	<%= p.input :estate_area, :label => '面积' %>
+	<%= p.input :estate_owner, :label => '所有者姓名', :hint => "以上为房产信息" %>
+	</br>
+	<%= p.input :stream_status, :label => '流水情况' %>
+	<%= p.input :cust_request_type, :collection => @custrequesttype, :label => '客户需求点' %>
+	<%= p.input :custtype,:collection => @custtype, :label => '经营主体性质' %>
+	<%= p.input :invoice_status, :label => '开票状况', :input_html => { :class => "span5" } %>
+	<%= p.input :tex_status, :label => '纳税状况', :input_html => { :class => "span5" } %>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609180905) do
+ActiveRecord::Schema.define(:version => 20130613162105) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20130609180905) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "dicts", ["dict_type", "code"], :name => "index_dicts_on_dict_type_and_code", :unique => true
+
   create_table "flowpositionrels", :force => true do |t|
     t.integer  "step"
     t.integer  "position"
@@ -203,8 +205,8 @@ ActiveRecord::Schema.define(:version => 20130609180905) do
     t.string   "stream_status"
     t.integer  "cust_request_type"
     t.integer  "custtype"
-    t.integer  "invoice_status"
-    t.integer  "tex_status"
+    t.string   "invoice_status"
+    t.string   "tex_status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
