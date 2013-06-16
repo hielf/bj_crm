@@ -1,14 +1,9 @@
-<div class="tabbable tabs">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#1" data-toggle="tab">客户资料</a></li>
-    <li><a href="#2" data-toggle="tab">贷款记录</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="1">
-
-    </div>
-    <div class="tab-pane" id="2">
-
-    </div>
-  </div>
+<div class="page-header">
+	<h1><%= @custloan.cust.fullname %></h1>
+</div>
+<div class="hero-unit">
+	<p>
+		<%= link_to '下一步', nextstep_custloans_path(@custloan) , :class => 'btn btn-primary' %>
+	</p>
+</div>
 </div>

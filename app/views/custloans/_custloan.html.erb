@@ -12,5 +12,10 @@
 			<td><%= @cust_loan.begin_date %></td>
 			<td><%= @cust_loan.end_date %></td>
 		</tr>
+		<tr>
+			<td colspan="3">
+				<p class="text-center"><%= link_to '详细信息', custloan_path(@cust_loan), :class => 'btn btn-primary' %></p>
+			</td>
+		</tr>
 	</tbody>
 </table>

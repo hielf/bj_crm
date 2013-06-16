@@ -3,7 +3,10 @@ Cmwp::Application.routes.draw do
   resources :custs do
     resources :custloans
   end
-  resources :custloans
+  resources :custloans do
+    get 'nextstep', :on => :member
+    # get 'prevstep', :on => :collection
+  end
   resources :custrels
   resources :sessions, :only => [:new, :create, :destroy]
   resources :departments, :only => [:index, :show] do

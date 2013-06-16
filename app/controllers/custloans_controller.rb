@@ -1,5 +1,5 @@
 class CustloansController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   
   def index
     @custloan  = Custloan.find(params[:id])
@@ -46,9 +46,16 @@ class CustloansController < ApplicationController
       render 'edit'
     end 
   end
-    
+
   def destroy
     @custloan.destroy
     redirect_to custloans_path, :flash => { :success => "信贷流程已撤销" }
   end
+
+  private
+
+    def nextstep
+      @custloan = Cusnloan.find(params[:id])
+    end
+    
 end

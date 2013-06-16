@@ -1,6 +1,6 @@
 # encoding: utf-8
 class CustsController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   
   def index
     # @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
