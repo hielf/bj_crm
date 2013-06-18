@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>步骤2. 选择银行收集资料</h1>
+</div>
+<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+		<%= f.input :current_step, as: :hidden, input_html: { value: 2 } %>
+		<%= f.simple_fields_for :loansteptwos do |p| %>
+			<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+			<%= p.input :attachment_file1, as: :file, :label => '附件1' %>
+			<%= p.input :attachment_file2, :label => '附件2' %>
+			<%= p.input :attachment_file3, :label => '附件3' %>
+			<%= p.input :attachment_file4, :label => '附件4' %>
+			<%= p.input :attachment_file5, :label => '附件5' %>
+		<% end %>
+	<div class="form-actions">
+		<%= link_to "上一步", previous_wizard_path, :class => 'btn btn-primary' %>
+		<%= f.submit "下一步", :class => 'btn btn-primary' %>
+	</div>
+  </fieldset>
+<% end %>

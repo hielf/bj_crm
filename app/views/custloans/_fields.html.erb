@@ -1,5 +1,5 @@
 <%= f.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
-<%= f.input :total_amount, :label => '要求贷款金额', :required => true, input_html: { value: 0 } %>
+<%= f.input :total_amount, :label => '要求贷款金额', :required => true %>
 <%= f.input :begin_date, as: :date, :label => '要求放款时间', :required => false %>
 <%= f.input :current_step, as: :hidden, input_html: { value: 1 } %>
 

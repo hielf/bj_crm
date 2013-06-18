@@ -1,10 +1,13 @@
 Cmwp::Application.routes.draw do
   resources :users
+  resources :loan_steps
   resources :custs do
     resources :custloans
   end
   resources :custloans do
-    get 'nextstep', :on => :member
+    resources :loan_steps
+    # resources :build, controller: 'custloans/build'
+    # get 'nextstep', :on => :member
     # get 'prevstep', :on => :collection
   end
   resources :custrels

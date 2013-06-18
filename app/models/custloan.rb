@@ -1,15 +1,17 @@
 class Custloan < ActiveRecord::Base
   attr_accessible :bank, :bank_contact, :begin_date, :cust_id, :end_date, :guarantee_type, :mobile, 
-                  :pawn, :status, :total_amount, :user_id, :current_step, :loanstepones_attributes
+                  :pawn, :status, :total_amount, :user_id, :current_step, :loanstepones_attributes,
+                  :loansteptwos_attributes
   
   belongs_to :cust
   
   has_many :loanstepones
+  has_many :loansteptwos
   
   validates :cust_id,  :presence => true
   validates :total_amount,  :presence => true
   
-  accepts_nested_attributes_for :loanstepones
+  accepts_nested_attributes_for :loanstepones, :loansteptwos
   
   def self.nextstep(id)
     custloan = Custloan.find(id)

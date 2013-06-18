@@ -1,0 +1,2 @@
+class LoansteptwosController < ApplicationController
+end

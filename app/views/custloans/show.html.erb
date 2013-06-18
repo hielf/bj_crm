@@ -1,9 +1,7 @@
 <div class="page-header">
 	<h1><%= @custloan.cust.fullname %></h1>
 </div>
-<div class="hero-unit">
 	<p>
-		<%= link_to '下一步', nextstep_custloans_path(@custloan) , :class => 'btn btn-primary' %>
+		<%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
 	</p>
-</div>
 </div>
