@@ -29,6 +29,7 @@ gem 'rabl'
 gem 'yajl-ruby', :require => "yajl"
 gem 'gon'
 gem 'wicked'
+gem 'carrierwave'
 # gem 'simple-navigation'
 
 # To use ActiveModel has_secure_password

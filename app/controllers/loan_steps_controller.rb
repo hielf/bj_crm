@@ -7,7 +7,9 @@ class LoanStepsController < ApplicationController
     @custloan = Custloan.find(params[:custloan_id])
     case step
     when :two
-    @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
+      @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
+    when :three
+      nil
     end
     @cust = Cust.find_by_id(@custloan.cust_id)
     

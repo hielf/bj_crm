@@ -11,7 +11,10 @@ class Custloan < ActiveRecord::Base
   validates :cust_id,  :presence => true
   validates :total_amount,  :presence => true
   
-  accepts_nested_attributes_for :loanstepones, :loansteptwos
+  accepts_nested_attributes_for :loanstepones
+  accepts_nested_attributes_for :loansteptwos#, \
+    # :reject_if => proc {|attributes| attributes['filename'].blank? \
+    # && attributes['filename_cache'].blank?}
   
   def self.nextstep(id)
     custloan = Custloan.find(id)

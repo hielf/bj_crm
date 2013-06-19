@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>步骤1. 初步可行性</h1>
 </div>
-<%= simple_form_for @custloan, :html => { :class => 'form-horizontal' } do |f| %>
+<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
 	<%= render 'custloans/fields', :f => f %>
 	<div class="form-actions">
