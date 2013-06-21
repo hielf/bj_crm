@@ -10,9 +10,9 @@ class Loansteptwo < ActiveRecord::Base
   mount_uploader :attachment_file4, AttachmentUploader
   mount_uploader :attachment_file5, AttachmentUploader
   
-  validates :attachment_file1, :presence => true
-  validates :attachment_file2, :presence => true
-  validates :attachment_file3, :presence => true
-  validates :attachment_file4, :presence => true
-  validates :attachment_file5, :presence => true
+  # validates :attachment_file1, :presence => true
+  # validates :attachment_file2, :presence => true
+  # validates :attachment_file3, :presence => true
+  # validates :attachment_file4, :presence => true
+  # validates :attachment_file5, :presence => true
 end

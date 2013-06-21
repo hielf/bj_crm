@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618084325) do
+ActiveRecord::Schema.define(:version => 20130620165437) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -210,6 +210,21 @@ ActiveRecord::Schema.define(:version => 20130618084325) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "loanstepthrees", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.datetime "visit_time"
+    t.string   "visit_place"
+    t.integer  "company_id"
+    t.string   "bank_emp"
+    t.datetime "end_time"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "subject"
+  end
+
+  add_index "loanstepthrees", ["custloan_id"], :name => "index_loanstepthrees_on_custloan_id", :unique => true
 
   create_table "loansteptwos", :force => true do |t|
     t.integer  "cust_id"

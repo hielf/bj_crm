@@ -46,7 +46,7 @@ class CustloansController < ApplicationController
   def new
     @custloan = Custloan.new
     @custloan.loanstepones.build
-    @cust = Cust.find(params[:cust_id])
+    @cust = Cust.find_by_id(params[:cust_id])
     @title = "新建信贷流程"
     @banks = get_dict_by_type("custBank")
     @guaranteetype = get_dict_by_type("guaranteeType")

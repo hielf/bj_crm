@@ -9,7 +9,7 @@ class LoanStepsController < ApplicationController
     when :two
       @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
     when :three
-      nil
+      @custloan.loanstepthrees.build unless !@custloan.loanstepthrees.blank?
     end
     @cust = Cust.find_by_id(@custloan.cust_id)
     

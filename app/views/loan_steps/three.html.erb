@@ -1,1 +1,12 @@
-three
+<div class="page-header">
+  <h1>步骤3. 陪同银行上门</h1>
+</div>
+<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+		<%= render 'three_fields', :f => f %>
+	<div class="form-actions">
+		<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+		<%= f.submit '下一步', :class => 'btn btn-primary' %>
+	</div>
+  </fieldset>
+<% end %>
