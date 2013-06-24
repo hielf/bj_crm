@@ -1,6 +1,6 @@
 <%= f.input :cust_id, as: :hidden, value: @cust %>
 <%= f.input :total_amount, :label => '要求贷款金额', :required => true %>
-<%= f.input :begin_date, as: :date, :label => '要求放款时间', :required => false %>
+<%= f.input :begin_date, :as => :date_picker, :label => '要求放款时间', :required => false %>
 <%= f.input :current_step, as: :hidden, input_html: { value: 1 } %>
 
 <%= f.simple_fields_for :loanstepones do |p| %>

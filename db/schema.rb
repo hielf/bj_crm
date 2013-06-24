@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620165437) do
+ActiveRecord::Schema.define(:version => 20130623162048) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -185,6 +185,26 @@ ActiveRecord::Schema.define(:version => 20130620165437) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "flowid"
+  end
+
+  create_table "loanstepfours", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.integer  "user_id"
+    t.string   "emp_phone"
+    t.float    "request_amont"
+    t.integer  "loan_period"
+    t.float    "loan_rate"
+    t.float    "rest_amont"
+    t.integer  "credit_level"
+    t.integer  "loan_type"
+    t.string   "guarantor"
+    t.integer  "guarantor_credit_level"
+    t.string   "pawn"
+    t.float    "pawn_rate"
+    t.integer  "loan_fund_type"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "loanstepones", :force => true do |t|

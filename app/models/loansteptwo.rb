@@ -16,3 +16,19 @@ class Loansteptwo < ActiveRecord::Base
   # validates :attachment_file4, :presence => true
   # validates :attachment_file5, :presence => true
 end
+# == Schema Information
+#
+# Table name: loansteptwos
+#
+#  id               :integer         not null, primary key
+#  cust_id          :integer
+#  custloan_id      :integer
+#  attachment_file1 :string(255)
+#  attachment_file2 :string(255)
+#  attachment_file3 :string(255)
+#  attachment_file4 :string(255)
+#  attachment_file5 :string(255)
+#  created_at       :datetime        not null
+#  updated_at       :datetime        not null
+#
+

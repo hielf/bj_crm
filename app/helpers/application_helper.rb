@@ -14,4 +14,5 @@ module ApplicationHelper
   def logo
     image_tag("title_bojia.png", :alt => "博通银企 嘉言善行" )
   end
+  
 end

@@ -3,13 +3,15 @@ class LoanStepsController < ApplicationController
   steps :one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :ten
     
   def show
-    @title = "贷款流程"
+    @title = "贷前流程"
     @custloan = Custloan.find(params[:custloan_id])
     case step
     when :two
       @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
     when :three
       @custloan.loanstepthrees.build unless !@custloan.loanstepthrees.blank?
+    when :four
+      @custloan.loanstepfours.build unless !@custloan.loanstepfours.blank?
     end
     @cust = Cust.find_by_id(@custloan.cust_id)
     
