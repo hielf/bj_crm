@@ -1,0 +1,11 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 6 } %>
+
+<%= f.simple_fields_for :loanstepsixths do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :couples_is_appear, :label => '需借款人夫妻双方到场' %>
+	<%= p.input :owner_is_appear, :label => '房产权利人到场' %>
+	<%= p.input :contract_date, as: :date_picker, :label => '合同签署完成日期' %>
+	<%= p.input :sign_location, :label => '签署地点', :input_html => { :class => "input-xlarge" } %>
+	<%= p.input :bank_broker, :label => '银行客户经理' %>
+	<%= p.input :user_id, :collection => User.all, :label => '我方客户经理' %>
+<% end %>

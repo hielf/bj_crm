@@ -5,6 +5,7 @@ class LoanStepsController < ApplicationController
   def show
     @title = "贷前流程"
     @custloan = Custloan.find(params[:custloan_id])
+    @cust = Cust.find_by_id(@custloan.cust_id)
     case step
     when :two
       @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
@@ -12,8 +13,11 @@ class LoanStepsController < ApplicationController
       @custloan.loanstepthrees.build unless !@custloan.loanstepthrees.blank?
     when :four
       @custloan.loanstepfours.build unless !@custloan.loanstepfours.blank?
+    when :five
+      @custloan.loanstepfifths.build unless !@custloan.loanstepfifths.blank?
+    when :six
+      @custloan.loanstepsixths.build unless !@custloan.loanstepsixths.blank?
     end
-    @cust = Cust.find_by_id(@custloan.cust_id)
     
     render_wizard
   end
@@ -21,6 +25,10 @@ class LoanStepsController < ApplicationController
   def update
     @custloan  = Custloan.find(params[:custloan_id])
     @custloan.update_attributes(params[:custloan])
-    render_wizard @custloan, :flash => { :success => "信贷流程更新成功" }
+    if step == :five && !@custloan.loanstepfifths.first.pass? 
+      redirect_to wizard_path(:two), :flash => { :notice => "流程回退" }
+    else
+      render_wizard @custloan, :flash => { :success => "贷款流程更新成功" }
+    end
   end
 end

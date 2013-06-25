@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623162048) do
+ActiveRecord::Schema.define(:version => 20130625180831) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -187,6 +187,28 @@ ActiveRecord::Schema.define(:version => 20130623162048) do
     t.integer  "flowid"
   end
 
+  create_table "loanstepfifths", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.boolean  "pass"
+    t.boolean  "requirement"
+    t.string   "requirement_detail"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "loanstepfifths", ["custloan_id"], :name => "index_loanstepfifths_on_custloan_id", :unique => true
+
+  create_table "loanstepfives", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.boolean  "pass"
+    t.boolean  "requirement"
+    t.string   "requirement_detail"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "loanstepfours", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -230,6 +252,21 @@ ActiveRecord::Schema.define(:version => 20130623162048) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "loanstepsixths", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.boolean  "couples_is_appear"
+    t.boolean  "owner_is_appear"
+    t.datetime "contract_date"
+    t.string   "sign_location"
+    t.string   "bank_broker"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "loanstepsixths", ["custloan_id"], :name => "index_loanstepsixths_on_custloan_id", :unique => true
 
   create_table "loanstepthrees", :force => true do |t|
     t.integer  "cust_id"

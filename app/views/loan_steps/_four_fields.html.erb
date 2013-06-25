@@ -8,7 +8,7 @@
 <%= f.input :current_step, as: :hidden, input_html: { value: 4 } %>
 
 <%= f.simple_fields_for :loanstepfours do |p| %>
-	<%= p.input :cust_id, as: :hidden, value: @cust %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :user_id, :collection => User.all, :label => '客户经理' %>
 	<%= p.input :emp_phone, :label => '客户经理电话' %>
 	<%= p.input :request_amont, :label => '申请借款金额' %>
@@ -16,10 +16,10 @@
 	<%= p.input :loan_rate, :label => '借款利率', input_html: { :class => "input-mini" } %>
 	<%= p.input :rest_amont, :label => '已贷余额', input_html: { :class => "input-medium" } %>
 	<%= p.input :credit_level, :label => '借款人信用等级' %>
-	<%= p.input :loan_type, :label => '贷款方式' %>
+	<%= p.input :loan_type, :collection => get_dict_by_type("loanType"), :label => '贷款方式' %>
 	<%= p.input :guarantor, :label => '担保人全称', input_html: { :class => "input-xxlarge" } %>
 	<%= p.input :guarantor_credit_level, :label => '担保人信用等级' %>
 	<%= p.input :pawn, :label => '抵（质）押物', input_html: { :class => "input-xxlarge" } %>
 	<%= p.input :pawn_rate, :label => '抵（质）押率', input_html: { :class => "input-mini" } %>
-	<%= p.input :loan_fund_type, :label => '贷款性质' %>
+	<%= p.input :loan_fund_type, :collection => get_dict_by_type("loanProperties"), :label => '贷款性质' %>
 <% end %>

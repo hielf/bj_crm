@@ -1,6 +1,6 @@
 <%= f.input :current_step, as: :hidden, input_html: { value: 2 } %>
 <%= f.simple_fields_for :loansteptwos do |p| %>
-	<%= p.input :cust_id, as: :hidden, value: @cust %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :attachment_file1, as: :file, :label => '附件1', :hint => 
 	 if !@custloan.loansteptwos.first.attachment_file1.to_s.blank? 
 			link_to @custloan.loansteptwos.first[:attachment_file1], 

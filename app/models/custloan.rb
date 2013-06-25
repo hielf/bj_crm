@@ -1,7 +1,8 @@
 class Custloan < ActiveRecord::Base
   attr_accessible :bank, :bank_contact, :begin_date, :cust_id, :end_date, :guarantee_type, :mobile, 
                   :pawn, :status, :total_amount, :user_id, :current_step, :loanstepones_attributes,
-                  :loansteptwos_attributes, :loanstepthrees_attributes, :loanstepfours_attributes
+                  :loansteptwos_attributes, :loanstepthrees_attributes, :loanstepfours_attributes,
+                  :loanstepfifths_attributes, :loanstepsixths_attributes
   
   belongs_to :cust
   
@@ -9,6 +10,8 @@ class Custloan < ActiveRecord::Base
   has_many :loansteptwos
   has_many :loanstepthrees
   has_many :loanstepfours
+  has_many :loanstepfifths
+  has_many :loanstepsixths
   
   validates :total_amount,  :presence => true
   validates :cust_id,  :presence => true
@@ -19,6 +22,8 @@ class Custloan < ActiveRecord::Base
     # && attributes['filename_cache'].blank?}
   accepts_nested_attributes_for :loanstepthrees
   accepts_nested_attributes_for :loanstepfours
+  accepts_nested_attributes_for :loanstepfifths
+  accepts_nested_attributes_for :loanstepsixths
   
   def self.nextstep(id)
     custloan = Custloan.find(id)
