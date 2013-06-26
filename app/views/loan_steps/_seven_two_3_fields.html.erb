@@ -1,0 +1,15 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 7 } %>
+
+<%= f.simple_fields_for :loanstepsevens do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :account_name, :label => '名称' %>
+	<%= p.input :bank, :label => '开户行' %>
+	<%= p.input :account_code, :label => '卡号' %>
+	<%= p.input :open_date, as: :date_picker, :label => '完成开户日期' %>
+	
+	<%= p.input :attachment_file10, as: :file, :label => '营业执照', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file10.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file10], 
+							@custloan.loanstepsevens.first.attachment_file10.url 
+	 end %>
+<% end %>

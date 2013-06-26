@@ -1,0 +1,51 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 7 } %>
+
+<%= f.simple_fields_for :loanstepsevens do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :account_name, :label => '公司名称' %>
+	<%= p.input :bank, :label => '开户行' %>
+	<%= p.input :account_code, :label => '账户号' %>
+	<%= p.input :open_date, as: :date_picker, :label => '完成开户日期' %>
+	
+	<%= p.input :attachment_file2, as: :file, :label => '营业执照', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file2.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file2], 
+							@custloan.loanstepsevens.first.attachment_file2.url 
+	 end %>
+	<%= p.input :attachment_file3, as: :file, :label => '税务登记证', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file3.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file3], 
+							@custloan.loanstepsevens.first.attachment_file3.url 
+	 end %>
+	<%= p.input :attachment_file4, as: :file, :label => '组织机构代码证', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file4.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file4], 
+							@custloan.loanstepsevens.first.attachment_file4.url 
+	 end %>
+	<%= p.input :attachment_file5, as: :file, :label => '银行开户许可证', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file5.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file5], 
+							@custloan.loanstepsevens.first.attachment_file5.url 
+	 end %>
+	<%= p.input :attachment_file6, as: :file, :label => '信用机构代码证', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file6.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file6], 
+							@custloan.loanstepsevens.first.attachment_file6.url 
+	 end %>
+	
+	<%= p.input :attachment_file7, as: :file, :label => '公章', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file7.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file7], 
+							@custloan.loanstepsevens.first.attachment_file7.url 
+	 end %>
+	<%= p.input :attachment_file8, as: :file, :label => '法人章', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file8.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file8], 
+							@custloan.loanstepsevens.first.attachment_file8.url 
+	 end %>
+	<%= p.input :attachment_file9, as: :file, :label => '财务章', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file9.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file9], 
+							@custloan.loanstepsevens.first.attachment_file9.url 
+	 end %>
+<% end %>

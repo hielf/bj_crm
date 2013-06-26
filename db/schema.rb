@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625180831) do
+ActiveRecord::Schema.define(:version => 20130626172724) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -252,6 +252,30 @@ ActiveRecord::Schema.define(:version => 20130625180831) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+
+  create_table "loanstepsevens", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.integer  "bank_account_type"
+    t.string   "account_name"
+    t.integer  "bank"
+    t.string   "account_code"
+    t.datetime "open_date"
+    t.string   "attachment_file1"
+    t.string   "attachment_file2"
+    t.string   "attachment_file3"
+    t.string   "attachment_file4"
+    t.string   "attachment_file5"
+    t.string   "attachment_file6"
+    t.string   "attachment_file7"
+    t.string   "attachment_file8"
+    t.string   "attachment_file9"
+    t.string   "attachment_file10"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "loanstepsevens", ["custloan_id"], :name => "index_loanstepsevens_on_custloan_id", :unique => true
 
   create_table "loanstepsixths", :force => true do |t|
     t.integer  "cust_id"
