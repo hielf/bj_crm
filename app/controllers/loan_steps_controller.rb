@@ -1,6 +1,6 @@
 class LoanStepsController < ApplicationController
   include Wicked::Wizard
-  steps :one, :two, :three, :four, :five, :six, :seven, :seven_two, :eight, :nine, :ten
+  steps :one, :two, :three, :four, :five, :six, :seven, :seven_two, :eight, :eight_two, :nine, :ten
     
   def show
     @title = "贷前流程"
@@ -19,6 +19,12 @@ class LoanStepsController < ApplicationController
       @custloan.loanstepsixths.build unless !@custloan.loanstepsixths.blank?
     when :seven
       @custloan.loanstepsevens.build unless !@custloan.loanstepsevens.blank?
+    when :eight
+      @custloan.loanstepeights.build unless !@custloan.loanstepeights.blank?
+    when :nine
+      @custloan.loanstepnines.build unless !@custloan.loanstepnines.blank?
+    when :ten
+      @custloan.loansteptens.build unless !@custloan.loansteptens.blank?
     end
     
     render_wizard

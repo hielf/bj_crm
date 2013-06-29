@@ -40,6 +40,9 @@ class CustloansController < ApplicationController
     when 9
       @next_step = 'ten'
       @prev_step = 'nine'
+    when 10
+      @next_step = 'ten'
+      @current_step = 'ten'
     end
   end
   

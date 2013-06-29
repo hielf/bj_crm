@@ -2,6 +2,12 @@
 	<h1><%= @custloan.cust.fullname %></h1>
 </div>
 	<p>
-		<%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
+		<% if @current_step == 'ten'  %>
+			<%= link_to '修改流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
+		<% else %>
+		  <%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
+		<% end %>
+		
 	</p>
 </div>
+

@@ -18,7 +18,7 @@
 class User < ActiveRecord::Base
   attr_accessor   :password
   attr_accessible :name, :email, :password, :usercode, :password_confirmation, :userposition_ids,
-                  :usertype, :underling_ids
+                  :usertype, :underling_ids, :usrrels_attributes
   
   has_many :userpositionrels, :dependent => :destroy, 
                               :foreign_key => "userid"
@@ -31,7 +31,10 @@ class User < ActiveRecord::Base
   
   has_many :custrels
   has_many :custs, :through => :custrels
-
+  has_many :notices
+  
+  accepts_nested_attributes_for :usrrels
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :name,  :presence   => true,
@@ -41,7 +44,11 @@ class User < ActiveRecord::Base
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 5..20 }
-                       
+  
+  scope :type1_user, where(:usertype => Dict.find_by_dict_type_and_code('userType',1))
+  scope :type2_user, where(:usertype => Dict.find_by_dict_type_and_code('userType',2))
+  scope :type3_user, where(:usertype => Dict.find_by_dict_type_and_code('userType',3))
+  
   before_save :encrypt_password
   
   def has_password?(submitted_password)

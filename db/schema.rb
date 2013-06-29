@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626172724) do
+ActiveRecord::Schema.define(:version => 20130629190843) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -187,6 +187,23 @@ ActiveRecord::Schema.define(:version => 20130626172724) do
     t.integer  "flowid"
   end
 
+  create_table "loanstepeights", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.boolean  "has_guaranty"
+    t.boolean  "has_license_code"
+    t.datetime "guaranty_date"
+    t.datetime "other_complete_date"
+    t.datetime "repayment_date"
+    t.datetime "available_repayment_date"
+    t.datetime "revoke_date"
+    t.datetime "revoke_complete_date"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "loanstepeights", ["custloan_id"], :name => "index_loanstepeights_on_custloan_id", :unique => true
+
   create_table "loanstepfifths", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -228,6 +245,16 @@ ActiveRecord::Schema.define(:version => 20130626172724) do
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
   end
+
+  create_table "loanstepnines", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.datetime "loan_date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "loanstepnines", ["custloan_id"], :name => "index_loanstepnines_on_custloan_id", :unique => true
 
   create_table "loanstepones", :force => true do |t|
     t.integer  "cust_id"
@@ -292,6 +319,16 @@ ActiveRecord::Schema.define(:version => 20130626172724) do
 
   add_index "loanstepsixths", ["custloan_id"], :name => "index_loanstepsixths_on_custloan_id", :unique => true
 
+  create_table "loansteptens", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "loansteptens", ["custloan_id"], :name => "index_loansteptens_on_custloan_id", :unique => true
+
   create_table "loanstepthrees", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -321,6 +358,22 @@ ActiveRecord::Schema.define(:version => 20130626172724) do
 
   add_index "loansteptwos", ["custloan_id"], :name => "index_loansteptwos_on_custloan_id", :unique => true
 
+  create_table "notices", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "cust_id"
+    t.integer  "assist_user_id"
+    t.integer  "status"
+    t.datetime "vaild_date"
+    t.string   "note"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "custloan_id"
+    t.integer  "note_type"
+  end
+
+  add_index "notices", ["cust_id"], :name => "index_notices_on_cust_id"
+  add_index "notices", ["user_id"], :name => "index_notices_on_user_id"
+
   create_table "userpositionrels", :force => true do |t|
     t.integer  "userid"
     t.integer  "positionid"
@@ -345,7 +398,7 @@ ActiveRecord::Schema.define(:version => 20130626172724) do
     t.boolean  "admin",              :default => false
     t.string   "usercode"
     t.boolean  "ismgr"
-    t.string   "usertype"
+    t.integer  "usertype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,0 +1,6 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 9 } %>
+
+<%= f.simple_fields_for :loanstepnines do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :loan_date, as: :date_picker, :label => '放款日期' %>
+<% end %>
