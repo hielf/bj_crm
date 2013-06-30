@@ -35,6 +35,17 @@ class LoanStepsController < ApplicationController
     @custloan.update_attributes(params[:custloan])
     if step == :five && !@custloan.loanstepfifths.first.pass? 
       redirect_to wizard_path(:two), :flash => { :notice => "流程回退" }
+    elsif step == :ten 
+      @notice = Notice.new( { :user_id => current_user.id, 
+                              :assist_user_id => @custloan.loansteptens.first.user_id,
+                              :custloan_id => @custloan.id,
+                              :cust_id => @custloan.cust_id,
+                              :vaild_date => Time.now,
+                              :status => get_dict('noteStatus', 1).id,
+                              :note_type => get_dict('noteType', 1).id,
+                              :note => '客户关系移交' } )
+      @notice.save
+        redirect_to @custloan, :flash => { :success => "客户交接已提交" }
     else
       render_wizard @custloan, :flash => { :success => "贷款流程更新成功" }
     end

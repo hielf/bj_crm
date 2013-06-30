@@ -1,5 +1,6 @@
 class Notice < ActiveRecord::Base
-  attr_accessible :assist_user_id, :cust_id, :note, :status, :user_id, :vaild_date
+  attr_accessible :assist_user_id, :cust_id, :note, :status, :user_id, :vaild_date, :custloan_id,
+                  :note_type
   
   belongs_to :user
 end
