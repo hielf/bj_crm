@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @title = "首页"
     if signed_in?
       @title = "首页"
+      @notices = Notice.find_by_assist_user_id(current_user.id)
     end
   end
 

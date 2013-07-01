@@ -44,8 +44,11 @@ class LoanStepsController < ApplicationController
                               :status => get_dict('noteStatus', 1).id,
                               :note_type => get_dict('noteType', 1).id,
                               :note => '客户关系移交' } )
-      @notice.save
+      if @notice.save
         redirect_to @custloan, :flash => { :success => "客户交接已提交" }
+      else
+        redirect_to wizard_path(:ten)
+      end
     else
       render_wizard @custloan, :flash => { :success => "贷款流程更新成功" }
     end

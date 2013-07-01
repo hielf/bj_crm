@@ -1,6 +1,7 @@
 Cmwp::Application.routes.draw do
   resources :users
   resources :loan_steps
+  resources :notices
   resources :custs do
     resources :custloans
   end
