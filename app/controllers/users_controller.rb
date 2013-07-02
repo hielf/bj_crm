@@ -26,8 +26,9 @@ class UsersController < ApplicationController
     # raise params[:user].inspect
     @user = User.new(params[:user])
     if @user.save
+      Usrrel.underling!(@user)
       sign_in @user
-      redirect_to @user, :flash => { :success => "欢迎注册"}
+      redirect_to @user, :flash => { :success => "注册成功"}
     else  
       @title = "注册"
       render 'new'

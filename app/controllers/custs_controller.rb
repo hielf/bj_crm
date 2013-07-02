@@ -3,7 +3,6 @@ class CustsController < ApplicationController
   before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   
   def index
-    # @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
     if User.manager?(current_user)
       @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
     else
@@ -28,6 +27,7 @@ class CustsController < ApplicationController
   def create
     @cust = Cust.new(params[:cust])
     if @cust.save
+      current_user.custrel!(@cust)
       redirect_to @cust, :flash => { :success => "客户建立成功"}
     else  
       @title = "客户登记"

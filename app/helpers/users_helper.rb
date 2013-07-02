@@ -8,4 +8,5 @@ module UsersHelper
   def user_type(user)
     get_dict("userType", user.usertype).code
   end
+  
 end

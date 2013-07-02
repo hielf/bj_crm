@@ -59,13 +59,25 @@ class User < ActiveRecord::Base
     userpositionrels.create!(:positionid => position.id )
   end
   
+  def underlingself!(user)
+    usrrels.create!(:mgr => user.id, :usr => user.id )
+  end
+  
+  def custrel!(cust)
+    custrels.create!(:cust_id => cust.id)
+  end
+  
+  def custunrel!(cust)
+    custrels.find_by_cust_id(cust).destroy
+  end
+  
   def self.owncusts(user)
     if user
       user.underlings.each do |t|
         @custs = t.custs
       end
     else
-      @custs = nil
+      @custs = []
     end
     @custs
   end
