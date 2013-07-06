@@ -3,7 +3,7 @@
 		<div class="accordion-group">
 			<div class="accordion-heading">
 				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=t.id%>">
-					贷款记录 #<%=t.begin_date.to_date%>
+					贷款记录 #<%=t.begin_date.to_s.to_date%>
 				</a>
 			</div>
 			<div id="collapse<%=t.id%>" class="collapse in" <% if @custloans.first.id == t.id %>style="height: auto;"<% else %>style="height: 0px;"<% end %>>

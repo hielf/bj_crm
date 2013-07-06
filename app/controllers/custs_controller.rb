@@ -25,18 +25,23 @@ class CustsController < ApplicationController
   end
   
   def create
-    @cust = Cust.new(params[:cust])
-    if @cust.save
-      current_user.custrel!(@cust)
-      redirect_to @cust, :flash => { :success => "客户建立成功"}
-    else  
-      @title = "客户登记"
-      render 'new'
+    if user_type(current_user) == 2
+      redirect_to root_path, :flash => { :error => "您无权登记新客户"}
+    else
+      @cust = Cust.new(params[:cust])
+      if @cust.save
+        current_user.custrel!(@cust)
+        redirect_to @cust, :flash => { :success => "客户建立成功"}
+      else  
+        @title = "客户登记"
+        render 'new'
+      end
     end
   end
 
   def edit
     @cust  = Cust.find(params[:id])
+    @custtype = get_dict_by_type("custType")
     @title = "客户资料"
   end
   

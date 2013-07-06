@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130629190843) do
+ActiveRecord::Schema.define(:version => 20130703084314) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -352,8 +352,36 @@ ActiveRecord::Schema.define(:version => 20130629190843) do
     t.string   "attachment_file3"
     t.string   "attachment_file4"
     t.string   "attachment_file5"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "attachment_file6"
+    t.string   "attachment_file7"
+    t.string   "attachment_file8"
+    t.string   "attachment_file9"
+    t.string   "attachment_file10"
+    t.string   "attachment_file11"
+    t.string   "attachment_file12"
+    t.string   "attachment_file13"
+    t.string   "attachment_file14"
+    t.string   "attachment_file15"
+    t.string   "attachment_file16"
+    t.string   "attachment_file17"
+    t.string   "attachment_file18"
+    t.string   "attachment_file19"
+    t.string   "attachment_file20"
+    t.string   "attachment_file21"
+    t.string   "attachment_file22"
+    t.string   "attachment_file23"
+    t.string   "attachment_file24"
+    t.string   "attachment_file25"
+    t.string   "attachment_file26"
+    t.string   "attachment_file27"
+    t.string   "attachment_file28"
+    t.string   "attachment_file29"
+    t.string   "attachment_file30"
+    t.string   "attachment_file31"
+    t.string   "attachment_file32"
+    t.string   "attachment_file33"
   end
 
   add_index "loansteptwos", ["custloan_id"], :name => "index_loansteptwos_on_custloan_id", :unique => true

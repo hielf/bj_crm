@@ -16,5 +16,7 @@ end
 #  note           :string(255)
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
+#  custloan_id    :integer
+#  note_type      :integer
 #
 
