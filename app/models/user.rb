@@ -72,12 +72,10 @@ class User < ActiveRecord::Base
   end
   
   def self.owncusts(user)
-    if user
+    if user && !user.underlings.blank?
       user.underlings.each do |t|
         @custs = t.custs
       end
-    else
-      @custs = []
     end
     @custs
   end

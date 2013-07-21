@@ -25,7 +25,9 @@
 			</tr>
 		</thead>
 	  <tbody>
-		<%= render @custs %>
+		<% if !@custs.nil? %>
+			<%= render @custs %>
+		<% end %>
 	  </tbody>
 	</table>
 	
