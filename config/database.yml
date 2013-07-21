@@ -11,7 +11,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  host: hielf.dyndns.ws
+  host: 10.0.0.19
   port: 5432
   database: devdb
   pool: 5

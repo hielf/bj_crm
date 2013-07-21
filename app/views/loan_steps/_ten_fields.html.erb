@@ -1,0 +1,7 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 10 } %>
+<%= f.input :status, as: :hidden, input_html: { value: get_dict('loanStatus', 2).id } %>
+
+<%= f.simple_fields_for :loansteptens do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :user_id, :collection => User.type2_user,  :label => '贷后人员' %>
+<% end %>

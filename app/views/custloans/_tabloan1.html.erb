@@ -1,0 +1,45 @@
+<div class="well">
+	<!-- <ul class="inline">
+		<li> -->
+			<dl class="dl-horizontal">
+				<legend>基本资料</legend>
+			  <dt>公司名称:</dt>
+			  <dd><%= @custloan.loanstepones.first.companyname %></dd>
+				<dt>办公地址:</dt>
+			  <dd><%= @custloan.loanstepones.first.companyaddress %></dd>
+				<dt>客户姓名:</dt>
+			  <dd><%= @custloan.loanstepones.first.custname %></dd>
+				<dt>联系电话:</dt>
+			  <dd><%= @custloan.loanstepones.first.phone %></dd>
+				<dt>贷款性质:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepones.first.guarantee_type).name %></dd>
+				<dt>要求贷款利率:</dt>
+			  <dd><%= @custloan.loanstepones.first.request_interest %></dd>
+				<dt>特殊要求:</dt>
+			  <dd><%= @custloan.loanstepones.first.special_request %></dd>
+				<dt>当前负债情况:</dt>
+			  <dd><%= @custloan.loanstepones.first.current_loan_status %></dd>
+			</br>
+				<legend>房产信息</legend>
+				<dt>地址:</dt>
+			  <dd><%= @custloan.loanstepones.first.estate_address %></dd>
+				<dt>面积:</dt>
+			  <dd><%= @custloan.loanstepones.first.estate_area %></dd>
+				<dt>所有者姓名:</dt>
+			  <dd><%= @custloan.loanstepones.first.estate_owner %></dd>
+			</br>
+				<legend>财务</legend>
+				<dt>流水情况:</dt>
+			  <dd><%= @custloan.loanstepones.first.current_loan_status %></dd>
+				<dt>客户需求点:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepones.first.cust_request_type).name %></dd>
+				<dt>经营主体性质:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepones.first.custtype).name %></dd>
+				<dt>开票状况:</dt>
+			  <dd><%= @custloan.loanstepones.first.invoice_status %></dd>
+				<dt>纳税状况:</dt>
+			  <dd><%= @custloan.loanstepones.first.tex_status %></dd>
+			</dl>
+		<!-- </li>
+	</ul> -->
+</div>

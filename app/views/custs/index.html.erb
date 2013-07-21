@@ -32,7 +32,6 @@
 
 <%= will_paginate @custs, previous_label: h("<"), next_label: h(">") %>
 
-<!-- also -->
-<!-- @users.each do |user|
-	render user
-end -->
+<% if user_type(current_user) != 2 %>
+	<%= link_to '新客户登记', new_cust_path, :class => 'btn' %>
+<% end %>

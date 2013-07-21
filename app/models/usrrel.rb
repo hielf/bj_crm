@@ -6,6 +6,11 @@ class Usrrel < ActiveRecord::Base
   
   validates :mgr, :presence => true
   validates :usr, :presence => true
+  
+  def self.underling!(user)
+    Usrrel.create!(:mgr => user.id, :usr => user.id)
+  end
+  
 end
 # == Schema Information
 #

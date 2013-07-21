@@ -1,0 +1,20 @@
+<!-- Modal -->
+<div id="myModal<%=n.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"><%= n.note %></h3>
+  </div>
+  <div class="modal-body">
+    <p>提交时间：   <%= n.updated_at.to_formatted_s(:db) %></p>
+		<p>客户全称：   <%= Cust.find(n.cust_id).fullname %></p>
+		<p>申请贷款金额： <%= Custloan.find(n.custloan_id).total_amount %></p>
+		<p>提交人：  	 <%= User.find(n.user_id).name %></p>
+  </div>
+	<%= form_for(current_user.custrels.build(:cust_id => n.cust_id)) do |f| %>
+	<div><%= f.hidden_field :cust_id %></div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+		<%= f.submit "确认接收", :class => 'btn btn-primary' %>
+  </div>
+	<% end %>
+</div>

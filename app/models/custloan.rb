@@ -1,13 +1,22 @@
 class Custloan < ActiveRecord::Base
   attr_accessible :bank, :bank_contact, :begin_date, :cust_id, :end_date, :guarantee_type, :mobile, 
                   :pawn, :status, :total_amount, :user_id, :current_step, :loanstepones_attributes,
-                  :loansteptwos_attributes, :loanstepthrees_attributes
+                  :loansteptwos_attributes, :loanstepthrees_attributes, :loanstepfours_attributes,
+                  :loanstepfifths_attributes, :loanstepsixths_attributes, :loanstepsevens_attributes,
+                  :loanstepeights_attributes, :loanstepnines_attributes, :loansteptens_attributes
   
   belongs_to :cust
   
   has_many :loanstepones
   has_many :loansteptwos
   has_many :loanstepthrees
+  has_many :loanstepfours
+  has_many :loanstepfifths
+  has_many :loanstepsixths
+  has_many :loanstepsevens
+  has_many :loanstepeights
+  has_many :loanstepnines
+  has_many :loansteptens
   
   validates :total_amount,  :presence => true
   validates :cust_id,  :presence => true
@@ -17,6 +26,13 @@ class Custloan < ActiveRecord::Base
     # :reject_if => proc {|attributes| attributes['filename'].blank? \
     # && attributes['filename_cache'].blank?}
   accepts_nested_attributes_for :loanstepthrees
+  accepts_nested_attributes_for :loanstepfours
+  accepts_nested_attributes_for :loanstepfifths
+  accepts_nested_attributes_for :loanstepsixths
+  accepts_nested_attributes_for :loanstepsevens
+  accepts_nested_attributes_for :loanstepeights
+  accepts_nested_attributes_for :loanstepnines
+  accepts_nested_attributes_for :loansteptens
   
   def self.nextstep(id)
     custloan = Custloan.find(id)

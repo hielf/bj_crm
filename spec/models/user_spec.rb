@@ -183,6 +183,6 @@ end
 #  admin              :boolean         default(FALSE)
 #  usercode           :string(255)
 #  ismgr              :boolean
-#  usertype           :string(255)
+#  usertype           :integer
 #
 

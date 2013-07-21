@@ -5,9 +5,12 @@
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="1">
+			<%= render 'custtab1' %>
+			<% if user_type(current_user) != 2 %>
 			<div>
-				<%= link_to '新建信贷流程', new_cust_custloan_path(@cust), :class => 'btn btn-primary' %>
+				<p class="text-center"><%= link_to '新建信贷流程', new_cust_custloan_path(@cust), :class => 'btn btn-primary' %></p>
 			</div>
+			<% end %>
     </div>
     <div class="tab-pane" id="2">
 			<%= render 'custtab2' %>

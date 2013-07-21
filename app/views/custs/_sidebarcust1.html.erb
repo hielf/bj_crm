@@ -1,0 +1,18 @@
+<div>
+	<div class="sidebar-nav well">
+			<!-- <ul class="thumbnails"> -->
+				<legend>
+					<h4><%= @cust.fullname %></h4>
+				</legend>
+			<!-- </ul> -->
+			<address>
+				<h5>
+					公司：<%= @cust.company %></br>
+					电话：<%= @cust.phone %></br>
+					地址：<%= @cust.workaddress %></br>
+					类型：<%= get_dict_by_id(@cust.custtype).name %></br>
+				</h5>
+			</address>
+			<ul class="common-divider"></ul>
+	</div>
+</div>

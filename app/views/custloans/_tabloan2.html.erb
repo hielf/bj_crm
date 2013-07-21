@@ -1,0 +1,310 @@
+<div class="well">
+	<!-- <ul class="inline">
+		<li> -->
+			<dl class="dl-horizontal">
+				<legend>个人</legend>
+			  <dt>本人配偶身份证复印件:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file1.to_s.blank? 
+							link_to @custloan.loansteptwos.first[:attachment_file1], 
+											@custloan.loansteptwos.first.attachment_file1.url
+						else 
+							%{未上传}
+						end %>
+				</dd>
+				<dt>结婚证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file2.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file2], 
+												@custloan.loansteptwos.first.attachment_file2.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>户口本（起始页到最后一页）:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file3.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file3], 
+												@custloan.loansteptwos.first.attachment_file3.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>车辆行驶证复印件（如有）:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file4.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file4], 
+												@custloan.loansteptwos.first.attachment_file4.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>房产证复印件:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file5.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file5], 
+												@custloan.loansteptwos.first.attachment_file5.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>个人简历:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file6.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file6], 
+												@custloan.loansteptwos.first.attachment_file6.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>学历证明:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file7.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file7], 
+												@custloan.loansteptwos.first.attachment_file7.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人及其配偶身份证、户口本、结婚证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file8.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file8], 
+												@custloan.loansteptwos.first.attachment_file8.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人房产证复印件:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file9.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file9], 
+												@custloan.loansteptwos.first.attachment_file9.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人车辆行驶证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file10.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file10], 
+												@custloan.loansteptwos.first.attachment_file10.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+			</br>
+				<legend>公司</legend>
+				<dt>营业执照:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file11.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file11], 
+												@custloan.loansteptwos.first.attachment_file11.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>税务登记证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file12.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file12], 
+												@custloan.loansteptwos.first.attachment_file12.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>公司章程:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file13.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file13], 
+												@custloan.loansteptwos.first.attachment_file13.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>验资报告:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file14.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file14], 
+												@custloan.loansteptwos.first.attachment_file14.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>组织机构代码证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file15.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file15], 
+												@custloan.loansteptwos.first.attachment_file15.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>开户许可证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file16.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file16], 
+												@custloan.loansteptwos.first.attachment_file16.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>挂名公司名下的房产:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file17.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file17], 
+												@custloan.loansteptwos.first.attachment_file17.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>挂名公司名下的车辆:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file18.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file18], 
+												@custloan.loansteptwos.first.attachment_file18.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>贷款卡:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file19.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file19], 
+												@custloan.loansteptwos.first.attachment_file19.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人公司营业执照、税务登记证、组织机构代码证（正副本）、开户许可证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file20.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file20], 
+												@custloan.loansteptwos.first.attachment_file20.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人公司章程喝营业执照（复印件）:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file21.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file21], 
+												@custloan.loansteptwos.first.attachment_file21.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+			</br>
+				<legend>财务</legend>
+				<dt>近3、6、12个月银行对账单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file22.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file22], 
+												@custloan.loansteptwos.first.attachment_file22.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>近3、6个月的财务报表及近3年度年报:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file23.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file23], 
+												@custloan.loansteptwos.first.attachment_file23.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>营业场所租赁合同及已付款凭证:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file24.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file24], 
+												@custloan.loansteptwos.first.attachment_file24.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>近3、6、12个月进、销货单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file25.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file25], 
+												@custloan.loansteptwos.first.attachment_file25.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>本年度进、销货合同或协议:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file26.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file26], 
+												@custloan.loansteptwos.first.attachment_file26.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>近3个月员工工资表:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file27.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file27], 
+												@custloan.loansteptwos.first.attachment_file27.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>最近1个月存货清单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file28.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file28], 
+												@custloan.loansteptwos.first.attachment_file28.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>设备清单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file29.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file29], 
+												@custloan.loansteptwos.first.attachment_file29.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>近3、6、12个月税单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file30.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file30], 
+												@custloan.loansteptwos.first.attachment_file30.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>近3、6、12个月水、电、电话、手机费账单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file31.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file31], 
+												@custloan.loansteptwos.first.attachment_file31.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人近6个月的银行对帐单:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file32.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file32], 
+												@custloan.loansteptwos.first.attachment_file32.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+				<dt>担保人企业近2年的完税证明:</dt>
+			  <dd>
+					<%= if !@custloan.loansteptwos.first.attachment_file33.to_s.blank? 
+								link_to @custloan.loansteptwos.first[:attachment_file33], 
+												@custloan.loansteptwos.first.attachment_file33.url
+							else 
+								%{未上传}
+							end %>
+				</dd>
+			</dl>
+		<!-- </li>
+	</ul> -->
+</div>

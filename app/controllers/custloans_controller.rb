@@ -11,6 +11,8 @@ class CustloansController < ApplicationController
   
   def show
     @custloan = Custloan.find(params[:id])
+    @custloan.loansteptwos.build
+    @cust = Cust.find(@custloan.cust_id)
     @title = "信贷记录"
     current_step = @custloan.current_step
     case current_step
@@ -40,6 +42,9 @@ class CustloansController < ApplicationController
     when 9
       @next_step = 'ten'
       @prev_step = 'nine'
+    when 10
+      @next_step = 'ten'
+      @current_step = 'ten'
     end
   end
   
@@ -55,13 +60,17 @@ class CustloansController < ApplicationController
   end
   
   def create
-    @custloan = Custloan.new(params[:custloan])
-    if @custloan.save
-      redirect_to @custloan, :flash => { :success => "信贷流程建立"}
-      # redirect_to loan_steps_path
-    else  
-      @title = "新建信贷流程"
-      render 'new'
+    if user_type(current_user) == 2
+      redirect_to root_path, :flash => { :error => "您无权建立贷款流程"}
+    else
+      @custloan = Custloan.new(params[:custloan])
+      if @custloan.save
+        redirect_to @custloan, :flash => { :success => "信贷流程建立"}
+        # redirect_to loan_steps_path
+      else  
+        @title = "新建信贷流程"
+        render 'new'
+      end
     end
   end
 

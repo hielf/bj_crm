@@ -1,0 +1,35 @@
+<div>
+	<h5><p class="lead text-info text-center">我的客户</p></h5>
+		
+	<table class="table table-condensed table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>
+					<h5>客户姓名</h5>
+				</th>
+				<th>
+					<h5>联系电话</h5>
+				</th>
+				<th>
+					<h5>公司名称</h5>
+				</th>
+				<th>
+					<h5>办公地址</h5>
+				</th>
+				<th>
+					<h5>公司性质</h5>
+				</th>
+				<th>
+					<h5></h5>
+				</th>
+			</tr>
+		</thead>
+	  <tbody>
+		<% if !@custs.nil? %>
+			<%= render @custs %>
+		<% end %>
+	  </tbody>
+	</table>
+	
+</div>
+

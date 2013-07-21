@@ -1,0 +1,43 @@
+<div>
+	<h4><p class="lead text-info text-center">通知列表</p></h4>
+		
+	<table class="table table-condensed table-striped table-bordered">
+		<thead>
+			<tr>
+				<th>
+					<h5>内容</h5>
+				</th>
+				<th>
+					<h5>提交人</h5>
+				</th>
+				<th>
+					<h5>客户</h5>
+				</th>
+				<th>
+					<h5>提交时间</h5>
+				</th>
+				<th>
+					<h5>通知类型</h5>
+				</th>
+				<th></th>
+			</tr>
+		</thead>
+	  <tbody>
+			<% @notices.each do |n| %>
+				<tr>
+					<td><%= n.note %></td>
+					<td><%= User.find(n.user_id).name %></td>
+					<td><%= link_to Cust.find(n.cust_id).fullname, custloan_path(n.custloan_id) %></td>	
+					<td><%= n.updated_at %></td>
+					<td><%= Dict.find(n.note_type).name %></td>
+					<!-- Button to trigger modal -->
+					<td>
+						<a href="#myModal<%=n.id%>" role="button" class="btn btn-mini pull-right" data-toggle="modal">查看</a>
+					</td>	
+					<%= render 'notices/notice_modal', :n => n %>
+				</tr>
+			<% end %>
+	  </tbody>
+	</table>
+</div>
+
