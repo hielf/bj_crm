@@ -1,7 +1,7 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
+  # before_filter :correct_user, :only => [:edit, :update]
   before_filter :admin_user,   :only => :destroy
 
   def index
@@ -10,10 +10,17 @@ class UsersController < ApplicationController
   end
 
   def show
+    # raise request.inspect
     @user  = User.find(params[:id])
     @title = @user.name
     @userlist = User.all
     @usertype = get_dict_by_type("userType")
+    # @user.usrrels.build unless !@user.usrrels.empty?
+    # if @user.usrrels.empty?
+    #   @usrrels = Usrrel.new
+    # else
+    #   @usrrels = @user.usrrels.first
+    # end
   end
 
   def new
@@ -45,13 +52,22 @@ class UsersController < ApplicationController
   
   def update
     @user  = User.find(params[:id])
-    # @user.usrrels.build
-    if @user.update_attributes(params[:user])
-      redirect_to @user, :flash => { :success => "用户资料更新成功" }
-    else  
-      @title = "用户设置"
-      render 'edit'
-    end 
+    @underlings = params[:user][:underling_ids]
+    if @underlings.present?
+      if @user.update_attribute :underling_ids, params[:user][:underling_ids]
+        redirect_to @user, :flash => { :success => "用户资料更新成功" }
+      else
+        @title = "用户设置"
+        render 'edit'
+      end
+    else
+      if @user.update_attributes(params[:user])
+        redirect_to @user, :flash => { :success => "用户资料更新成功" }
+      else
+        @title = "用户设置"
+        render 'edit'
+      end
+    end
   end
     
   def destroy

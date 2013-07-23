@@ -1,5 +1,6 @@
 Cmwp::Application.routes.draw do
   resources :users
+  resources :usrrels
   resources :loan_steps
   resources :notices
   resources :custs do

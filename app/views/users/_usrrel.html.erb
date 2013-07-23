@@ -1,9 +1,4 @@
-<%= f.input :name, disabled: true, :label => '上级用户', :required => false %>
-<%= f.input :usercode, :label => '用户代码', :required => false %>
-<%= f.input :usertype, :collection => @usertype, 
-						:label => '用户类型' %>
-<!-- # f.input :usertype, :label => '用户类型', :required => false -->
-<%= f.input :password, :label => '密码', :class => "help-inline", :required => false %>
-<%= f.input :password_confirmation, :label => '确认密码' %>
+<%= f.input :name, as: :hidden, input_html: { value: @user.name } %>
+<%= f.input :usercode, as: :hidden, input_html: { value: @user.usercode } %>
 <%= f.association :underlings, :collection => @userlist, :label => '下级用户', 
  									:input_html => { :multiple => true } %>
