@@ -1,3 +1,35 @@
 // Place all the styles related to the custloans controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+fieldset {
+  border: none;
+  border: solid 1px #CCC;
+  padding: 10px 15px;
+  margin: 15px 0;
+  position: relative;
+  .remove_fields {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 12px;
+  }
+}

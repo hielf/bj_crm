@@ -3,7 +3,8 @@ class Custloan < ActiveRecord::Base
                   :pawn, :status, :total_amount, :user_id, :current_step, :loanstepones_attributes,
                   :loansteptwos_attributes, :loanstepthrees_attributes, :loanstepfours_attributes,
                   :loanstepfifths_attributes, :loanstepsixths_attributes, :loanstepsevens_attributes,
-                  :loanstepeights_attributes, :loanstepnines_attributes, :loansteptens_attributes
+                  :loanstepeights_attributes, :loanstepnines_attributes, :loansteptens_attributes,
+                  :loansteponeguarantees_attributes, :loansteponeassets_attributes
   
   belongs_to :cust
   
@@ -17,9 +18,11 @@ class Custloan < ActiveRecord::Base
   has_many :loanstepeights
   has_many :loanstepnines
   has_many :loansteptens
+  has_many :loansteponeguarantees
+  has_many :loansteponeassets
   
-  validates :total_amount,  :presence => true
-  validates :cust_id,  :presence => true
+  # validates :total_amount,  :presence => true
+  # validates :cust_id,  :presence => true
 
   accepts_nested_attributes_for :loanstepones
   accepts_nested_attributes_for :loansteptwos#, \
@@ -33,6 +36,8 @@ class Custloan < ActiveRecord::Base
   accepts_nested_attributes_for :loanstepeights
   accepts_nested_attributes_for :loanstepnines
   accepts_nested_attributes_for :loansteptens
+  accepts_nested_attributes_for :loansteponeguarantees
+  accepts_nested_attributes_for :loansteponeassets
   
   def self.nextstep(id)
     custloan = Custloan.find(id)

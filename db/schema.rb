@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703084314) do
+ActiveRecord::Schema.define(:version => 20130729165241) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -256,6 +256,33 @@ ActiveRecord::Schema.define(:version => 20130703084314) do
 
   add_index "loanstepnines", ["custloan_id"], :name => "index_loanstepnines_on_custloan_id", :unique => true
 
+  create_table "loansteponeassets", :force => true do |t|
+    t.integer  "custloan_id"
+    t.integer  "cust_id"
+    t.integer  "asset_type"
+    t.string   "describe"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "loansteponeassets", ["custloan_id"], :name => "index_loansteponeassets_on_custloan_id"
+
+  create_table "loansteponeguarantees", :force => true do |t|
+    t.integer  "custloan_id"
+    t.integer  "cust_id"
+    t.string   "address"
+    t.string   "area"
+    t.string   "owner"
+    t.integer  "estate_type"
+    t.string   "complete_year"
+    t.string   "floor"
+    t.string   "describe"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "loansteponeguarantees", ["custloan_id"], :name => "index_loansteponeguarantees_on_custloan_id"
+
   create_table "loanstepones", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -276,8 +303,11 @@ ActiveRecord::Schema.define(:version => 20130703084314) do
     t.integer  "custtype"
     t.string   "invoice_status"
     t.string   "tex_status"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.datetime "request_date"
+    t.string   "stream_status_company"
+    t.string   "stream_status_other"
   end
 
   create_table "loanstepsevens", :force => true do |t|
@@ -340,6 +370,7 @@ ActiveRecord::Schema.define(:version => 20130703084314) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "subject"
+    t.integer  "broker_id"
   end
 
   add_index "loanstepthrees", ["custloan_id"], :name => "index_loanstepthrees_on_custloan_id", :unique => true

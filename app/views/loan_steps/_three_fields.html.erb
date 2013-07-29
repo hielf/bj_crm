@@ -4,7 +4,9 @@
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :visit_time, :as => :datetime_picker, :label => '上门时间' %>
 	<%= p.input :visit_place, :input_html => { :class => "span6" }, :label => '上门地点' %>
-	<%= p.input :company_id, :collection => User.all, :label => '陪同人员' %>
+	<%= p.input :broker_name, disabled: true, input_html: { value: current_user.name }, :label => '客户经理' %>
+	<%= p.input :broker_id, as: :hidden, input_html: { value: current_user.id } %>
+	<%= p.input :company_id, :collection => User.all, :label => '客户经理' %>
 	<%= p.input :bank_emp, :label => '银行人员' %>
 	<%= p.input :end_time, :as => :datetime_picker, :label => '结束时间' %>
 	<%= p.input :subject, as: :text, :input_html => { :class => "span4" }, :label => '主要谈话内容' %>

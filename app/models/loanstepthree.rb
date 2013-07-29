@@ -1,6 +1,7 @@
 class Loanstepthree < ActiveRecord::Base
+  attr_accessor   :broker_name
   attr_accessible :bank_emp, :company_id, :cust_id, :custloan_id, :end_time, :visit_place, :visit_time,
-                  :subject
+                  :subject, :broker_name, :broker_id
   
   belongs_to :custloan
 end
