@@ -1,3 +1,4 @@
+<fieldset>
 <%= f.input :current_step, as: :hidden, input_html: { value: 5 } %>
 
 <%= f.simple_fields_for :loanstepfifths do |p| %>
@@ -6,4 +7,11 @@
 	<%= p.input :requirement, :label => '有无条件' %>
 	<%= p.input :requirement_detail, as: :text, :label => '具体要求', 
 							:input_html => { :class => "input-xlarge", :rows => '4' } %>
+	<br>			
+	<%= p.input :attachment_file1, as: :file, :label => '上传批复', :hint => 
+	 if !@custloan.loanstepfifths.first.attachment_file1.to_s.blank? 
+			link_to @custloan.loanstepfifths.first[:attachment_file1], 
+							@custloan.loanstepfifths.first.attachment_file1.url 
+	 end %>
 <% end %>
+</fieldset>

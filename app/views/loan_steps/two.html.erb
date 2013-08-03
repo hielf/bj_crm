@@ -1,12 +1,16 @@
 <div class="page-header">
   <h1>步骤2. 选择银行收集资料</h1>
 </div>
-<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-		<%= render 'two_fields', :f => f %>
-	<div class="form-actions">
-		<%= link_to "上一步", previous_wizard_path, :class => 'btn' %>
-		<%= f.submit "下一步", :class => 'btn btn-primary' %>
+<div class="row-fluid">
+	<div class="span9">
+		<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+			<%= render 'two_fields', :f => f %>
+			<div class="form-actions">
+				<%= f.submit "下一步", :class => 'btn btn-primary' %>
+			</div>
+		<% end %>
 	</div>
-  </fieldset>
-<% end %>
+	<div class="span3">
+		<%= render 'loan_steps/helps/two_helps' %>
+	</div>
+</div>

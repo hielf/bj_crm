@@ -1,0 +1,69 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 4 } %>
+
+<fieldset>
+	<p class="lead"><legend><strong>基本信息</strong></legend></p>
+	<%= f.simple_fields_for :loanstepfours do |p| %>
+	<%= p.input :cust_id, as: :hidden, value: @cust %>
+	<%= p.input :companyname, :label => '公司名称', 
+							:input_html => { :class => "span4", :value => @custloan.loanstepones.first.companyname } %>
+	<%= p.input :companyaddress, :label => '办公地址',
+	 					  :input_html => { :class => "span6", :value => @custloan.loanstepones.first.companyaddress } %>
+	<%= p.input :custname, :label => '客户姓名',
+	 						:input_html => { :class => "span6", :value => @custloan.loanstepones.first.custname } %>
+	<%= p.input :phone, :label => '联系电话',
+	 						:input_html => { :value => @custloan.loanstepones.first.phone } %>
+	<%= p.input :request_amont, :label => '要求贷款金额（万元）',
+	 						:input_html => { :value => @custloan.loanstepones.first.request_amont } %>
+	<%= p.input :guarantee_type, :collection => get_dict_by_type("guaranteeType"), :label => '贷款方式',
+	 						:selected => @custloan.loanstepones.first.guarantee_type %>	
+	<%= p.input :request_interest, :label => '要求贷款利率（年）', :wrapper => :append do %>
+		<%= p.input_field :request_interest, :value => @custloan.loanstepones.first.request_interest %><span class="add-on">%</span>
+	<% end %>
+	<%= p.input :special_request, :label => '有无特殊要求',
+	 						:input_html => { :class => "span4", :value => @custloan.loanstepones.first.special_request } %>
+	<%= p.input :request_date, :as => :date_picker, :label => '要求放款时间',
+	 						:input_html => { :value => @custloan.loanstepones.first.request_date } %>
+	<%= p.input :current_loan_status, :as => :text, :label => '当前负债情况',
+	 						:input_html => { :class => "input-xlarge", :rows => '6',
+		 													 :value => @custloan.loanstepones.first.current_loan_status } %>
+</fieldset>
+
+<fieldset>
+	<p class="lead"><legend><strong>抵押物信息</strong></legend></p>
+	</br>
+	<%= f.simple_fields_for :loansteponeguarantees do |builder| %>
+    <%= render 'loanstepfourguarantee_fields', f: builder %>
+  <% end %>
+		<%= link_to_add_fields "新增", f, :loanstepfourguarantees %>
+</fieldset>
+
+<fieldset>
+	<p class="lead"><legend><strong>财务状况</strong></legend></p>
+	<%= p.input :stream_status, :as => :text, :label => '流水情况（个人）',
+	 						:input_html => { :class => "input-xlarge", :rows => '6',
+		 													 :value => @custloan.loanstepones.first.stream_status } %>
+	<%= p.input :stream_status_company, :as => :text, :label => '流水情况（公司）',
+							:input_html => { :class => "input-xlarge", :rows => '6',
+								 							 :value => @custloan.loanstepones.first.stream_status_company } %>
+	<%= p.input :stream_status_other, :as => :text, :label => '流水情况（其他）',
+							:input_html => { :class => "input-xlarge", :rows => '6',
+								 							 :value => @custloan.loanstepones.first.stream_status_other } %>
+	<%= p.input :cust_request_type, :collection => get_dict_by_type("requestType"), :label => '客户需求点',
+	 						:selected => @custloan.loanstepones.first.cust_request_type %>
+	<%= p.input :custtype,:collection => get_dict_by_type("custType"), :label => '经营主体性质',
+	 						:selected => @custloan.loanstepones.first.custtype %>
+	<%= p.input :invoice_status, :label => '开票状况', 
+							:input_html => { :class => "span5", :value => @custloan.loanstepones.first.invoice_status } %>
+	<%= p.input :tex_status, :label => '纳税状况', 
+							:input_html => { :class => "span5", :value => @custloan.loanstepones.first.tex_status } %>
+</fieldset>
+
+<fieldset>
+	<p class="lead"><legend><strong>资产信息</strong></legend></p>
+	</br>
+	<%= f.simple_fields_for :loansteponeassets do |builder| %>
+		<%= render 'loanstepfourasset_fields', f: builder %>
+  <% end %>
+	<%= link_to_add_fields "新增", f, :loanstepfourassets %>
+</fieldset>
+<% end %>

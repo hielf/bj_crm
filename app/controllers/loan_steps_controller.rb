@@ -1,6 +1,7 @@
 class LoanStepsController < ApplicationController
   include Wicked::Wizard
-  steps :one, :two, :three, :four, :five, :six, :seven, :seven_two, :eight, :eight_two, :nine, :ten
+  steps :one, :two, :three, :four, :five, :six, :six_two, :seven, :seven_two, :eight, :eight_two, 
+        :nine, :ten
     
   def show
     @title = "贷前流程"

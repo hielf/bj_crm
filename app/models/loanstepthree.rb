@@ -20,5 +20,6 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #  subject     :string(255)
+#  broker_id   :integer
 #
 

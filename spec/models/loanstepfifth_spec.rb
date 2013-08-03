@@ -15,5 +15,6 @@ end
 #  requirement_detail :string(255)
 #  created_at         :datetime        not null
 #  updated_at         :datetime        not null
+#  attachment_file1   :string(255)
 #
 

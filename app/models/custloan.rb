@@ -4,7 +4,8 @@ class Custloan < ActiveRecord::Base
                   :loansteptwos_attributes, :loanstepthrees_attributes, :loanstepfours_attributes,
                   :loanstepfifths_attributes, :loanstepsixths_attributes, :loanstepsevens_attributes,
                   :loanstepeights_attributes, :loanstepnines_attributes, :loansteptens_attributes,
-                  :loansteponeguarantees_attributes, :loansteponeassets_attributes
+                  :loansteponeguarantees_attributes, :loansteponeassets_attributes,
+                  :loanstepfourguarantees_attributes, :loanstepfourassets_attributes
   
   belongs_to :cust
   
@@ -20,6 +21,8 @@ class Custloan < ActiveRecord::Base
   has_many :loansteptens
   has_many :loansteponeguarantees
   has_many :loansteponeassets
+  has_many :loanstepfourguarantees
+  has_many :loanstepfourassets
   
   # validates :total_amount,  :presence => true
   # validates :cust_id,  :presence => true
@@ -38,6 +41,8 @@ class Custloan < ActiveRecord::Base
   accepts_nested_attributes_for :loansteptens
   accepts_nested_attributes_for :loansteponeguarantees
   accepts_nested_attributes_for :loansteponeassets
+  accepts_nested_attributes_for :loanstepfourguarantees
+  accepts_nested_attributes_for :loanstepfourassets
   
   def self.nextstep(id)
     custloan = Custloan.find(id)

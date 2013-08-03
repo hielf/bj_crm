@@ -1,12 +1,16 @@
 <div class="page-header">
   <h1>步骤1. 初步可行性</h1>
 </div>
-<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-  <fieldset>
-		<%= render 'one_fields', :f => f %>
-	<div class="form-actions">
-		<%= f.submit '下一步', :class => 'btn btn-primary' %>
-		<%= link_to '跳过', next_wizard_path, :class => 'btn' %>
+<div class="row-fluid">
+	<div class="span9">
+		<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+			<%= render 'one_fields', :f => f %>
+			<div class="form-actions">
+				<%= link_to '跳过', next_wizard_path, :class => 'btn' %>
+			</div>
+		<% end %>
 	</div>
-  </fieldset>
-<% end %>
+	<div class="span3">
+		<%= render 'loan_steps/helps/one_helps' %>
+	</div>
+</div>

@@ -1,0 +1,8 @@
+<fieldset>
+	<%= f.input :cust_id, as: :hidden, value: @cust %>
+	<%= f.input :asset_type, :collection => get_dict_by_type("assetType"), :label => '类型' %>
+	<%= f.input :describe, :as => :text, :label => '描述',
+	 						:input_html => { :class => "input-xlarge", :rows => '6' } %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>

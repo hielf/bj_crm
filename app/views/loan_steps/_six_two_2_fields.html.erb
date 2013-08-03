@@ -1,0 +1,12 @@
+<%= f.input :current_step, as: :hidden, input_html: { value: 6 } %>
+
+<%= f.simple_fields_for :loanstepsixths do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :notarization_date, as: :date_picker, :label => '公证日期' %>
+	<%= p.input :notarization_place, :label => '公证地点', :input_html => { :class => "input-xlarge" } %>
+	<%= p.input :notarization_man, :label => '公证处到场人员' %>
+	<%= p.input :bank_broker, :label => '银行客户经理' %>
+	<%= p.input :user_id, :collection => User.all, :label => '客户经理' %>
+	<%= p.input :custs, :label => '客户到场人员' %>
+	<%= p.input :has_stuff, :label => '所需资料' %>
+<% end %>
