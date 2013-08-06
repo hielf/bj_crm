@@ -44,6 +44,8 @@ class Custloan < ActiveRecord::Base
   accepts_nested_attributes_for :loanstepfourguarantees
   accepts_nested_attributes_for :loanstepfourassets
   
+  scope :status3, where(:status => Dict.find_by_dict_type_and_code("loanStatus",3))
+  
   def self.nextstep(id)
     custloan = Custloan.find(id)
     current_step = custloan.current_step

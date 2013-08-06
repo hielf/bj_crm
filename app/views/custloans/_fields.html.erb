@@ -12,7 +12,6 @@
 	<%= p.input :custname, :label => '客户姓名' %>
 	<%= p.input :phone, :label => '联系电话' %>
 	<%= p.input :request_amont, :label => '要求贷款金额（万元）' %>
-	<%= p.input :guarantee_type, :collection => @guaranteetype, :label => '贷款方式' %>	
 	<%= p.input :request_interest, :label => '要求贷款利率（年）', :wrapper => :append do %>
 		<%= p.input_field :request_interest %><span class="add-on">%</span>
 	<% end %>

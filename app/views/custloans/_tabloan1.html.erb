@@ -12,7 +12,7 @@
 				<dt>联系电话:</dt>
 			  <dd><%= @custloan.loanstepones.first.phone %></dd>
 				<dt>贷款性质:</dt>
-			  <dd><%= get_dict_by_id(@custloan.loanstepones.first.guarantee_type).name %></dd>
+			  <dd><%= get_dict_by_id(@custloan.guarantee_type).name unless @custloan.guarantee_type.nil? %></dd>
 				<dt>要求贷款利率:</dt>
 			  <dd><%= @custloan.loanstepones.first.request_interest %></dd>
 				<dt>特殊要求:</dt>

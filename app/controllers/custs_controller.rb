@@ -15,7 +15,12 @@ class CustsController < ApplicationController
   def show
     @cust  = Cust.find(params[:id])
     @title = @cust.fullname
-    @custloans = @cust.custloans
+    if user_type(current_user) == 2
+      @custloans = @cust.custloans.status3
+    else
+      @custloans = @cust.custloans
+    end
+    
   end
   
   def new

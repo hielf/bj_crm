@@ -17,6 +17,8 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '不动产', :dict_
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '借款合同', :dict_type => 'contractType', :code => 1})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '咨询合同', :dict_type => 'contractType', :code => 2})
 
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '担保', :dict_type => 'guaranteeType', :code => 3})
+
 #银行
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '招商银行', :dict_type => 'custBank', :code => 1})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '建设银行', :dict_type => 'custBank', :code => 2})
