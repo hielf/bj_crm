@@ -7,7 +7,8 @@ class Loansteptwo < ActiveRecord::Base
                   :attachment_file19, :attachment_file20, :attachment_file21, :attachment_file22,
                   :attachment_file23, :attachment_file24, :attachment_file25, :attachment_file26,
                   :attachment_file27, :attachment_file28, :attachment_file29, :attachment_file30,
-                  :attachment_file31, :attachment_file32, :attachment_file33, :cust_id, :custloan_id
+                  :attachment_file31, :attachment_file32, :attachment_file33, :cust_id, :custloan_id,
+                  :bank
                   
   belongs_to :custloan, polymorphic: true
   

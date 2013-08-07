@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130801164809) do
+ActiveRecord::Schema.define(:version => 20130807074300) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -454,6 +454,7 @@ ActiveRecord::Schema.define(:version => 20130801164809) do
     t.string   "attachment_file31"
     t.string   "attachment_file32"
     t.string   "attachment_file33"
+    t.integer  "bank"
   end
 
   add_index "loansteptwos", ["custloan_id"], :name => "index_loansteptwos_on_custloan_id", :unique => true
