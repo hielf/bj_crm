@@ -6,11 +6,14 @@ jQuery ->
 		# minLength: 2
 		source: $('#categories_category_name').data('autocomplete-source')
 		focus: (event, ui) ->
-			$("#categories_category_name").val ui.item.broker_code + "-" + ui.item.broker_name
+			$("#categories_category_name").val ui.item.fullname
+			$(".ui-helper-hidden-accessible").hide()
 			false
 		select: (event, ui) ->
-			$("#categories_category_name").val ui.item.broker_code + "-" + ui.item.broker_name
+			$("#categories_category_name").val ui.item.fullname
+			$(".ui-helper-hidden-accessible").hide()
 			# $("#link_broker_id").val ui.item.id
 			false
 	 })	.data("autocomplete")._renderItem = (ul, item) ->
-		    $("<li></li>").data("item.autocomplete", item).append("<a>" + item.broker_code + "-" + item.broker_name + "</a>").appendTo ul
+		    $("<li></li>").data("item.autocomplete", item).append("<a>" + item.fullname + "</a>").appendTo ul
+			$(".ui-helper-hidden-accessible").hide()

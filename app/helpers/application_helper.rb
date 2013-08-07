@@ -12,7 +12,7 @@ module ApplicationHelper
   end
   
   def logo
-    image_tag("logo_bojia_logo_white.png", :alt => "博通银企 嘉言善行" )
+    image_tag("logo_bojia.png", :alt => "博通银企 嘉言善行" )
   end
 
   def link_to_add_fields(name, f, association)

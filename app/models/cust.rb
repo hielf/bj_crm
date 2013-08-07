@@ -5,7 +5,7 @@ class Cust < ActiveRecord::Base
   has_many :users, :through => :custrel, :source => :user
 
   has_many :custloans
-
+  
 end
 # == Schema Information
 #

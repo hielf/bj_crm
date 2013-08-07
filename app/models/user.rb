@@ -88,6 +88,14 @@ class User < ActiveRecord::Base
     # end
   end
   
+  def self.search(search, user)
+    if search
+      @custs = user.custs.limit(10).find(:all,:conditions => ['fullname LIKE ? ', "%#{search}%"])
+    else
+      @custs = nil
+    end
+  end
+  
   class << self
     def authenticate(usercode, submmited_password)
       user = User.find_by_usercode(usercode)

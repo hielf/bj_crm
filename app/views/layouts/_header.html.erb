@@ -27,7 +27,7 @@
 	        <!-- .nav, .navbar-search, .navbar-form, etc -->
 	      </div>
 	      <!-- Be sure to leave the brand out there if you want it shown -->
-		  <div class="brand"><%= logo %></div>
+		  <a class="brand"><%= logo %></a>
 			<% if signed_in? %>
 				<%= form_for :categories, :url => search_categories_path,
 																	:method => 'get', 
