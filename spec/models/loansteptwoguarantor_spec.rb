@@ -1,22 +1,21 @@
 require 'spec_helper'
 
-describe Loansteptwo do
+describe Loansteptwoguarantor do
   pending "add some examples to (or delete) #{__FILE__}"
 end
 # == Schema Information
 #
-# Table name: loansteptwos
+# Table name: loansteptwoguarantors
 #
 #  id                :integer         not null, primary key
 #  cust_id           :integer
 #  custloan_id       :integer
+#  bank              :integer
 #  attachment_file1  :string(255)
 #  attachment_file2  :string(255)
 #  attachment_file3  :string(255)
 #  attachment_file4  :string(255)
 #  attachment_file5  :string(255)
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
 #  attachment_file6  :string(255)
 #  attachment_file7  :string(255)
 #  attachment_file8  :string(255)
@@ -45,6 +44,7 @@ end
 #  attachment_file31 :string(255)
 #  attachment_file32 :string(255)
 #  attachment_file33 :string(255)
-#  bank              :integer
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
 #
 

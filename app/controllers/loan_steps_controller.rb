@@ -10,6 +10,7 @@ class LoanStepsController < ApplicationController
     case step
     when :two
       @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
+      @custloan.loansteptwoguarantors.build unless !@custloan.loansteptwoguarantors.blank?
     when :three
       @custloan.loanstepthrees.build unless !@custloan.loanstepthrees.blank?
     when :four

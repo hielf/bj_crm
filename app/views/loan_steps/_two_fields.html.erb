@@ -3,5 +3,10 @@
 <%= f.input :guarantee_type, :collection => get_dict_by_type("guaranteeType"), :label => "担保方式" %>
 <%= f.simple_fields_for :loansteptwos do |p| %>
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<!-- <p class="lead"><legend><strong>选择银行</strong></legend></p> -->
+	<%= p.input :bank, :collection => get_dict_by_type("custBank"), :label => "银行" %>
+<% end %>
+<%= f.simple_fields_for :loansteptwoguarantors do |q| %>
+	<%= q.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 <% end %>
 </fieldset>

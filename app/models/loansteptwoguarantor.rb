@@ -1,4 +1,4 @@
-class Loansteptwo < ActiveRecord::Base
+class Loansteptwoguarantor < ActiveRecord::Base
   attr_accessible :attachment_file1, :attachment_file2, :attachment_file3, :attachment_file4,
                   :attachment_file5, :attachment_file6, :attachment_file7, :attachment_file8,
                   :attachment_file9, :attachment_file10, :attachment_file11, :attachment_file11,
@@ -10,7 +10,7 @@ class Loansteptwo < ActiveRecord::Base
                   :attachment_file31, :attachment_file32, :attachment_file33, :cust_id, :custloan_id,
                   :bank
                   
-  belongs_to :custloan, polymorphic: true
+  belongs_to :custloan
   
   mount_uploader :attachment_file1, AttachmentUploader
   mount_uploader :attachment_file2, AttachmentUploader
@@ -46,27 +46,20 @@ class Loansteptwo < ActiveRecord::Base
   mount_uploader :attachment_file32, AttachmentUploader
   mount_uploader :attachment_file33, AttachmentUploader
   
-  
-  # validates :attachment_file1, :presence => true
-  # validates :attachment_file2, :presence => true
-  # validates :attachment_file3, :presence => true
-  # validates :attachment_file4, :presence => true
-  # validates :attachment_file5, :presence => true
 end
 # == Schema Information
 #
-# Table name: loansteptwos
+# Table name: loansteptwoguarantors
 #
 #  id                :integer         not null, primary key
 #  cust_id           :integer
 #  custloan_id       :integer
+#  bank              :integer
 #  attachment_file1  :string(255)
 #  attachment_file2  :string(255)
 #  attachment_file3  :string(255)
 #  attachment_file4  :string(255)
 #  attachment_file5  :string(255)
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
 #  attachment_file6  :string(255)
 #  attachment_file7  :string(255)
 #  attachment_file8  :string(255)
@@ -95,6 +88,7 @@ end
 #  attachment_file31 :string(255)
 #  attachment_file32 :string(255)
 #  attachment_file33 :string(255)
-#  bank              :integer
+#  created_at        :datetime        not null
+#  updated_at        :datetime        not null
 #
 
