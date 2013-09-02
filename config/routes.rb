@@ -1,8 +1,14 @@
 Cmwp::Application.routes.draw do
   resources :users
   resources :usrrels
-  resources :loan_steps
+  resources :loan_steps do
+    get 'add_new', :on => :member
+  end
   resources :notices
+  resources :loansteptwoguarantors
+  # resources :loanstepeightguarantors do
+  #   get 'add_new', :on => :member
+  # end
   resources :custs do
     resources :custloans
   end

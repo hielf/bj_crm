@@ -2,7 +2,7 @@ class Loanstepseven < ActiveRecord::Base
   attr_accessible :account_code, :account_name, :attachment_file1, :attachment_file10,
                   :attachment_file2, :attachment_file3, :attachment_file4, :attachment_file5,
                   :attachment_file6, :attachment_file7, :attachment_file8, :attachment_file9, 
-                  :bank, :bank_account_type, :cust_id, :custloan_id, :open_date
+                  :bank, :bank_account_type, :cust_id, :custloan_id, :open_date, :attachment_file11
 
   belongs_to :custloan, polymorphic: true
   
@@ -15,7 +15,8 @@ class Loanstepseven < ActiveRecord::Base
   mount_uploader :attachment_file7, AttachmentUploader
   mount_uploader :attachment_file8, AttachmentUploader
   mount_uploader :attachment_file9, AttachmentUploader
-  mount_uploader :attachment_file10, AttachmentUploader          
+  mount_uploader :attachment_file10, AttachmentUploader       
+  mount_uploader :attachment_file11, AttachmentUploader      
 end
 # == Schema Information
 #
@@ -41,5 +42,6 @@ end
 #  attachment_file10 :string(255)
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
+#  attachment_file11 :string(255)
 #
 

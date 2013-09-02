@@ -27,5 +27,6 @@ end
 #  attachment_file10 :string(255)
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
+#  attachment_file11 :string(255)
 #
 

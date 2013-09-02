@@ -1,7 +1,7 @@
 class Loanstepeight < ActiveRecord::Base
   attr_accessible :available_repayment_date, :cust_id, :custloan_id, :guaranty_date, :has_guaranty,
                   :has_license_code, :other_complete_date, :repayment_date, :revoke_complete_date,
-                  :revoke_date
+                  :revoke_date, :if_credit
                   
   belongs_to :custloan
 end
@@ -22,5 +22,6 @@ end
 #  revoke_complete_date     :datetime
 #  created_at               :datetime        not null
 #  updated_at               :datetime        not null
+#  if_credit                :boolean
 #
 

@@ -1,6 +1,7 @@
 <%= f.input :current_step, as: :hidden, input_html: { value: 7 } %>
 
 <%= f.simple_fields_for :loanstepsevens do |p| %>
+<p class="lead"><legend><strong>开公司账户</strong></legend></p>
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :account_name, :label => '公司名称' %>
 	<%= p.input :bank, :collection => get_dict_by_type('custBank'), :label => '开户行' %>
@@ -22,30 +23,35 @@
 			link_to @custloan.loanstepsevens.first[:attachment_file4], 
 							@custloan.loanstepsevens.first.attachment_file4.url 
 	 end %>
-	<%= p.input :attachment_file5, as: :file, :label => '银行开户许可证', :hint => 
+	<%= p.input :attachment_file5, as: :file, :label => '信用机构代码证', :hint => 
 	 if !@custloan.loanstepsevens.first.attachment_file5.to_s.blank? 
 			link_to @custloan.loanstepsevens.first[:attachment_file5], 
 							@custloan.loanstepsevens.first.attachment_file5.url 
 	 end %>
-	<%= p.input :attachment_file6, as: :file, :label => '信用机构代码证', :hint => 
+	<%= p.input :attachment_file6, as: :file, :label => '法人身份证', :hint => 
 	 if !@custloan.loanstepsevens.first.attachment_file6.to_s.blank? 
 			link_to @custloan.loanstepsevens.first[:attachment_file6], 
 							@custloan.loanstepsevens.first.attachment_file6.url 
 	 end %>
-	
-	<%= p.input :attachment_file7, as: :file, :label => '公章', :hint => 
+	<%= p.input :attachment_file7, as: :file, :label => '代理人身份证', :hint => 
 	 if !@custloan.loanstepsevens.first.attachment_file7.to_s.blank? 
 			link_to @custloan.loanstepsevens.first[:attachment_file7], 
 							@custloan.loanstepsevens.first.attachment_file7.url 
 	 end %>
-	<%= p.input :attachment_file8, as: :file, :label => '法人章', :hint => 
+	
+	<%= p.input :attachment_file8, as: :file, :label => '公章', :hint => 
 	 if !@custloan.loanstepsevens.first.attachment_file8.to_s.blank? 
 			link_to @custloan.loanstepsevens.first[:attachment_file8], 
 							@custloan.loanstepsevens.first.attachment_file8.url 
 	 end %>
-	<%= p.input :attachment_file9, as: :file, :label => '财务章', :hint => 
+	<%= p.input :attachment_file9, as: :file, :label => '法人章', :hint => 
 	 if !@custloan.loanstepsevens.first.attachment_file9.to_s.blank? 
 			link_to @custloan.loanstepsevens.first[:attachment_file9], 
 							@custloan.loanstepsevens.first.attachment_file9.url 
+	 end %>
+	<%= p.input :attachment_file10, as: :file, :label => '财务章', :hint => 
+	 if !@custloan.loanstepsevens.first.attachment_file10.to_s.blank? 
+			link_to @custloan.loanstepsevens.first[:attachment_file10], 
+							@custloan.loanstepsevens.first.attachment_file10.url 
 	 end %>
 <% end %>

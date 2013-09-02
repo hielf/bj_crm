@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h3>步骤7. 其他开户信息</h3>
+</div>
+<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="well">
+  		<%= render 'seven_three_fields', :f => f %>
+		<div class="form-actions">
+			<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+			<%= link_to '无，跳过', wizard_path(:eight), :class => 'btn btn-danger' %>
+			<%= f.submit '有，下一步', :class => 'btn btn-primary' %>
+		</div>
+  </div>
+<% end %>

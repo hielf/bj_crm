@@ -30,7 +30,7 @@ module ApplicationHelper
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       render("two_two_gua_fields", f: builder)
     end
-    link_to(name, '#', class: "tab-pane", data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, '#', class: "add_tab", data: {id: id, fields: fields.gsub("\n", "")})
   end
     
 end

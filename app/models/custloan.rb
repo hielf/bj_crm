@@ -6,7 +6,8 @@ class Custloan < ActiveRecord::Base
                   :loanstepeights_attributes, :loanstepnines_attributes, :loansteptens_attributes,
                   :loansteponeguarantees_attributes, :loansteponeassets_attributes,
                   :loanstepfourguarantees_attributes, :loanstepfourassets_attributes,
-                  :loansteptwoguarantors_attributes
+                  :loansteptwoguarantors_attributes, :loanstepsevenadditionals_attributes,
+                  :loanstepeightguarantors_attributes
   
   belongs_to :cust
   
@@ -25,6 +26,8 @@ class Custloan < ActiveRecord::Base
   has_many :loanstepfourguarantees
   has_many :loanstepfourassets
   has_many :loansteptwoguarantors
+  has_many :loanstepsevenadditionals
+  has_many :loanstepeightguarantors
   
   # validates :total_amount,  :presence => true
   # validates :cust_id,  :presence => true
@@ -46,6 +49,8 @@ class Custloan < ActiveRecord::Base
   accepts_nested_attributes_for :loanstepfourguarantees
   accepts_nested_attributes_for :loanstepfourassets
   accepts_nested_attributes_for :loansteptwoguarantors
+  accepts_nested_attributes_for :loanstepsevenadditionals
+  accepts_nested_attributes_for :loanstepeightguarantors
   
   scope :status3, where(:status => Dict.find_by_dict_type_and_code("loanStatus",3))
   

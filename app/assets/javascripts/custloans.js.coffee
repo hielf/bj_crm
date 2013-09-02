@@ -10,10 +10,22 @@ $(document).on 'click', 'form .add_fields', (event) ->
   time = new Date().getTime()
   regexp = new RegExp($(this).data('id'), 'g')
   $(this).before($(this).data('fields').replace(regexp, time))
+
+  # $('.datepicker').removeClass('hasDatepicker').datepicker({dateFormat: 'yy/mm/dd'})
   event.preventDefault()
 
-$(document).on 'click', 'form .tab-pane', (event) ->
+i = 2
+$(document).on 'click', 'form .add_tab', (event) ->
   time = new Date().getTime()
   regexp = new RegExp($(this).data('id'), 'g')
-  $(this).before($(this).data('fields').replace(regexp, time))
+  i++
+  # obj = $(".nav nav-tabs>ul>li")
+  # obj = $('div.tab-pane')[0]
+  # obj = $('div.tab-content').find('div#' + i)
+  $('div.tab-content').children().last().after("<div class=\"tab-pane\" id=\"" + i + "\">")
+  
+  $(this).parent().before("<li><a href=\"#" + i + "\" data-toggle=\"tab\">担保人</a></li>")
+  # alert $(this).data('fields')
+  # $(this).before($(this).data('fields').replace(regexp, time))
+  # $(this).parent().before($('#' + i).data('fields').replace(regexp, time))
   event.preventDefault()

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130817153824) do
+ActiveRecord::Schema.define(:version => 20130901052844) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -187,6 +187,16 @@ ActiveRecord::Schema.define(:version => 20130817153824) do
     t.integer  "flowid"
   end
 
+  create_table "loanstepeightguarantors", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.string   "guarantor_name"
+    t.datetime "sign_date"
+    t.string   "attachment_file1"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "loanstepeights", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -200,6 +210,7 @@ ActiveRecord::Schema.define(:version => 20130817153824) do
     t.datetime "revoke_complete_date"
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
+    t.boolean  "if_credit"
   end
 
   add_index "loanstepeights", ["custloan_id"], :name => "index_loanstepeights_on_custloan_id", :unique => true
@@ -345,6 +356,29 @@ ActiveRecord::Schema.define(:version => 20130817153824) do
     t.string   "stream_status_other"
   end
 
+  create_table "loanstepsevenadditionals", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.integer  "bank_account_type"
+    t.string   "account_name"
+    t.integer  "bank"
+    t.string   "account_code"
+    t.datetime "open_date"
+    t.string   "attachment_file1"
+    t.string   "attachment_file2"
+    t.string   "attachment_file3"
+    t.string   "attachment_file4"
+    t.string   "attachment_file5"
+    t.string   "attachment_file6"
+    t.string   "attachment_file7"
+    t.string   "attachment_file8"
+    t.string   "attachment_file9"
+    t.string   "attachment_file10"
+    t.string   "attachment_file11"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "loanstepsevens", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
@@ -365,6 +399,7 @@ ActiveRecord::Schema.define(:version => 20130817153824) do
     t.string   "attachment_file10"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "attachment_file11"
   end
 
   add_index "loanstepsevens", ["custloan_id"], :name => "index_loanstepsevens_on_custloan_id", :unique => true
@@ -378,14 +413,19 @@ ActiveRecord::Schema.define(:version => 20130817153824) do
     t.string   "sign_location"
     t.string   "bank_broker"
     t.integer  "user_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.boolean  "has_stuff"
     t.datetime "notarization_date"
     t.string   "notarization_place"
     t.string   "notarization_man"
     t.string   "custs"
     t.integer  "contract_type"
+    t.string   "notarization_bank_broker"
+    t.integer  "notarization_user_id"
+    t.string   "notarization_custs"
+    t.boolean  "has_notarization_stuff"
+    t.boolean  "if_notarization"
   end
 
   add_index "loanstepsixths", ["custloan_id"], :name => "index_loanstepsixths_on_custloan_id", :unique => true

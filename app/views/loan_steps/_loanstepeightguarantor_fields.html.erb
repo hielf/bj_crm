@@ -1,0 +1,7 @@
+<fieldset>
+	<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+  <%= f.input :guarantor_name, :label => '担保人姓名' %>
+  <%= f.input :sign_date, as: :date_picker, :label => '担保人签字日期' %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>
