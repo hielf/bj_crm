@@ -1,11 +1,9 @@
 Cmwp::Application.routes.draw do
   resources :users
   resources :usrrels
-  resources :loan_steps do
-    get 'add_new', :on => :member
-  end
+  # resources :loan_steps
   resources :notices
-  resources :loansteptwoguarantors
+  # resources :loansteptwoguarantors
   # resources :loanstepeightguarantors do
   #   get 'add_new', :on => :member
   # end
@@ -13,7 +11,10 @@ Cmwp::Application.routes.draw do
     resources :custloans
   end
   resources :custloans do
-    resources :loan_steps
+    resources :loan_steps do
+      get 'add_new', :on => :member
+    end
+    get 'roll_back', :on => :member
     # resources :build, controller: 'custloans/build'
     # get 'nextstep', :on => :member
     # get 'prevstep', :on => :collection

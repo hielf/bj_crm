@@ -1,6 +1,6 @@
 <%= f.input :current_step, as: :hidden, input_html: { value: 4 } %>
 
-<fieldset>
+<!-- <fieldset> -->
 	<p class="lead"><legend><strong>基本信息</strong></legend></p>
 	<%= f.simple_fields_for :loanstepfours do |p| %>
 	<%= p.input :cust_id, as: :hidden, value: @cust %>
@@ -26,18 +26,19 @@
 	<%= p.input :current_loan_status, :as => :text, :label => '当前负债情况',
 	 						:input_html => { :class => "input-xlarge", :rows => '6',
 		 													 :value => @custloan.loanstepones.first.current_loan_status } %>
-</fieldset>
+<!-- </fieldset> -->
 
-<fieldset>
+<!-- <fieldset> -->
 	<p class="lead"><legend><strong>抵押物信息</strong></legend></p>
 	</br>
 	<%= f.simple_fields_for :loansteponeguarantees do |builder| %>
     <%= render 'loanstepfourguarantee_fields', f: builder %>
   <% end %>
 		<%= link_to_add_fields "新增", f, :loanstepfourguarantees %>
-</fieldset>
+<!-- </fieldset> -->
 
-<fieldset>
+<!-- <fieldset> -->
+	</br>
 	<p class="lead"><legend><strong>财务状况</strong></legend></p>
 	<%= p.input :stream_status, :as => :text, :label => '流水情况（个人）',
 	 						:input_html => { :class => "input-xlarge", :rows => '6',
@@ -56,14 +57,13 @@
 							:input_html => { :class => "span5", :value => @custloan.loanstepones.first.invoice_status } %>
 	<%= p.input :tex_status, :label => '纳税状况', 
 							:input_html => { :class => "span5", :value => @custloan.loanstepones.first.tex_status } %>
-</fieldset>
+<!-- </fieldset> -->
 
-<fieldset>
+<!-- <fieldset> -->
 	<p class="lead"><legend><strong>资产信息</strong></legend></p>
-	</br>
 	<%= f.simple_fields_for :loansteponeassets do |builder| %>
 		<%= render 'loanstepfourasset_fields', f: builder %>
   <% end %>
 	<%= link_to_add_fields "新增", f, :loanstepfourassets %>
-</fieldset>
+<!-- </fieldset> -->
 <% end %>

@@ -1,15 +1,18 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <h3>步骤6. 签订合同</h3>
-</div>
+</div> -->
 <div class="row-fluid">
 	<div class="span9">
-		<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-				<%= render 'six_fields', :f => f %>
-			<div class="form-actions">
-				<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-				<%= f.submit '下一步', :class => 'btn btn-primary' %>
-			</div>
-		<% end %>
+		<div class="well">
+			<p class="lead text-center"><legend><strong>签订合同</strong></legend></p>
+			<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+					<%= render 'six_fields', :f => f %>
+				<div class="form-actions">
+					<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+					<%= f.submit '下一步', :class => 'btn btn-primary' %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 	<div class="span3">
 		<%= render 'loan_steps/helps/six_helps' %>

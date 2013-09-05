@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130901052844) do
+ActiveRecord::Schema.define(:version => 20130903084154) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -292,12 +292,24 @@ ActiveRecord::Schema.define(:version => 20130901052844) do
     t.datetime "updated_at",            :null => false
   end
 
+  create_table "loanstepnineadditionals", :force => true do |t|
+    t.integer  "cust_id"
+    t.integer  "custloan_id"
+    t.datetime "loan_date"
+    t.string   "attachment_file1"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.float    "loan_amount"
+  end
+
   create_table "loanstepnines", :force => true do |t|
     t.integer  "cust_id"
     t.integer  "custloan_id"
     t.datetime "loan_date"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.float    "loan_amount"
+    t.string   "attachment_file1"
   end
 
   add_index "loanstepnines", ["custloan_id"], :name => "index_loanstepnines_on_custloan_id", :unique => true

@@ -1,3 +1,4 @@
+<% if @custloans.any? %>
 <div class="accordion" id="accordion2">
 	<% @custloans.each do |t| %>
 		<div class="accordion-group">
@@ -14,3 +15,6 @@
 		</div>
 	<% end %>
 </div>
+<% else %>
+<p class="text-center muted">该客户尚未办理过贷款业务</p>
+<% end %>

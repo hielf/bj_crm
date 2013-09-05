@@ -3,4 +3,19 @@
 <%= f.simple_fields_for :loanstepnines do |p| %>
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :loan_date, as: :date_picker, :label => '放款日期' %>
+	<%= p.input :loan_amount, :label => '放款金额（万元）' %>
+	<%= p.input :attachment_file1, as: :file, :label => '上传受托支付合同', :hint => 
+	 if !@custloan.loanstepnines.first.attachment_file1.to_s.blank? 
+			link_to @custloan.loanstepnines.first[:attachment_file1], 
+							@custloan.loanstepnines.first.attachment_file1.url 
+	 end %>
 <% end %>
+
+<fieldset>
+	<p class="lead"><legend><strong>多批放款记录</strong></legend></p>
+	<%= link_to('新增', add_new_custloan_loan_step_path(@custloan), :class => "btn") %>
+	</br>
+	<%= f.simple_fields_for :loanstepnineadditionals do |builder| %>
+    <%= render 'loanstepnineadditional_fields', f: builder %>
+  <% end %>
+</fieldset>

@@ -13,7 +13,8 @@
 	<%= form_for(current_user.custrels.build(:cust_id => n.cust_id)) do |f| %>
 	<div><%= f.hidden_field :cust_id %></div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+    <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button> -->
+		<%= link_to "退回", roll_back_custloan_path(n.custloan_id), :class => 'btn btn-danger' %>
 		<%= f.submit "确认接收", :class => 'btn btn-primary' %>
   </div>
 	<% end %>

@@ -37,18 +37,17 @@
 	<div class="span3">
 		<%= render 'custs/sidebarcust1' %>
 	</div>
+</div>
+<div class="row-fluid">
 	<% if user_type(current_user) != 2 && get_dict_by_id(@custloan.status).code == 1 %>
-	<legend></legend>
-	<form>
-	  <fieldset>
+	<div class="well">
 		<p class="text-center">
 		<% if @current_step == 'ten'  %>
 			<%= link_to '修改流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-large btn-primary' %>
 		<% else %>
 		  <%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-large btn-primary' %>
-		<% end %>	
+		<% end %>
 		</p>
-		</fieldset>
-	</form>
+	</div>
 	<% end %>
 </div>

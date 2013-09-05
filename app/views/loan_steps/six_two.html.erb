@@ -1,30 +1,35 @@
-<div class="page-header">
-	<% if steptype(@custloan.loanstepsixths.first.id) == 1 %>
-		<h3>步骤6. 签借款合同</h3>
-	<% else %>
-		<h3>步骤6. 签咨询合同</h3>
-	<% end %>
-</div>
+<!-- <div class="page-header">
+
+</div> -->
 <div class="row-fluid">
 	<div class="span9">
-		<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-		  <!-- <fieldset> -->
+		<div class="well">
+			<p class="lead text-center"><legend><strong>
 				<% if steptype(@custloan.loanstepsixths.first.id) == 1 %>
-					<% if @custloan.loanstepsixths.first.if_notarization? %>
-						<%= render 'six_two_1_1_fields', :f => f %>
-					<% else %>
-						<%= render 'six_two_1_2_fields', :f => f %>
-					<% end %>
+					签借款合同
+				<% else %>
+					签咨询合同
 				<% end %>
-				<% if steptype(@custloan.loanstepsixths.first.id) == 2 %>
-					<%= render 'six_two_2_fields', :f => f %>
+				</strong></legend></p>
+				<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+				  <!-- <fieldset> -->
+						<% if steptype(@custloan.loanstepsixths.first.id) == 1 %>
+							<% if @custloan.loanstepsixths.first.if_notarization? %>
+								<%= render 'six_two_1_1_fields', :f => f %>
+							<% else %>
+								<%= render 'six_two_1_2_fields', :f => f %>
+							<% end %>
+						<% end %>
+						<% if steptype(@custloan.loanstepsixths.first.id) == 2 %>
+							<%= render 'six_two_2_fields', :f => f %>
+						<% end %>
+					<!-- </fieldset> -->
+					<div class="form-actions">
+						<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+						<%= f.submit '下一步', :class => 'btn btn-primary' %>
+					</div>
 				<% end %>
-			<!-- </fieldset> -->
-			<div class="form-actions">
-				<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-				<%= f.submit '下一步', :class => 'btn btn-primary' %>
-			</div>
-		<% end %>
+		</div>
 	</div>
 	<div class="span3">
 		<%= render 'loan_steps/helps/six_helps' %>

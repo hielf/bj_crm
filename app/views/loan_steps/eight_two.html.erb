@@ -1,16 +1,24 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <h3>步骤8. 抵押</h3>
-</div>
-<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-	<div class="well">
-			<% if @custloan.loanstepeights.first.has_guaranty? %>
-				<%= render 'eight_two_2_fields', :f => f %>
-			<% else %>
-			  <%= render 'eight_two_1_fields', :f => f %>
-			<% end %>
-		<div class="form-actions">
-			<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-			<%= f.submit '下一步', :class => 'btn btn-primary' %>
+</div> -->
+<div class="row-fluid">
+	<div class="span9">
+		<div class="well">
+			<p class="lead text-center"><legend><strong>抵押</strong></legend></p>
+				<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+					<% if @custloan.loanstepeights.first.has_guaranty? %>
+						<%= render 'eight_two_2_fields', :f => f %>
+					<% else %>
+					  <%= render 'eight_two_1_fields', :f => f %>
+					<% end %>
+					<div class="form-actions">
+						<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+						<%= f.submit '下一步', :class => 'btn btn-primary' %>
+					</div>
+				<% end %>
 		</div>
 	</div>
-<% end %>
+	<div class="span3">
+		<%= render 'loan_steps/helps/three_helps' %>
+	</div>
+</div>

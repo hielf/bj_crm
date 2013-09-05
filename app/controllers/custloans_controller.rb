@@ -52,7 +52,7 @@ class CustloansController < ApplicationController
     @custloan = Custloan.new
     @custloan.loanstepones.build
     @cust = Cust.find_by_id(params[:cust_id])
-    @title = "新建信贷流程"
+    @title = "1 初步可行性"
     @banks = get_dict_by_type("custBank")
     @guaranteetype = get_dict_by_type("guaranteeType")
     @custrequesttype = get_dict_by_type("requestType")    
@@ -65,10 +65,11 @@ class CustloansController < ApplicationController
     else
       @custloan = Custloan.new(params[:custloan])
       if @custloan.save
-        redirect_to @custloan, :flash => { :success => "信贷流程建立"}
+        # redirect_to @custloan, :flash => { :success => "信贷流程建立"}
         # redirect_to loan_steps_path
+        redirect_to custloan_loan_step_path(@custloan, :two)
       else  
-        @title = "新建信贷流程"
+        @title = "1 初步可行性"
         render 'new'
       end
     end
@@ -94,7 +95,15 @@ class CustloansController < ApplicationController
     @custloan.destroy
     redirect_to custloans_path, :flash => { :success => "信贷流程已撤销" }
   end
-
+  
+  def roll_back
+    @custloan  = Custloan.find(params[:id])
+    @notice = Notice.find_by_custloan_id(params[:id])
+    @custloan.update_attribute :status, get_dict("loanStatus", 1).id
+    @notice.destroy
+    redirect_to root_path
+  end
+  
   private
 
     def nextstep

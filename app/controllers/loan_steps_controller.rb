@@ -11,7 +11,12 @@ class LoanStepsController < ApplicationController
     when :two
       @title = "2 收集资料"
       @custloan.loansteptwos.build unless !@custloan.loansteptwos.blank?
-      @custloan.loansteptwoguarantors.build unless !@custloan.loansteptwoguarantors.blank?
+      # @custloan.loansteptwoguarantors.build unless !@custloan.loansteptwoguarantors.blank?
+    when :two_two
+      @title = "2 收集资料"
+      if @custloan.guarantee_type == get_dict("guaranteeType", 3).id
+        @custloan.loansteptwoguarantors.build unless !@custloan.loansteptwoguarantors.blank?
+      end
     when :three
       @title = "3 尽职调查"
       @custloan.loanstepthrees.build unless !@custloan.loanstepthrees.blank?
@@ -32,9 +37,14 @@ class LoanStepsController < ApplicationController
     when :eight
       @title = "8 做抵押担保"
       @custloan.loanstepeights.build unless !@custloan.loanstepeights.blank?
+      if @custloan.guarantee_type == get_dict("guaranteeType", 3).id
+        @custloan.loanstepeightguarantors.build unless !@custloan.loanstepeightguarantors.blank?
+      end
     when :nine
+      @title = "9 放款"
       @custloan.loanstepnines.build unless !@custloan.loanstepnines.blank?
     when :ten
+      @title = "10 交接"
       @custloan.loansteptens.build unless !@custloan.loansteptens.blank?
     end
     
@@ -68,9 +78,19 @@ class LoanStepsController < ApplicationController
   end
   
   def add_new
-    @custloan = Custloan.find(params[:id])
-    @custloan.loanstepeightguarantors.build
-    # @custloan.save
-    redirect_to custloan_loan_step_path(@custloan, 'eight') #wizard_path(:eight)
+    @custloan = Custloan.find(params[:custloan_id])
+    case step
+    when :two_two
+      @custloan.loansteptwoguarantors.build  
+    when :eight
+      @custloan.loanstepeightguarantors.build
+      # @custloan.save
+      # redirect_to custloan_loan_step_path(@custloan, 'eight')
+    when :nine
+      @custloan.loanstepnineadditionals.build
+      # current_step = "nine"
+    end
+    @custloan.save
+    redirect_to custloan_loan_step_path(@custloan, step)
   end
 end

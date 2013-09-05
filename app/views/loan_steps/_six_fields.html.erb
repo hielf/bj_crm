@@ -1,4 +1,3 @@
-<fieldset>
 <%= f.input :current_step, as: :hidden, input_html: { value: 6 } %>
 
 <%= f.simple_fields_for :loanstepsixths do |p| %>
@@ -7,4 +6,3 @@
 							:label => '选择合同类型', required: true %>
 	<%= p.input :if_notarization, as: :select, :label => '是否公证' %>
 <% end %>
-</fieldset>

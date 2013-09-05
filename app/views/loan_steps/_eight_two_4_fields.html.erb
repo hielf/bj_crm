@@ -2,7 +2,6 @@
 
 <%= f.simple_fields_for :loanstepeights do |p| %>
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
-	
 	<p class="lead  text-center"><legend><strong>担保人信息</strong></legend></p>
 		<%= f.simple_fields_for :loanstepeightguarantors do |builder| %>
 		  <%= render 'loanstepeightguarantor_fields', f: builder %>

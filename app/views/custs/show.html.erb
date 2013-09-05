@@ -1,19 +1,13 @@
-<div class="tabbable tabs">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#1" data-toggle="tab">客户资料</a></li>
-    <li><a href="#2" data-toggle="tab">贷款记录</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="1">
-			<%= render 'custtab1' %>
-			<% if user_type(current_user) != 2 %>
-			<div>
-				<p class="text-center"><%= link_to '新建信贷流程', new_cust_custloan_path(@cust), :class => 'btn btn-primary' %></p>
-			</div>
-			<% end %>
-    </div>
-    <div class="tab-pane" id="2">
-			<%= render 'custtab2' %>
-    </div>
-  </div>
+<div class="row-fluid">
+	<div class="span9">
+		<%= render 'custtab2' %>
+		<% if user_type(current_user) != 2 %>
+		<div>
+			<p class="text-center"><%= link_to '新建信贷流程', new_cust_custloan_path(@cust), :class => 'btn btn-primary' %></p>
+		</div>
+		<% end %>
+	</div>
+	<div class="span3">
+		<%= render 'sidebarcust1' %>
+	</div>
 </div>

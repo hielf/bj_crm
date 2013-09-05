@@ -1,33 +1,42 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <h3>步骤2. 选择银行收集资料</h3>
-</div>
+</div> -->
 <div class="row-fluid">
  	<div class="span9">
-		<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-			<div class="tabbable tabs">
-				<ul class="nav nav-tabs">
-			    <li class="active"><a href="#1" data-toggle="tab">贷款人</a></li>
-					<% if @custloan.guarantee_type == get_dict("guaranteeType", 3).id %>
-			    <li><a href="#2" data-toggle="tab">担保人</a></li>
-					<li><!-- link_to_add_tabs '+', f, :loansteptwoguarantors --></li>
-					<% end %>
-			  </ul>
+		<div class="tabbable tabs">
+			<ul class="nav nav-tabs">
+		    <li class="active"><a href="#1" data-toggle="tab">贷款人</a></li>
+				<% if @custloan.guarantee_type == get_dict("guaranteeType", 3).id %>
+		    <!-- <li><a href="#2" data-toggle="tab">担保人</a></li> -->
+				<% @custloan.loansteptwoguarantors.sort_by(&:id).each do |loansteptwoguarantor| %>
+				<li><a href="#<%= loansteptwoguarantor.id %>" data-toggle="tab">担保人</a></li>
+				<% end %>
+				<li><%= link_to('+', add_new_custloan_loan_step_path(@custloan)) %></li>
+				<!-- link_to_add_tabs '+', f, :loansteptwoguarantors -->
+				<% end %>
+		  </ul>
+			<div class="well">
 			  <div class="tab-content">
 			    <div class="tab-pane active" id="1">
+					<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
 						<%= render 'two_two_fields', :f => f %>
 					</div>
 					<% if @custloan.guarantee_type == get_dict("guaranteeType", 3).id %>
-						<div class="tab-pane" id="2">
-							<%= render 'two_two_gua_fields', :f => f %>
-						</div>
+						<% @custloan.loansteptwoguarantors.sort_by(&:id).each do |loansteptwoguarantor| %>
+							<%= render 'two_two_gua_fields', {:f => f, :loansteptwoguarantor => loansteptwoguarantor} %>
+						<% end %>
+						<!-- <div class="tab-pane" id="2">
+							render 'two_two_gua_fields', :f => f %>
+						</div> -->
 					<% end %>
 				</div>	
+				<div class="form-actions">
+					<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+					<%= f.submit "下一步", :class => 'btn btn-primary' %>
+				</div>
+				<% end %>
 			</div>
-			<div class="form-actions">
-				<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-				<%= f.submit "下一步", :class => 'btn btn-primary' %>
-			</div>
-		<% end %>
+		</div>
 	</div>
 	<div class="span3">
 		<%= render 'loan_steps/helps/two_helps' %>

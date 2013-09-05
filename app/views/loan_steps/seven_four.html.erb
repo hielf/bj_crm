@@ -1,20 +1,28 @@
-<div class="page-header">
+<!-- <div class="page-header">
   <h3>步骤7. 其他账户开户</h3>
-</div>
-<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-<div class="well">
-		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 1 %>
-			<%= render 'seven_four_1_fields', :f => f %>
-		<% end %>
-		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 2 %>
-			<%= render 'seven_four_2_fields', :f => f %>
-		<% end %>
-		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 3 %>
-			<%= render 'seven_four_3_fields', :f => f %>
-		<% end %>
-	<div class="form-actions">
-		<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-		<%= f.submit '下一步', :class => 'btn btn-primary' %>
+</div> -->
+<div class="row-fluid">
+	<div class="span9">
+		<div class="well">
+			<!-- <p class="lead text-center"><legend><strong>其他账户开户</strong></legend></p> -->
+				<%= simple_form_for @custloan,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+						<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 1 %>
+							<%= render 'seven_four_1_fields', :f => f %>
+						<% end %>
+						<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 2 %>
+							<%= render 'seven_four_2_fields', :f => f %>
+						<% end %>
+						<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 3 %>
+							<%= render 'seven_four_3_fields', :f => f %>
+						<% end %>
+					<div class="form-actions">
+						<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
+						<%= f.submit '下一步', :class => 'btn btn-primary' %>
+					</div>
+				<% end %>
+		</div>
 	</div>
-</div>
-<% end %>
+	<div class="span3">
+		
+	</div>
+</div>	

@@ -1,0 +1,9 @@
+<fieldset>
+	<%= f.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= f.input :loan_date, as: :date_picker, :label => '放款日期' %>
+	<%= f.input :loan_amount, :label => '放款金额（万元）' %>
+	<%= f.input :attachment_file1, :label => '上传受托支付合同', :hint => (if f.object.attachment_file1?
+	 		link_to f.object.attachment_file1.file.filename, f.object.attachment_file1.url end) %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>
