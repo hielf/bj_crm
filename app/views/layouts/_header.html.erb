@@ -12,8 +12,9 @@
 			<ul class="nav pull-right">
 				<li><%= link_to "首页", root_path %>
 				<% if signed_in? %>
-					<li><%= link_to "个人资料", current_user %>
+				<% if user_type(current_user) == 3 %>
 					<li><%= link_to "用户", users_path %>
+				<% end %>
 					<li><%= link_to "客户", custs_path %>
 					<li><%= link_to "设置", edit_user_path(current_user) %>
 			 	<% end %>
@@ -34,7 +35,7 @@
 																	:html => { :class => "navbar-search pull-right" } do |f|%>
 					<%= f.search_field :category_name,
 														 :class => "search-query span2", 
-														 :placeholder => "搜索", 
+														 :placeholder => "搜索客户", 
 														 :onsearch => true, data: { autocomplete_source: categories_path } %>
 					<%= f.submit :type => 'hidden', :name => nil, :value => 'search' %>
 				<% end %>
