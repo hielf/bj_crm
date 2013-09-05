@@ -1,0 +1,21 @@
+<div>
+	<div class="sidebar-nav well">
+			<!-- <ul class="thumbnails"> -->
+				<legend>
+					<h4><%= @user.name %></h4>
+				</legend>
+			<!-- </ul> -->
+			<address>
+				<h5>
+					用户代码： <%= @user.usercode %></br>
+					用户类型： <%= get_dict_by_id(@user.usertype).name %></br>
+					开户日期：<%= @user.created_at.to_formatted_s(:db) %></br>
+					修改日期：<%= @user.updated_at.to_formatted_s(:db) %></br>
+				</h5>
+				<ul class="common-divider"></ul>
+			</address>
+			<div>
+				<%= link_to '修改信息', edit_user_path(@user), :class => 'btn btn-info btn-small' %>
+			</div>
+	</div>
+</div>
