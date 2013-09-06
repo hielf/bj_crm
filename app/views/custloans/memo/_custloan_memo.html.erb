@@ -1,0 +1,6 @@
+<%= simple_form_for @custloan do |f| %>
+	<%= f.input :memo, as: :text, :input_html => { :class => "input-block-level", :rows => "3" }, 
+							placeholder: "工作批示", label: false %>
+	<%= f.submit '确认', :class => 'btn btn-danger' %>
+<% end %>
+

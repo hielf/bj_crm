@@ -3,7 +3,7 @@ class Loanstepone < ActiveRecord::Base
                   :custloan_id, :custname, :custtype, :estate_address, :estate_area, :estate_owner,     
                   :guarantee_type, :invoice_status, :phone, :request_amont, :request_interest, 
                   :special_request, :stream_status, :tex_status, :request_date, :stream_status_company,
-                  :stream_status_other
+                  :stream_status_other, :memo
   
   belongs_to :custloan
 end

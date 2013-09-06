@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903084154) do
+ActiveRecord::Schema.define(:version => 20130906174927) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.integer  "current_step"
+    t.string   "memo"
   end
 
   create_table "custrels", :force => true do |t|
@@ -211,6 +212,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.boolean  "if_credit"
+    t.string   "memo"
   end
 
   add_index "loanstepeights", ["custloan_id"], :name => "index_loanstepeights_on_custloan_id", :unique => true
@@ -224,6 +226,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.string   "attachment_file1"
+    t.string   "memo"
   end
 
   add_index "loanstepfifths", ["custloan_id"], :name => "index_loanstepfifths_on_custloan_id", :unique => true
@@ -290,6 +293,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.string   "stream_status_other"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.string   "memo"
   end
 
   create_table "loanstepnineadditionals", :force => true do |t|
@@ -310,6 +314,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "updated_at",       :null => false
     t.float    "loan_amount"
     t.string   "attachment_file1"
+    t.string   "memo"
   end
 
   add_index "loanstepnines", ["custloan_id"], :name => "index_loanstepnines_on_custloan_id", :unique => true
@@ -366,6 +371,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "request_date"
     t.string   "stream_status_company"
     t.string   "stream_status_other"
+    t.string   "memo"
   end
 
   create_table "loanstepsevenadditionals", :force => true do |t|
@@ -412,6 +418,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
     t.string   "attachment_file11"
+    t.string   "memo"
   end
 
   add_index "loanstepsevens", ["custloan_id"], :name => "index_loanstepsevens_on_custloan_id", :unique => true
@@ -438,6 +445,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.string   "notarization_custs"
     t.boolean  "has_notarization_stuff"
     t.boolean  "if_notarization"
+    t.string   "memo"
   end
 
   add_index "loanstepsixths", ["custloan_id"], :name => "index_loanstepsixths_on_custloan_id", :unique => true
@@ -464,6 +472,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.datetime "updated_at",  :null => false
     t.string   "subject"
     t.integer  "broker_id"
+    t.string   "memo"
   end
 
   add_index "loanstepthrees", ["custloan_id"], :name => "index_loanstepthrees_on_custloan_id", :unique => true
@@ -548,6 +557,7 @@ ActiveRecord::Schema.define(:version => 20130903084154) do
     t.string   "attachment_file32"
     t.string   "attachment_file33"
     t.integer  "bank"
+    t.string   "memo"
   end
 
   add_index "loansteptwos", ["custloan_id"], :name => "index_loansteptwos_on_custloan_id", :unique => true

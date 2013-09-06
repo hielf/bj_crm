@@ -7,7 +7,7 @@ class Custloan < ActiveRecord::Base
                   :loansteponeguarantees_attributes, :loansteponeassets_attributes,
                   :loanstepfourguarantees_attributes, :loanstepfourassets_attributes,
                   :loansteptwoguarantors_attributes, :loanstepsevenadditionals_attributes,
-                  :loanstepeightguarantors_attributes, :loanstepnineadditionals_attributes
+                  :loanstepeightguarantors_attributes, :loanstepnineadditionals_attributes, :memo
   
   belongs_to :cust
   

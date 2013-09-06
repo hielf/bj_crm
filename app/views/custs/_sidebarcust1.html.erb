@@ -2,7 +2,7 @@
 	<div class="sidebar-nav well">
 			<!-- <ul class="thumbnails"> -->
 				<legend>
-					<h4><%= @cust.fullname %></h4>
+					<h4><%= link_to @cust.fullname, cust_path(@cust), :class => "link" %></h4>
 				</legend>
 			<!-- </ul> -->
 			<address>

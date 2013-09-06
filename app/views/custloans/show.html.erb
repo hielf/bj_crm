@@ -36,6 +36,9 @@
 	</div>
 	<div class="span3">
 		<%= render 'custs/sidebarcust1' %>
+		<% if user_type(current_user) == 3 %>
+			<%= render 'custloans/memo/custloan_memo' %>
+		<% end %>
 	</div>
 </div>
 <div class="row-fluid">

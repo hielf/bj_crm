@@ -2,6 +2,9 @@
 	<!-- <ul class="inline">
 		<li> -->
 			<dl class="dl-horizontal">
+				<dt>贷款性质:</dt>
+			  <dd><%= get_dict_by_id(@custloan.guarantee_type).name unless @custloan.guarantee_type.nil? %></dd>
+			
 				<legend>个人</legend>
 			  <dt>本人配偶身份证复印件:</dt>
 			  <dd>
