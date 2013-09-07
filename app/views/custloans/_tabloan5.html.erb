@@ -1,0 +1,24 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>现场尽职调查</strong></legend></p>
+		<% if !@custloan.loanstepfifths.first.pass.blank? %>
+		  <dt>通过银行审批:</dt>
+		  <dd><%= @custloan.loanstepfifths.first.pass? ? '是' : '否' %></dd>
+		<% end %>
+		<% if !@custloan.loanstepfifths.first.requirement.blank? %>
+		  <dt>有无条件:</dt>
+		  <dd><%= @custloan.loanstepfifths.first.requirement? ? '有' : '无' %></dd>
+		<% end %>
+		<% if !@custloan.loanstepfifths.first.requirement_detail.blank? %>
+		  <dt>具体要求:</dt>
+		  <dd><%= @custloan.loanstepfifths.first.requirement_detail %></dd>
+		<% end %>
+		<% if !@custloan.loanstepfifths.first.attachment_file1.blank? %>
+		  <dt>上传批复:</dt>
+		  <dd>
+				<%= link_to @custloan.loansteptwos.first[:attachment_file1], 
+										@custloan.loansteptwos.first.attachment_file1.url %>
+			</dd>
+		<% end %>
+	</dl>	
+</div>	

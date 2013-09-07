@@ -1,0 +1,9 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>贷后客户交接</strong></legend></p>
+		<% if !@custloan.loansteptens.first.user_id.blank? %>
+		  <dt>贷后人员:</dt>
+		  <dd><%= User.find(@custloan.loansteptens.first.user_id).name %></dd>
+		<% end %>
+	</dl>
+</div>

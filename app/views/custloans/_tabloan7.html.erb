@@ -1,0 +1,281 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>开户</strong></legend></p>
+		<% if !@custloan.loanstepsevens.first.bank_account_type.blank? %>
+		  <dt>开户类型:</dt>
+		  <dd><%= get_dict_by_id(@custloan.loanstepsevens.first.bank_account_type).name %></dd>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevens.first.id) == 1 %>
+			<% if !@custloan.loanstepsevens.first.account_name.blank? %>
+			  <dt>姓名:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevens.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.account_code.blank? %>
+			  <dt>卡号:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file1.blank? %>
+			  <dt>个人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file1], 
+											@custloan.loanstepsevens.first.attachment_file1.url %>
+				</dd>
+			<% end %>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevens.first.id) == 2 %>
+			<% if !@custloan.loanstepsevens.first.account_name.blank? %>
+			  <dt>公司名称:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevens.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.account_code.blank? %>
+			  <dt>账户号:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file2.blank? %>
+			  <dt>营业执照:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file2], 
+											@custloan.loanstepsevens.first.attachment_file2.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file3.blank? %>
+			  <dt>税务登记证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file3], 
+											@custloan.loanstepsevens.first.attachment_file3.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file4.blank? %>
+			  <dt>组织机构代码证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file4], 
+											@custloan.loanstepsevens.first.attachment_file4.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file5.blank? %>
+			  <dt>信用机构代码证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file5], 
+											@custloan.loanstepsevens.first.attachment_file5.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file6.blank? %>
+			  <dt>法人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file6], 
+											@custloan.loanstepsevens.first.attachment_file6.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file7.blank? %>
+			  <dt>代理人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file7], 
+											@custloan.loanstepsevens.first.attachment_file7.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file8.blank? %>
+			  <dt>公章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file8], 
+											@custloan.loanstepsevens.first.attachment_file8.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file9.blank? %>
+			  <dt>法人章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file9], 
+											@custloan.loanstepsevens.first.attachment_file9.url %>
+				</dd>
+			<% end %>
+		  <% if !@custloan.loanstepsevens.first.attachment_file10.blank? %>
+			  <dt>财务章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file10], 
+											@custloan.loanstepsevens.first.attachment_file10.url %>
+				</dd>
+			<% end %>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevens.first.id) == 3 %>
+			<% if !@custloan.loanstepsevens.first.account_name.blank? %>
+			  <dt>名称:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevens.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.account_code.blank? %>
+			  <dt>卡号:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevens.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevens.first.attachment_file11.blank? %>
+			  <dt>营业执照:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevens.first[:attachment_file11], 
+											@custloan.loanstepsevens.first.attachment_file11.url %>
+				</dd>
+			<% end %>
+		<% end %>
+	</dl>
+	
+	<% if @custloan.loanstepsevenadditionals.any? %>
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>其他账户</strong></legend></p>
+		<% if !@custloan.loanstepsevenadditionals.first.bank_account_type.blank? %>
+		  <dt>开户类型:</dt>
+		  <dd><%= get_dict_by_id(@custloan.loanstepsevenadditionals.first.bank_account_type).name %></dd>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 1 %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
+			  <dt>姓名:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevenadditionals.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_code.blank? %>
+			  <dt>卡号:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file1.blank? %>
+			  <dt>个人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file1], 
+											@custloan.loanstepsevenadditionals.first.attachment_file1.url %>
+				</dd>
+			<% end %>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 2 %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
+			  <dt>公司名称:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevenadditionals.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_code.blank? %>
+			  <dt>账户号:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file2.blank? %>
+			  <dt>营业执照:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file2], 
+											@custloan.loanstepsevenadditionals.first.attachment_file2.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file3.blank? %>
+			  <dt>税务登记证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file3], 
+											@custloan.loanstepsevenadditionals.first.attachment_file3.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file4.blank? %>
+			  <dt>组织机构代码证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file4], 
+											@custloan.loanstepsevenadditionals.first.attachment_file4.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file5.blank? %>
+			  <dt>信用机构代码证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file5], 
+											@custloan.loanstepsevenadditionals.first.attachment_file5.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file6.blank? %>
+			  <dt>法人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file6], 
+											@custloan.loanstepsevenadditionals.first.attachment_file6.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file7.blank? %>
+			  <dt>代理人身份证:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file7], 
+											@custloan.loanstepsevenadditionals.first.attachment_file7.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file8.blank? %>
+			  <dt>公章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file8], 
+											@custloan.loanstepsevenadditionals.first.attachment_file8.url %>
+				</dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file9.blank? %>
+			  <dt>法人章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file9], 
+											@custloan.loanstepsevenadditionals.first.attachment_file9.url %>
+				</dd>
+			<% end %>
+		  <% if !@custloan.loanstepsevenadditionals.first.attachment_file10.blank? %>
+			  <dt>财务章:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file10], 
+											@custloan.loanstepsevenadditionals.first.attachment_file10.url %>
+				</dd>
+			<% end %>
+		<% end %>
+		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 3 %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
+			  <dt>名称:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.bank.blank? %>
+			  <dt>开户行:</dt>
+			  <dd><%= get_dict_by_id(@custloan.loanstepsevenadditionals.first.bank).name %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.account_code.blank? %>
+			  <dt>卡号:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.account_code %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.open_date.blank? %>
+			  <dt>完成开户日期:</dt>
+			  <dd><%= @custloan.loanstepsevenadditionals.first.open_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+			<% if !@custloan.loanstepsevenadditionals.first.attachment_file11.blank? %>
+			  <dt>营业执照:</dt>
+			  <dd>
+					<%= link_to @custloan.loanstepsevenadditionals.first[:attachment_file11], 
+											@custloan.loanstepsevenadditionals.first.attachment_file11.url %>
+				</dd>
+			<% end %>
+		<% end %>
+	</dl>
+	<% end %>
+</div>

@@ -1,6 +1,13 @@
 <div class="row-fluid">
 	<div class="span9">
-		<div class="tabbable tabs">
+		<div class="broker-score tabbable tabs">
+			<% if get_dict_by_id(@custloan.status).code == 1 %>
+				<div class="status-img"><img src="/assets/loan_before.png"></div>
+			<% elsif get_dict_by_id(@custloan.status).code == 2 %>
+				<div class="status-img"><img src="/assets/loan_exam.png"></div>
+			<% else %>
+				<div class="status-img"><img src="/assets/loan_after.png"></div>
+			<% end %>	
 		  <ul class="nav nav-tabs">
 		    <li class="active"><a href="#1" data-toggle="tab">1.</a></li>
 				<% #if !@custloan.loansteptwos.empty? %>
@@ -17,19 +24,74 @@
 		  </ul>
 		  <div class="tab-content">
 		    <div class="tab-pane active" id="1">
-					<%= render 'custloans/tabloan1' %>
+					<% if @custloan.loanstepones.any? %>
+						<%= render 'custloans/tabloan1' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
 		    </div>
 		    <div class="tab-pane" id="2">
-					<%= render 'custloans/tabloan2' %>
+					<% if @custloan.loansteptwos.any? %>
+						<%= render 'custloans/tabloan2' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
 		    </div>
 		    <div class="tab-pane" id="3">
-				
+					<% if @custloan.loanstepthrees.any? %>
+						<%= render 'custloans/tabloan3' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
 		    </div>
 		    <div class="tab-pane" id="4">
-				
+					<% if @custloan.loanstepfours.any? %>
+						<%= render 'custloans/tabloan4' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
 		    </div>
 				<div class="tab-pane" id="5">
-				
+					<% if @custloan.loanstepfifths.any? %>
+						<%= render 'custloans/tabloan5' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
+		    </div>
+				<div class="tab-pane" id="6">
+					<% if @custloan.loanstepsixths.any? %>
+						<%= render 'custloans/tabloan6' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
+		    </div>
+				<div class="tab-pane" id="7">
+					<% if @custloan.loanstepsevens.any? %>
+						<%= render 'custloans/tabloan7' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
+		    </div>
+				<div class="tab-pane" id="8">
+					<% if @custloan.loanstepeights.any? %>
+						<%= render 'custloans/tabloan8' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
+		    </div>
+				<div class="tab-pane" id="9">
+					<% if @custloan.loanstepnines.any? %>
+						<%= render 'custloans/tabloan9' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
+		    </div>
+				<div class="tab-pane" id="10">
+					<% if @custloan.loansteptens.any? %>
+						<%= render 'custloans/tabloan10' %>
+					<% else %>
+						<%= render 'custloans/tab_no' %>
+					<% end %>
 		    </div>
 		  </div>
 		</div>
@@ -42,7 +104,8 @@
 	</div>
 </div>
 <div class="row-fluid">
-	<% if user_type(current_user) != 2 && get_dict_by_id(@custloan.status).code == 1 %>
+	<% if #user_type(current_user) != 2 && get_dict_by_id(@custloan.status).code == 1
+		 		@custloan.user == current_user && get_dict_by_id(@custloan.status).code == 1 %>
 	<div class="well">
 		<p class="text-center">
 		<% if @current_step == 'ten'  %>

@@ -1,0 +1,33 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>现场尽职调查</strong></legend></p>
+		<% if !@custloan.loanstepthrees.first.visit_time.blank? %>
+		  <dt>上门时间:</dt>
+		  <dd><%= @custloan.loanstepthrees.first.visit_time.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.visit_place.blank? %>
+		  <dt>上门地点:</dt>
+		  <dd><%= @custloan.loanstepthrees.first.visit_place %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.broker_id.blank? %>
+		  <dt>客户经理:</dt>
+		  <dd><%= User.find(@custloan.loanstepthrees.first.broker_id).name %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.company_id.blank? %>
+		  <dt>客户经理:</dt>
+		  <dd><%= User.find(@custloan.loanstepthrees.first.company_id).name %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.bank_emp.blank? %>
+		  <dt>银行人员:</dt>
+		  <dd><%= @custloan.loanstepthrees.first.bank_emp %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.end_time.blank? %>
+		  <dt>结束时间:</dt>
+		  <dd><%= @custloan.loanstepthrees.first.end_time.strftime("%Y-%m-%d %H:%M:%S") %></dd>
+		<% end %>
+		<% if !@custloan.loanstepthrees.first.subject.blank? %>
+		  <dt>主要谈话内容:</dt>
+		  <dd><%= @custloan.loanstepthrees.first.subject %></dd>
+		<% end %>
+	</dl>
+</div>

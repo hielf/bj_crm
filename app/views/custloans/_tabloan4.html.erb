@@ -1,0 +1,164 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>基本资料</strong></legend></p>
+	<% if !@custloan.loanstepfours.first.companyname.nil? %>
+	  <dt>公司名称:</dt>
+	  <dd><%= @custloan.loanstepfours.first.companyname %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.companyaddress.nil? %>
+		<dt>办公地址:</dt>
+	  <dd><%= @custloan.loanstepfours.first.companyaddress %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.custname.nil? %>
+		<dt>客户姓名:</dt>
+	  <dd><%= @custloan.loanstepfours.first.custname %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.phone.nil? %>
+		<dt>联系电话:</dt>
+	  <dd><%= @custloan.loanstepfours.first.phone %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.request_amont.nil? %>
+		<dt>要求贷款金额（万元）:</dt>
+	  <dd><%= @custloan.loanstepfours.first.request_amont %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.request_interest.nil? %>
+		<dt>要求贷款利率（年）:</dt>
+	  <dd><%= @custloan.loanstepfours.first.request_interest %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.request_date.nil? %>
+		<dt>要求放款时间:</dt>
+	  <dd><%= @custloan.loanstepfours.first.request_date %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.special_request.nil? %>
+		<dt>有无特殊要求:</dt>
+	  <dd><%= @custloan.loanstepfours.first.special_request %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.current_loan_status.nil? %>
+		<dt>当前负债情况:</dt>
+	  <dd><%= @custloan.loanstepfours.first.current_loan_status %></dd>
+	<% end %>
+	</br>
+		<p class="lead text-center"><legend><strong>抵押物信息</strong></legend></p>
+		<% @custloan.loansteponeguarantees.each_with_index do |g,index| %>
+			<fieldset>
+			<% if !g.address.nil? %>
+				<dt>地址:</dt>
+			  <dd><%= g.address %></dd>
+			<% end %>
+			<% if !g.area.nil? %>
+				<dt>面积:</dt>
+			  <dd><%= g.area %></dd>
+			<% end %>
+			<% if !g.owner.nil? %>
+				<dt>产权证上所有者:</dt>
+			  <dd><%= g.owner %></dd>
+			<% end %>
+			<% if !g.estate_type.nil? %>
+				<dt>类型:</dt>
+			  <dd><%= get_dict_by_id(g.estate_type).name unless g.estate_type.nil? %></dd>
+			<% end %>
+			<% if !g.complete_year.nil? %>
+				<dt>竣工年限:</dt>
+			  <dd><%= g.complete_year %></dd>
+			<% end %>
+			<% if !g.floor.nil? %>
+				<dt>层数:</dt>
+			  <dd><%= g.floor %></dd>
+			<% end %>
+			<% if !g.describe.nil? %>
+				<dt>评估信息:</dt>
+			  <dd><%= g.describe %></dd>
+			<% end %>
+			</fieldset>
+		<% end %>
+		<% @custloan.loanstepfourguarantees.each_with_index do |g,index| %>
+			<fieldset>
+			<% if !g.address.nil? %>
+				<dt>地址:</dt>
+			  <dd><%= g.address %></dd>
+			<% end %>
+			<% if !g.area.nil? %>
+				<dt>面积:</dt>
+			  <dd><%= g.area %></dd>
+			<% end %>
+			<% if !g.owner.nil? %>
+				<dt>产权证上所有者:</dt>
+			  <dd><%= g.owner %></dd>
+			<% end %>
+			<% if !g.estate_type.nil? %>
+				<dt>类型:</dt>
+			  <dd><%= get_dict_by_id(g.estate_type).name unless g.estate_type.nil? %></dd>
+			<% end %>
+			<% if !g.complete_year.nil? %>
+				<dt>竣工年限:</dt>
+			  <dd><%= g.complete_year %></dd>
+			<% end %>
+			<% if !g.floor.nil? %>
+				<dt>层数:</dt>
+			  <dd><%= g.floor %></dd>
+			<% end %>
+			<% if !g.describe.nil? %>
+				<dt>评估信息:</dt>
+			  <dd><%= g.describe %></dd>
+			<% end %>
+			</fieldset>
+		<% end %>
+	</br>
+		<p class="lead text-center"><legend><strong>财务状况</strong></legend></p>
+	<% if !@custloan.loanstepfours.first.stream_status.nil? %>
+		<dt>流水情况（个人）:</dt>
+	  <dd><%= @custloan.loanstepfours.first.stream_status %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.stream_status_company.nil? %>
+		<dt>流水情况（公司）:</dt>
+	  <dd><%= @custloan.loanstepfours.first.stream_status_company %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.stream_status_other.nil? %>
+		<dt>流水情况（其他）:</dt>
+	  <dd><%= @custloan.loanstepfours.first.stream_status_other %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.cust_request_type.nil? %>
+		<dt>客户需求点:</dt>
+	  <dd><%= get_dict_by_id(@custloan.loanstepfours.first.cust_request_type).name unless @custloan.loanstepfours.first.cust_request_type.nil? %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.custtype.nil? %>
+		<dt>经营主体性质:</dt>
+	  <dd><%= get_dict_by_id(@custloan.loanstepfours.first.custtype).name unless @custloan.loanstepfours.first.custtype.nil? %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.invoice_status.nil? %>
+		<dt>开票状况:</dt>
+	  <dd><%= @custloan.loanstepfours.first.invoice_status %></dd>
+	<% end %>
+	<% if !@custloan.loanstepfours.first.tex_status.nil? %>
+		<dt>纳税状况:</dt>
+	  <dd><%= @custloan.loanstepfours.first.tex_status %></dd>
+	<% end %>
+	
+	</br>
+		<p class="lead text-center"><legend><strong>资产信息</strong></legend></p>
+		<% @custloan.loansteponeassets.each_with_index do |g,index| %>
+		<fieldset>
+			<% if !g.asset_type.nil? %>
+				<dt>类型:</dt>
+			  <dd><%= get_dict_by_id(g.asset_type).name %></dd>
+			<% end %>
+				<dt>描述:</dt>
+			<% if !g.describe.nil? %>
+			  <dd><%= g.describe %></dd>
+			<% end %>
+		</fieldset>
+		<% end %>
+		<% @custloan.loanstepfourassets.each_with_index do |g,index| %>
+		<fieldset>
+			<% if !g.asset_type.nil? %>
+				<dt>类型:</dt>
+			  <dd><%= get_dict_by_id(g.asset_type).name %></dd>
+			<% end %>
+				<dt>描述:</dt>
+			<% if !g.describe.nil? %>
+			  <dd><%= g.describe %></dd>
+			<% end %>
+		</fieldset>
+		<% end %>
+	</dl>
+</div>

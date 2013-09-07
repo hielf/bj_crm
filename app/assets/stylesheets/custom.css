@@ -45,6 +45,12 @@
   top: -5%;
 }
 
+.status-img {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+}
+
 .accordion-body.in:hover { 
    overflow: visible;
 }

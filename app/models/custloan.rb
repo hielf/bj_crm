@@ -10,6 +10,7 @@ class Custloan < ActiveRecord::Base
                   :loanstepeightguarantors_attributes, :loanstepnineadditionals_attributes, :memo
   
   belongs_to :cust
+  belongs_to :user
   
   has_many :loanstepones
   has_many :loansteptwos

@@ -1,0 +1,97 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>签订合同</strong></legend></p>
+		<% if !@custloan.loanstepsixths.first.contract_type.blank? %>
+		  <dt>合同类型:</dt>
+		  <dd><%= get_dict_by_id(@custloan.loanstepsixths.first.contract_type).name %></dd>
+		<% end %>
+		<% if steptype(@custloan.loanstepsixths.first.id) == 1 %>
+			<% if @custloan.loanstepsixths.first.if_notarization? %>
+					<% if !@custloan.loanstepsixths.first.contract_date.blank? %>
+					  <dt>合同签署完成日期:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.contract_date.strftime("%Y-%m-%d") %></dd>
+					<% end %>
+					<% if !@custloan.loanstepsixths.first.sign_location.blank? %>
+					  <dt>签署地点:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.sign_location %></dd>
+					<% end %>
+					<% if !@custloan.loanstepsixths.first.custs.blank? %>
+					  <dt>客户到场人员:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.custs %></dd>
+					<% end %>
+					<% if !@custloan.loanstepsixths.first.bank_broker.blank? %>
+					  <dt>银行客户经理:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.bank_broker %></dd>
+					<% end %>
+					<% if !@custloan.loanstepsixths.first.user_id.blank? %>
+					  <dt>客户经理:</dt>
+					  <dd><%= User.find(@custloan.loanstepsixths.first.user_id).name %></dd>
+					<% end %>
+					<% if !@custloan.loanstepsixths.first.has_stuff.blank? %>
+					  <dt>所需资料:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.has_stuff? ? "有" : "无" %></dd>
+					<% end %>
+					<p class="lead text-center"><legend>公证</legend></p>
+					<% if !@custloan.loanstepsixths.first.notarization_date.blank? %>
+					  <dt>公证日期:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.notarization_date.strftime("%Y-%m-%d") %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.notarization_place.blank? %>
+					  <dt>公证地点:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.notarization_place %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.notarization_man.blank? %>
+					  <dt>公证处到场人员:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.notarization_man %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.notarization_bank_broker.blank? %>
+					  <dt>银行客户经理:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.notarization_bank_broker %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.notarization_user_id.blank? %>
+					  <dt>客户经理:</dt>
+					  <dd><%= User.find(@custloan.loanstepsixths.first.notarization_user_id).name %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.notarization_custs.blank? %>
+					  <dt>客户到场人员:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.notarization_custs %></dd>
+					<% end %>
+				  <% if !@custloan.loanstepsixths.first.has_notarization_stuff.blank? %>
+					  <dt>所需资料:</dt>
+					  <dd><%= @custloan.loanstepsixths.first.has_notarization_stuff? ? "有" : "无" %></dd>
+					<% end %>
+			<% else %>
+				<% if !@custloan.loanstepsixths.first.contract_date.blank? %>
+				  <dt>合同签署完成日期:</dt>
+				  <dd><%= @custloan.loanstepsixths.first.contract_date.strftime("%Y-%m-%d") %></dd>
+				<% end %>
+				<% if !@custloan.loanstepsixths.first.sign_location.blank? %>
+				  <dt>签署地点:</dt>
+				  <dd><%= @custloan.loanstepsixths.first.sign_location %></dd>
+				<% end %>
+				<% if !@custloan.loanstepsixths.first.custs.blank? %>
+				  <dt>客户到场人员:</dt>
+				  <dd><%= @custloan.loanstepsixths.first.custs %></dd>
+				<% end %>
+				<% if !@custloan.loanstepsixths.first.bank_broker.blank? %>
+				  <dt>银行客户经理:</dt>
+				  <dd><%= @custloan.loanstepsixths.first.bank_broker %></dd>
+				<% end %>
+				<% if !@custloan.loanstepsixths.first.user_id.blank? %>
+				  <dt>客户经理:</dt>
+				  <dd><%= User.find(@custloan.loanstepsixths.first.user_id).name %></dd>
+				<% end %>
+				<% if !@custloan.loanstepsixths.first.has_stuff.blank? %>
+				  <dt>所需资料:</dt>
+				  <dd><%= @custloan.loanstepsixths.first.has_stuff? ? "有" : "无" %></dd>
+				<% end %>
+			<% end %>
+		<% end %>
+		<% if steptype(@custloan.loanstepsixths.first.id) == 2 %>
+			<p class="lead text-center"><legend>填写合同模板</legend></p>
+			<%= link_to 'VIP会员财务顾问协议-模板', '/uploads/contract/VIP会员财务顾问协议.doc' %>
+			</br>
+			<%= link_to '博嘉金融服务联盟会员协议-模板', '/uploads/contract/博嘉金融服务联盟会员协议.doc' %>
+		<% end %>
+	</dl>	
+</div>

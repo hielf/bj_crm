@@ -1,0 +1,40 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>放款</strong></legend></p>
+		<% if !@custloan.loanstepnines.first.loan_date.blank? %>
+		  <dt>放款日期:</dt>
+		  <dd><%= @custloan.loanstepnines.first.loan_date.strftime("%Y-%m-%d") %></dd>
+		<% end %>
+		<% if !@custloan.loanstepnines.first.loan_amount.blank? %>
+		  <dt>放款金额（万元）:</dt>
+		  <dd><%= @custloan.loanstepnines.first.loan_amount %></dd>
+		<% end %>
+		<% if !@custloan.loanstepnines.first.attachment_file1.blank? %>
+		  <dt>受托支付合同:</dt>
+		  <dd>
+				<%= link_to @custloan.loanstepnines.first[:attachment_file1], 
+										@custloan.loanstepnines.first.attachment_file1.url %>
+			</dd>
+		<% end %>
+	</dl>
+	<dl class="dl-horizontal">
+		<p class="lead text-center">放款记录</p>
+		<% @custloan.loanstepnineadditionals.each_with_index do |g,index| %>
+		#<%= index + 1 %>
+		<fieldset>
+			<% if !g.loan_date.nil? %>
+				<dt>放款日期:</dt>
+			  <dd><%= g.loan_date.strftime("%Y-%m-%d") %></dd>
+			<% end %>
+				<dt>放款金额（万元）:</dt>
+			<% if !g.loan_amount.nil? %>
+			  <dd><%= g.loan_amount %></dd>
+			<% end %>
+			<% if !g.attachment_file1.blank? %>
+				<dt>受托支付合同:</dt>
+			  <dd><%= link_to g.attachment_file1.file.filename, g.attachment_file1.url %></dd>
+			<% end %>
+		</fieldset>
+		<% end %>
+	</dl>
+</div>
