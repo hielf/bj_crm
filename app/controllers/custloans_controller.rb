@@ -104,6 +104,13 @@ class CustloansController < ApplicationController
     redirect_to root_path
   end
   
+  def loan_add
+    @custloan  = Custloan.find(params[:id])
+    # @custloan.update_attribute :status, get_dict("loanStatus", 1).id
+    # @notice.destroy
+    # redirect_to root_path
+  end
+  
   private
 
     def nextstep

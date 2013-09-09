@@ -6,6 +6,7 @@
 			<th>贷款金额</th>
       <th>起始日期</th>
 			<th>还款日期</th>
+			<th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +16,14 @@
 			<td><%= @cust_loan.loanstepfours.first.request_amont if !@cust_loan.loanstepfours.first.nil? %> 万</td>
 			<td><%= @cust_loan.loanstepfours.first.request_date.to_s.to_date if !@cust_loan.loanstepfours.first.nil? %></td>
 			<td><%= @cust_loan.end_date.to_s.to_date %></td>
+			<td>
+				<% if @cust_loan.user == current_user && get_dict_by_id(@cust_loan.status).code == 3 %>
+					<p class="text-center"><%= link_to '新放款记录', custloan_loan_step_path(@cust_loan, :nine), :class => 'btn btn-small btn-danger' %></p>
+				<% end %>
+			</td>
 		</tr>
 		<tr>
-			<td colspan="5">
+			<td colspan="6">
 				<p class="text-center"><%= link_to '详细信息', custloan_path(@cust_loan), :class => 'btn btn-primary' %></p>
 			</td>
 		</tr>
