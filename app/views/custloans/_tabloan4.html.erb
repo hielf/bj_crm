@@ -37,7 +37,7 @@
 		<dt>当前负债情况:</dt>
 	  <dd><%= @custloan.loanstepfours.first.current_loan_status %></dd>
 	<% end %>
-	</br>
+	<br/>
 		<p class="lead text-center"><legend><strong>抵押物信息</strong></legend></p>
 		<% @custloan.loansteponeguarantees.each_with_index do |g,index| %>
 			<fieldset>
@@ -103,7 +103,7 @@
 			<% end %>
 			</fieldset>
 		<% end %>
-	</br>
+	<br/>
 		<p class="lead text-center"><legend><strong>财务状况</strong></legend></p>
 	<% if !@custloan.loanstepfours.first.stream_status.nil? %>
 		<dt>流水情况（个人）:</dt>
@@ -134,7 +134,7 @@
 	  <dd><%= @custloan.loanstepfours.first.tex_status %></dd>
 	<% end %>
 	
-	</br>
+	<br/>
 		<p class="lead text-center"><legend><strong>资产信息</strong></legend></p>
 		<% @custloan.loansteponeassets.each_with_index do |g,index| %>
 		<fieldset>

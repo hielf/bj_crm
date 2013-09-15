@@ -14,7 +14,7 @@
 <fieldset>
 	<p class="lead"><legend><strong>放款记录</strong></legend></p>
 	<%= link_to('新增', add_new_custloan_loan_step_path(@custloan), :class => "btn") %>
-	</br>
+	<br/>
 	<%= f.simple_fields_for :loanstepnineadditionals do |builder| %>
     <%= render 'loanstepnineadditional_fields', f: builder %>
   <% end %>

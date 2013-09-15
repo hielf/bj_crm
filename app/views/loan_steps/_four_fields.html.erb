@@ -28,7 +28,7 @@
 
 <fieldset>
 	<p class="lead"><legend><strong>抵押物信息</strong></legend></p>
-	</br>
+	<br/>
 	<%= f.simple_fields_for :loansteponeguarantees do |builder| %>
     <%= render 'loanstepfourguarantee_fields', f: builder %>
   <% end %>
@@ -54,7 +54,7 @@
 
 <fieldset>
 	<p class="lead"><legend><strong>资产信息</strong></legend></p>
-	</br>
+	<br/>
 	<%= f.simple_fields_for :loansteponeassets do |builder| %>
 		<%= render 'loanstepfourasset_fields', f: builder %>
   <% end %>

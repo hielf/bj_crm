@@ -14,12 +14,12 @@
 			</ul>
 			<address>
 				<h5>
-					年龄：<%= @broker.age %></br>
-					性别：<%= @broker.gender %></br>
-					手机：<%= @broker.mobile %></br>
-					邮箱：<%= mail_to @broker.email %></br>
-					状态：<%= @broker.broker_status %></br>
-					级别：<%= @broker.broker_level %></br>
+					年龄：<%= @broker.age %><br/>
+					性别：<%= @broker.gender %><br/>
+					手机：<%= @broker.mobile %><br/>
+					邮箱：<%= mail_to @broker.email %><br/>
+					状态：<%= @broker.broker_status %><br/>
+					级别：<%= @broker.broker_level %><br/>
 					<% if @broker.brokerrels.any? %>
 					关联帐户：<a href="<%= relbrokers_broker_path(@broker) %>"><%= @broker.brokerrels.count %></a>
 					<% end %>

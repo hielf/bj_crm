@@ -1,9 +1,9 @@
 <% if @custloans.any? %>
-<div class="accordion" id="accordion2">
+<div class="accordion" id="accordion3">
 	<% @custloans.each do |t| %>
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%=t.id%>">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapse<%=t.id%>">
 					贷款记录 #<%= t.loanstepfours.first.request_date.to_s.to_date if !t.loanstepfours.first.nil? %>
 				</a>
 			</div>

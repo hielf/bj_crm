@@ -30,7 +30,7 @@
 
 <!-- <fieldset> -->
 	<p class="lead"><legend><strong>抵押物信息</strong></legend></p>
-	</br>
+	<br/>
 	<%= f.simple_fields_for :loansteponeguarantees do |builder| %>
     <%= render 'loanstepfourguarantee_fields', f: builder %>
   <% end %>
@@ -38,7 +38,7 @@
 <!-- </fieldset> -->
 
 <!-- <fieldset> -->
-	</br>
+	<br/>
 	<p class="lead"><legend><strong>财务状况</strong></legend></p>
 	<%= p.input :stream_status, :as => :text, :label => '流水情况（个人）',
 	 						:input_html => { :class => "input-xlarge", :rows => '6',

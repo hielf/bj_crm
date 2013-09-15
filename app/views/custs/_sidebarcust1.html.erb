@@ -7,12 +7,12 @@
 			<!-- </ul> -->
 			<address>
 				<h5>
-					公司：<%= @cust.company %></br>
-					电话：<%= @cust.phone %></br>
-					地址：<%= @cust.workaddress %></br>
-					类型：<%= get_dict_by_id(@cust.custtype).name %></br>
-					登陆日期：<%= @cust.created_at.to_formatted_s(:db) %></br>
-					修改日期：<%= @cust.updated_at.to_formatted_s(:db) %></br>
+					公司：<%= @cust.company %><br/>
+					电话：<%= @cust.phone %><br/>
+					地址：<%= @cust.workaddress %><br/>
+					类型：<%= get_dict_by_id(@cust.custtype).name %><br/>
+					登陆日期：<%= @cust.created_at.to_formatted_s(:db) %><br/>
+					修改日期：<%= @cust.updated_at.to_formatted_s(:db) %><br/>
 				</h5>
 				<ul class="common-divider"></ul>
 				<p class="muted">贷款：<%= @cust.custloans.count %> 笔</p>
