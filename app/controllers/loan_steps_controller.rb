@@ -59,6 +59,7 @@ class LoanStepsController < ApplicationController
     elsif step == :eight && @custloan.guarantee_type != get_dict("guaranteeType", 1).id
       redirect_to wizard_path(:nine)
     elsif step == :ten 
+      @custloan.update_attribute :serv_user_id, @custloan.loansteptens.first.user_id
       @notice = Notice.new( { :user_id => current_user.id, 
                               :assist_user_id => @custloan.loansteptens.first.user_id,
                               :custloan_id => @custloan.id,

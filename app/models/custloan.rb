@@ -7,7 +7,8 @@ class Custloan < ActiveRecord::Base
                   :loansteponeguarantees_attributes, :loansteponeassets_attributes,
                   :loanstepfourguarantees_attributes, :loanstepfourassets_attributes,
                   :loansteptwoguarantors_attributes, :loanstepsevenadditionals_attributes,
-                  :loanstepeightguarantors_attributes, :loanstepnineadditionals_attributes, :memo
+                  :loanstepeightguarantors_attributes, :loanstepnineadditionals_attributes, :memo,
+                  :loanpaymentplans_attributes, :loanpaymentplandetails_attributes
   
   belongs_to :cust
   belongs_to :user
@@ -30,6 +31,8 @@ class Custloan < ActiveRecord::Base
   has_many :loanstepsevenadditionals
   has_many :loanstepeightguarantors
   has_many :loanstepnineadditionals
+  has_many :loanpaymentplans
+  has_many :loanpaymentplandetails
   
   # validates :total_amount,  :presence => true
   # validates :cust_id,  :presence => true
@@ -54,6 +57,8 @@ class Custloan < ActiveRecord::Base
   accepts_nested_attributes_for :loanstepsevenadditionals
   accepts_nested_attributes_for :loanstepeightguarantors
   accepts_nested_attributes_for :loanstepnineadditionals
+  accepts_nested_attributes_for :loanpaymentplans
+  accepts_nested_attributes_for :loanpaymentplandetails
   
   scope :status3, where(:status => Dict.find_by_dict_type_and_code("loanStatus",3))
   
@@ -92,5 +97,7 @@ end
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #  current_step   :integer
+#  memo           :string(255)
+#  serv_user_id   :integer
 #
 

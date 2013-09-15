@@ -15,6 +15,7 @@ Cmwp::Application.routes.draw do
       get 'add_new', :on => :member
     end
     get 'roll_back', :on => :member
+    get 'paymentplan', :on => :member
     # get 'loan_add',  :on => :member
     # resources :build, controller: 'custloans/build'
     # get 'nextstep', :on => :member

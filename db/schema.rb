@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906174927) do
+ActiveRecord::Schema.define(:version => 20130912085511) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(:version => 20130906174927) do
     t.datetime "updated_at",     :null => false
     t.integer  "current_step"
     t.string   "memo"
+    t.integer  "serv_user_id"
   end
 
   create_table "custrels", :force => true do |t|
@@ -186,6 +187,33 @@ ActiveRecord::Schema.define(:version => 20130906174927) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "flowid"
+  end
+
+  create_table "loanpaymentplandetails", :force => true do |t|
+    t.integer  "time_number"
+    t.date     "payment_date"
+    t.float    "capital"
+    t.float    "interest"
+    t.float    "sub_total"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "custloan_id"
+    t.integer  "cust_id"
+  end
+
+  create_table "loanpaymentplans", :force => true do |t|
+    t.string   "contract_num"
+    t.string   "loan_num"
+    t.integer  "cur"
+    t.float    "loan_amount"
+    t.integer  "loan_deadline"
+    t.datetime "loan_begindate"
+    t.datetime "loan_enddate"
+    t.integer  "payment_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "custloan_id"
+    t.integer  "cust_id"
   end
 
   create_table "loanstepeightguarantors", :force => true do |t|

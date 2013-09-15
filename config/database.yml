@@ -11,7 +11,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  host: 192.168.11.129
+  host: hielf.no-ip.biz
+  # host: 192.168.0.72
+  # host: 192.168.11.129
   port: 5432
   database: devdb
   pool: 5

@@ -23,5 +23,6 @@ end
 #  created_at               :datetime        not null
 #  updated_at               :datetime        not null
 #  if_credit                :boolean
+#  memo                     :string(255)
 #
 

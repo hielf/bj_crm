@@ -15,5 +15,6 @@ end
 #  updated_at       :datetime        not null
 #  loan_amount      :float
 #  attachment_file1 :string(255)
+#  memo             :string(255)
 #
 

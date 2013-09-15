@@ -1,0 +1,10 @@
+<fieldset>
+	<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+	<%= f.input :time_number, collection: 1..120, input_html: { :class => "input-mini" }, :label => '期数' %>
+	<%= f.input :payment_date, input_html: { :class => "input-small" }, :label => '还款日期' %>
+	<%= f.input :capital, :label => '本期本金（元）' %>
+	<%= f.input :interest, :label => '本期利息（元）' %>
+	<%= f.input :sub_total, :label => '合计金额（元）' %>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>

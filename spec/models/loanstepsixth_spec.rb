@@ -29,5 +29,6 @@ end
 #  notarization_custs       :string(255)
 #  has_notarization_stuff   :boolean
 #  if_notarization          :boolean
+#  memo                     :string(255)
 #
 

@@ -111,6 +111,13 @@ class CustloansController < ApplicationController
     # redirect_to root_path
   end
   
+  def paymentplan
+    @title = "还款计划表"
+    @custloan  = Custloan.find(params[:id])
+    @cust = @custloan.cust
+    @custloan.loanpaymentplans.build unless !@custloan.loanpaymentplans.blank?
+  end
+  
   private
 
     def nextstep

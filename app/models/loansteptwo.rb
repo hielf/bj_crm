@@ -96,5 +96,6 @@ end
 #  attachment_file32 :string(255)
 #  attachment_file33 :string(255)
 #  bank              :integer
+#  memo              :string(255)
 #
 

@@ -22,5 +22,7 @@ end
 #  created_at     :datetime        not null
 #  updated_at     :datetime        not null
 #  current_step   :integer
+#  memo           :string(255)
+#  serv_user_id   :integer
 #
 

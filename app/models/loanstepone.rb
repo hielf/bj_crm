@@ -36,5 +36,6 @@ end
 #  request_date          :datetime
 #  stream_status_company :string(255)
 #  stream_status_other   :string(255)
+#  memo                  :string(255)
 #
 

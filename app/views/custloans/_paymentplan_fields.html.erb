@@ -1,0 +1,23 @@
+<%= f.simple_fields_for :loanpaymentplans do |p| %>
+	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
+	<%= p.input :cust_name, input_html: { :class => "input-xlarge", value: @cust.fullname }, :label => '客户名称', disabled: true %>
+	<%= p.input :contract_num, :label => '合同编号' %>
+	<%= p.input :loan_type, input_html: { value: get_dict_by_id(@custloan.guarantee_type).name }, :label => '贷款种类', disabled: true %>
+	<%= p.input :loan_num, :label => '借据编号' %>
+	<%= p.input :cur, collection: get_dict_by_type("curType"), :label => '币种' %>
+	<%= p.input :loan_amount, input_html: { :class => "input-small" }, :label => '借据金额（万元）' %>
+	<%= p.input :loan_deadline, collection: 1..120, input_html: { :class => "input-mini" }, :label => '期限（月）' %>
+	<%= p.input :loan_begindate, as: :date_picker, :label => '借据起期' %>
+	<%= p.input :loan_enddate, as: :date_picker, :label => '借据止期' %>	
+	<%= p.input :payment_type, collection: get_dict_by_type("paymentType"), :label => '还款方式' %>	
+	
+	<!-- <fieldset> -->
+		<p class="lead">还款周期</p>
+		</br>
+		<%= f.simple_fields_for :loanpaymentplandetails do |builder| %>
+	    <%= render 'loanpaymentplandetail_fields', f: builder %>
+	  <% end %>
+			<%= link_to_add_fields "新增", f, :loanpaymentplandetails %>
+	<!-- </fieldset> -->
+	
+<% end %>

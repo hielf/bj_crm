@@ -28,5 +28,6 @@ end
 #  created_at        :datetime        not null
 #  updated_at        :datetime        not null
 #  attachment_file11 :string(255)
+#  memo              :string(255)
 #
 

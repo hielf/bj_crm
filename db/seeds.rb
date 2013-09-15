@@ -19,6 +19,14 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '咨询合同', :di
 
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '担保', :dict_type => 'guaranteeType', :code => 3})
 
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '人民币', :dict_type => 'curType', :code => 1})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '美元', :dict_type => 'curType', :code => 2})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '港币', :dict_type => 'curType', :code => 3})
+
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '转账', :dict_type => 'paymentType', :code => 1})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '现金', :dict_type => 'paymentType', :code => 2})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '其他', :dict_type => 'paymentType', :code => 3})
+
 #银行
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '招商银行', :dict_type => 'custBank', :code => 1})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '建设银行', :dict_type => 'custBank', :code => 2})
