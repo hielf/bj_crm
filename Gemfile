@@ -63,7 +63,7 @@ group :development do
   gem 'rspec-rails', '2.8.1'
   # gem 'annotate', '2.4.0'
   gem 'annotate', '~> 2.4.1.beta'
-  gem 'faker', '1.0.1'
+  gem 'faker', '1.0.1', :require => false
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
