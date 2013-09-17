@@ -33,12 +33,14 @@ development:
 #     password: wood123
 #     host: hielf.dyndns.ws
 # 
-# production:
-#     adapter: mysql2
-#     encoding: utf8
-#     reconnect: false
-#     database: tomato
-#     pool: 5
-#     username: tomato
-#     password: wood123
-#     host: hielf.dyndns.ws
+production:
+    adapter: postgresql
+    encoding: unicode
+    host: hielf.no-ip.biz
+    # host: 192.168.0.72
+    # host: 192.168.11.129
+    port: 5432
+    database: devdb
+    pool: 5
+    username: dbuser
+    password: password
