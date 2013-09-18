@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CustloansController < ApplicationController
   # include Wicked::Wizard
   # steps :one, :two, :three, :four, :five, :six, :seven, :eight, :nine, :ten
