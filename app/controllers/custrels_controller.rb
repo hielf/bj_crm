@@ -1,3 +1,4 @@
+# encoding: utf-8
 class CustrelsController < ApplicationController
   before_filter :authenticate#, :only => [:index, :edit, :update, :destroy]
 

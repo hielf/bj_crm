@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UsrrelsController < ApplicationController
   before_filter :authenticate
   

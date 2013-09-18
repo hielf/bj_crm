@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LoansteptwoguarantorsController < ApplicationController
   before_filter :authenticate
   

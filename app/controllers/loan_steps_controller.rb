@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LoanStepsController < ApplicationController
   include Wicked::Wizard
   steps :one, :two, :two_two, :three, :four, :five, :six, :six_two, :seven, :seven_two, :seven_three, :seven_four,
