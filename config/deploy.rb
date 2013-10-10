@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "10.0.0.15", :web, :app, :db, primary: true
+server "192.168.0.188", :web, :app, :db, primary: true
 
 set :application, "bj_crm"
 set :user, "root"
