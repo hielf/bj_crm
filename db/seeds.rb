@@ -55,3 +55,4 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '北京银行', :di
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '农业银行', :dict_type => 'custBank', :code => 24})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '花旗银行', :dict_type => 'custBank', :code => 25})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '汇丰银行', :dict_type => 'custBank', :code => 26})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '兴业银行', :dict_type => 'custBank', :code => 27})
