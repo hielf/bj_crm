@@ -6,6 +6,7 @@ class Cust < ActiveRecord::Base
 
   has_many :custloans
   
+  validates :custtype,  :presence   => true
 end
 # == Schema Information
 #
