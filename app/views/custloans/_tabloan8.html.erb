@@ -4,45 +4,45 @@
 		<% if @custloan.guarantee_type == get_dict("guaranteeType", 1).id %>
 	  	<% if !@custloan.loanstepeights.first.has_guaranty.blank? %>
 			  <dt>原先有抵押:</dt>
-			  <dd><%= @custloan.loanstepsevens.first.has_guaranty? ? "是" : "否" %></dd>
+			  <dd><%= @custloan.loanstepeights.first.has_guaranty? ? "是" : "否" %></dd>
 			<% end %>
 			<% if @custloan.loanstepeights.first.has_guaranty? %>
 				<% if !@custloan.loanstepeights.first.repayment_date.blank? %>
 				  <dt>预约还款日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.repayment_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.repayment_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.available_repayment_date.blank? %>
 				  <dt>可还款日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.available_repayment_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.available_repayment_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.revoke_date.blank? %>
 				  <dt>撤销抵押日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.revoke_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.revoke_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.revoke_complete_date.blank? %>
 				  <dt>撤销完成日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.revoke_complete_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.revoke_complete_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.guaranty_date.blank? %>
 				  <dt>做抵押日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.guaranty_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.guaranty_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
-				<% if !@custloan.loanstepeights.first.guaranty_date.blank? %>
+				<% if !@custloan.loanstepeights.first.other_complete_date.blank? %>
 				  <dt>出新他证日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.other_complete_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.other_complete_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 			<% else %>
 			  <% if !@custloan.loanstepeights.first.has_license_code.blank? %>
 				  <dt>房产证有密码:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.has_license_code? ? "是" : "否" %></dd>
+				  <dd><%= @custloan.loanstepeights.first.has_license_code? ? "是" : "否" %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.guaranty_date.blank? %>
 				  <dt>做抵押日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.guaranty_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.guaranty_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 				<% if !@custloan.loanstepeights.first.other_complete_date.blank? %>
 				  <dt>他证完成日期:</dt>
-				  <dd><%= @custloan.loanstepsevens.first.other_complete_date.strftime("%Y-%m-%d") %></dd>
+				  <dd><%= @custloan.loanstepeights.first.other_complete_date.strftime("%Y-%m-%d") %></dd>
 				<% end %>
 			<% end %>
 	  <% end %>
@@ -50,7 +50,7 @@
 		<% if @custloan.guarantee_type == get_dict("guaranteeType", 2).id %>
 			<% if !@custloan.loanstepeights.first.if_credit.blank? %>
 			  <dt>信用:</dt>
-			  <dd><%= @custloan.loanstepsevens.first.if_credit? ? "是" : "否" %></dd>
+			  <dd><%= @custloan.loanstepeights.first.if_credit? ? "是" : "否" %></dd>
 			<% end %>
 		<% end %>
 
