@@ -22,4 +22,3 @@ doc/app
 /webrat.log
 
 *.log
-/public/uploads
