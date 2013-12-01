@@ -80,20 +80,24 @@ class User < ActiveRecord::Base
     @custs
   end
   
+  def self.search(search, user)
+    if search
+      if manager?(user)
+        @custs = Cust.limit(10).find(:all,:conditions => ['fullname LIKE ? ', "%#{search}%"])
+      else
+        @custs = user.custs.limit(10).find(:all,:conditions => ['fullname LIKE ? ', "%#{search}%"])
+      end
+    else
+      @custs = nil
+    end
+  end
+  
   def self.manager?(user)
     # if user
       (user && Dict.find_by_id(user.usertype).code == 3) ? true : false
     # else
       
     # end
-  end
-  
-  def self.search(search, user)
-    if search
-      @custs = user.custs.limit(10).find(:all,:conditions => ['fullname LIKE ? ', "%#{search}%"])
-    else
-      @custs = nil
-    end
   end
   
   class << self
