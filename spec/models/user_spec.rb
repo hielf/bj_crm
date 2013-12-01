@@ -184,5 +184,6 @@ end
 #  usercode           :string(255)
 #  ismgr              :boolean
 #  usertype           :integer
+#  status             :integer
 #
 

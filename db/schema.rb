@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130912085511) do
+ActiveRecord::Schema.define(:version => 20131201173548) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -631,6 +631,7 @@ ActiveRecord::Schema.define(:version => 20130912085511) do
     t.string   "usercode"
     t.boolean  "ismgr"
     t.integer  "usertype"
+    t.integer  "status"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

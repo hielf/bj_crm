@@ -13,6 +13,7 @@
 #  usercode           :string(255)
 #  ismgr              :boolean
 #  usertype           :integer
+#  status             :integer
 #
 
 class User < ActiveRecord::Base
