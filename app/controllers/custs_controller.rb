@@ -1,13 +1,14 @@
 # encoding: utf-8
+require 'will_paginate/array'
+
 class CustsController < ApplicationController
   before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   
   def index
     if User.manager?(current_user)
-      @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(20)
+      @custs = Cust.order("updated_at DESC").paginate(:page => params[:page]).per_page(20)
     else
-      @custs = User.owncusts(current_user).order("fullname").paginate(:page =>
-                                                                       params[:page]).per_page(20)
+      @custs = owncusts(current_user).sort_by{ |m| m.updated_at }.reverse!.paginate(:page => params[:page])
     end
     @title = "客户"
   end

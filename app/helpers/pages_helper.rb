@@ -6,9 +6,9 @@ module PagesHelper
   
   def user_custs(user)
     if User.manager?(user)
-      @custs = Cust.order("fullname").paginate(:page => params[:page]).per_page(5)
+      @custs = Cust.order("updated_at DESC").paginate(:page => params[:page]).per_page(5)
     else
-      @custs = User.owncusts(current_user).order("fullname")
+      @custs = owncusts(current_user).sort_by{ |m| m.updated_at }.reverse!.paginate(:page => params[:page])
     end
   end
 end

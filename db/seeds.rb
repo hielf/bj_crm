@@ -24,6 +24,9 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '人民币', :dict_
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '美元', :dict_type => 'curType', :code => 2})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '港币', :dict_type => 'curType', :code => 3})
 
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '正常', :dict_type => 'userStatus', :code => 1})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '销户', :dict_type => 'userStatus', :code => 2})
+
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '转账', :dict_type => 'paymentType', :code => 1})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '现金', :dict_type => 'paymentType', :code => 2})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '其他', :dict_type => 'paymentType', :code => 3})
@@ -57,3 +60,4 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '农业银行', :di
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '花旗银行', :dict_type => 'custBank', :code => 25})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '汇丰银行', :dict_type => 'custBank', :code => 26})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '兴业银行', :dict_type => 'custBank', :code => 27})
+

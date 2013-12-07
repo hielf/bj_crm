@@ -13,7 +13,7 @@
 		<tr>
 			<td><%= @cust_loan.current_step %></td>
 			<td><%= get_dict_by_id(@cust_loan.status).name %></td>
-			<td><%= @cust_loan.loanstepfours.first.request_amont if !@cust_loan.loanstepfours.first.nil? %> 万</td>
+			<td><%= @cust_loan.loanstepfifths.first.submit_amont if !@cust_loan.loanstepfifths.first.nil? %> 万</td>
 			<td><%= @cust_loan.loanstepfours.first.request_date.to_s.to_date if !@cust_loan.loanstepfours.first.nil? %></td>
 			<td><%= @cust_loan.end_date.to_s.to_date %></td>
 			<td>

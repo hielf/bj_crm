@@ -9,4 +9,9 @@ module UsersHelper
     get_dict("userType", user.usertype).code
   end
   
+  def owncusts(user)
+    @c = []
+    user.underlings.map{ |u| u.custs.map { |c| @c.push(Cust.find(c.id)) } unless u.custs.empty?}.compact
+    @custs = @c.uniq{|x| x.id}
+  end
 end

@@ -49,8 +49,8 @@
 	<%= p.input :stream_status_other, :as => :text, :label => '流水情况（其他）',
 							:input_html => { :class => "input-xlarge", :rows => '6',
 								 							 :value => @custloan.loanstepones.first.stream_status_other } %>
-	<%= p.input :cust_request_type, :collection => get_dict_by_type("requestType"), :label => '客户需求点',
-	 						:selected => @custloan.loanstepones.first.cust_request_type %>
+	<%= p.input :cust_request_type, :label => '客户需求点',
+	 						:input_html => { :value => @custloan.loanstepones.first.cust_request_type } %>
 	<%= p.input :custtype,:collection => get_dict_by_type("custType"), :label => '经营主体性质',
 	 						:selected => @custloan.loanstepones.first.custtype %>
 	<%= p.input :invoice_status, :label => '开票状况', 

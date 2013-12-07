@@ -72,15 +72,6 @@ class User < ActiveRecord::Base
     custrels.find_by_cust_id(cust).destroy
   end
   
-  def self.owncusts(user)
-    if user && !user.underlings.blank?
-      user.underlings.each do |t|
-        @custs = t.custs
-      end
-    end
-    @custs
-  end
-  
   def self.search(search, user)
     if search
       if manager?(user)

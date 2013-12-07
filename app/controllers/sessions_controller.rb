@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:session][:usercode],
                              params[:session][:password])
-    if user.nil?
+    if user.nil? || user.status == get_dict("userStatus", 2).id
       flash.now[:error] = "用户名/密码错误"
       @title = "登录"
       render 'new'

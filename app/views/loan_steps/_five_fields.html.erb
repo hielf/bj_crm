@@ -5,9 +5,10 @@
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :pass, as: :select, :label => '通过银行审批' %>
 	<%= p.input :requirement, as: :select, :label => '有无条件' %>
+	<%= p.input :submit_amont, :label => '批复金额（万元）' %>
 	<%= p.input :requirement_detail, as: :text, :label => '具体要求', 
 							:input_html => { :class => "input-xlarge", :rows => '4' } %>
-	<br>			
+	<br/>			
 	<%= p.input :attachment_file1, as: :file, :label => '上传批复', :hint => 
 	 if !@custloan.loanstepfifths.first.attachment_file1.to_s.blank? 
 			link_to @custloan.loanstepfifths.first[:attachment_file1], 

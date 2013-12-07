@@ -1,5 +1,7 @@
 Cmwp::Application.routes.draw do
-  resources :users
+  resources :users do
+    get 'user_cancel', :on => :member
+  end
   resources :usrrels
   # resources :loan_steps
   resources :notices

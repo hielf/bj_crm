@@ -1,5 +1,5 @@
 class Loanstepfifth < ActiveRecord::Base
-  attr_accessible :cust_id, :custloan_id, :pass, :requirement, :requirement_detail, :attachment_file1
+  attr_accessible :cust_id, :custloan_id, :pass, :requirement, :requirement_detail, :attachment_file1, :submit_amont
   
   belongs_to :custloan
   
@@ -19,5 +19,6 @@ end
 #  updated_at         :datetime        not null
 #  attachment_file1   :string(255)
 #  memo               :string(255)
+#  submit_amont       :float
 #
 

@@ -90,7 +90,7 @@
 			<% end %>
 			<% if !@custloan.loanstepones.first.cust_request_type.nil? %>
 				<dt>客户需求点:</dt>
-			  <dd><%= get_dict_by_id(@custloan.loanstepones.first.cust_request_type).name unless @custloan.loanstepones.first.cust_request_type.nil? %></dd>
+			  <dd><%= @custloan.loanstepones.first.cust_request_type %></dd>
 			<% end %>
 			<% if !@custloan.loanstepones.first.custtype.nil? %>
 				<dt>经营主体性质:</dt>
