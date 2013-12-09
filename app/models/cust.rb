@@ -5,6 +5,7 @@ class Cust < ActiveRecord::Base
   has_many :users, :through => :custrel, :source => :user
 
   has_many :custloans
+  has_many :loanreports
   
   validates :custtype,  :presence   => true
   validates :fullname,  :presence   => true

@@ -11,3 +11,13 @@
 		<%= render 'sidebarcust1' %>
 	</div>
 </div>
+<div class="row-fluid">
+	<div class="span9">
+		<%= render 'custtab2' %>
+		<% if user_type(current_user) == 2 %>
+		<div>
+			<p class="text-center"><%= link_to '新建贷后调查报告', new_cust_loanreport_path(@cust), :class => 'btn btn-primary' %></p>
+		</div>
+		<% end %>
+	</div>
+</div>

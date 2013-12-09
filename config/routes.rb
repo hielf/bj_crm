@@ -11,6 +11,7 @@ Cmwp::Application.routes.draw do
   # end
   resources :custs do
     resources :custloans
+    resources :loanreports
   end
   resources :custloans do
     resources :loan_steps do
@@ -22,6 +23,9 @@ Cmwp::Application.routes.draw do
     # resources :build, controller: 'custloans/build'
     # get 'nextstep', :on => :member
     # get 'prevstep', :on => :collection
+  end
+  resources :loanreports do
+    resources :loan_reports
   end
   resources :custrels
   resources :sessions, :only => [:new, :create, :destroy]

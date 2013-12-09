@@ -1,8 +1,8 @@
 # encoding: utf-8
 class LoanStepsController < ApplicationController
   include Wicked::Wizard
-  steps :one, :two, :two_two, :three, :four, :five, :six, :six_two, :six_three, :seven, :seven_two, :seven_three, :seven_four,
-        :eight, :eight_two, :nine, :ten
+  steps :one, :two, :two_two, :three, :four, :five, :six, :six_two, :six_three, :seven, :seven_two, :seven_three,
+        :seven_four, :eight, :eight_two, :nine, :ten
     
   def show
     @title = "贷前流程"
