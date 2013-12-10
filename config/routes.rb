@@ -25,7 +25,7 @@ Cmwp::Application.routes.draw do
     # get 'prevstep', :on => :collection
   end
   resources :loanreports do
-    resources :loan_reports
+    resources :loan_report_steps
   end
   resources :custrels
   resources :sessions, :only => [:new, :create, :destroy]

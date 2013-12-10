@@ -1,0 +1,17 @@
+<div class="row-fluid">
+	<div class="span9">
+		<div class="well">
+			<p class="lead text-center"><legend><strong>融资基本信息</strong></legend></p>
+			<%= simple_form_for @loanreport,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
+				<%= render 'two_fields', :f => f %>
+				<div class="form-actions">
+					<%= link_to '上一步', edit_loanreport_path(@loanreport), :class => 'btn' %>
+					<%= f.submit "下一步", :class => 'btn btn-primary' %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="span3">
+		<%= render 'loan_steps/helps/two_helps' %>
+	</div>
+</div>

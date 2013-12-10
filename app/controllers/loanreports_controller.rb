@@ -28,20 +28,36 @@ class LoanreportsController < ApplicationController
     @loanreport = Loanreport.new
     # @loanreport.loanstepones.build
     @cust = Cust.find_by_id(params[:cust_id])
-    @title = "1 初步可行性"
+    @title = "贷后调查报告"
+  end
+  
+  def edit
+    @loanreport = Loanreport.find(params[:id])
+    @cust = Cust.find(@loanreport.cust_id)
+    @title = "贷后调查报告"
+  end
+  
+  def update
+    @loanreport = Loanreport.find(params[:id])
+    if @loanreport.update_attributes(params[:loanreport])
+      redirect_to loanreport_loan_report_step_path(@loanreport, :two)
+    else  
+      @title = "贷后调查报告"
+      render 'edit'
+    end 
   end
   
   def create
-    if user_type(current_user) == 2
+    if user_type(current_user) == 1
       redirect_to root_path, :flash => { :error => "您无权建立贷款流程"}
     else
       @loanreport = Loanreport.new(params[:loanreport])
       if @loanreport.save
         # redirect_to @loanreport, :flash => { :success => "信贷流程建立"}
         # redirect_to loan_steps_path
-        redirect_to loanreport_loan_step_path(@loanreport, :two)
+        redirect_to loanreport_loan_report_step_path(@loanreport, :two)
       else  
-        @title = "1 初步可行性"
+        @title = "贷后调查报告"
         render 'new'
       end
     end

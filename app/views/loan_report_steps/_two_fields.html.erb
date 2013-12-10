@@ -1,0 +1,60 @@
+<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+<%= f.input :current_step, as: :hidden, input_html: { value: 2 } %>
+<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+
+<%= f.input :loan_amont, :label => "借款金额（万）" %>
+<%= f.input :loan_type, :collection => get_dict_by_type("guaranteeType"), :label => "担保方式" %>
+<%= f.input :withdrawal_date, :as => :date_picker, :label => "借款提款日" %>
+<%= f.input :credit_deadline, :label => "授信期限" %>
+<%= f.input :guaranty_detail, :input_html => { :class => "span6" }, :label => "抵押物明细" %>
+<%= f.input :interest_rate, :label => '利率（年）', :wrapper => :append do %>
+	<%= f.input_field :interest_rate %><span class="add-on">%</span>
+<% end %>
+<%= f.input :guaranty_address, :input_html => { :class => "span6" }, :label => "抵押物地址" %>
+<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => "借款银行" %>
+<%= f.input :evaluate_price, :label => "评估价（万）" %>
+<%= f.input :bank_broker, :label => "银行客户经理" %>
+<%= f.input :bank_broker_mobile, :label => "客户经理手机" %>
+<fieldset>
+	<p class="lead"><legend><strong>收费信息</strong></legend></p>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :first_year_charge_rate, :label => '首年收费比例', :wrapper => :append do %>
+					<%= f.input_field :first_year_charge_rate %><span class="add-on">%</span>
+				<% end %>
+			</div>
+			<div class="span6">
+				<%= f.input :first_year_charge, :label => "实际收费金额(元)" %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :second_year_charge_rate, :label => '次年收费比例', :wrapper => :append do %>
+					<%= f.input_field :second_year_charge_rate %><span class="add-on">%</span>
+				<% end %>
+			</div>
+			<div class="span6">
+				<%= f.input :second_year_charge, :label => "实际收费金额(元)" %>
+			</div>
+		</div>
+</fieldset>
+<fieldset>
+	<p class="lead"><legend><strong>首年成本支出</strong></legend></p>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :evaluate_fee, :label => "评估费（元）" %>
+			</div>
+			<div class="span6">
+				<%= f.input :notarial_fee, :label => "公证费（元）" %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :insurance, :label => "保险费（元）" %>
+			</div>
+			<div class="span6">
+				<%= f.input :registration_fee, :label => "抵押登记费（元）" %>
+			</div>
+		</div>
+</fieldset>
