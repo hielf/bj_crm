@@ -13,6 +13,8 @@ class LoanReportStepsController < ApplicationController
       @title = "贷后调查报告"
     when :three
       @title = "贷后调查报告"
+    when :four
+      @title = "贷后调查报告"
     end
     render_wizard
   end

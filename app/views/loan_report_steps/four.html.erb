@@ -1,12 +1,12 @@
 <div class="row-fluid">
 	<div class="span9">
 		<div class="well">
-			<p class="lead text-center"><legend><strong>公司经营状况</strong></legend></p>
+			<p class="lead text-center"><legend><strong>贷后服务建议</strong></legend></p>
 			<%= simple_form_for @loanreport,:url => wizard_path, :method => :put, :html => { :class => 'form-horizontal' } do |f| %>
-				<%= render 'three_fields', :f => f %>
+				<%= render 'four_fields', :f => f %>
 				<div class="form-actions">
 					<%= link_to '上一步', previous_wizard_path, :class => 'btn' %>
-					<%= f.submit "下一步", :class => 'btn btn-primary' %>
+					<%= f.submit "完成", :class => 'btn btn-primary' %>
 				</div>
 			<% end %>
 		</div>

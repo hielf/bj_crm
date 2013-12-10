@@ -1,0 +1,14 @@
+<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+<%= f.input :current_step, as: :hidden, input_html: { value: 4 } %>
+<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+<div class="row-fluid">
+	<div class="span6">
+		<%= f.input :bank_suggest, :as => :text, :label => '客户贷款完成后对银行的建议',
+		 						:input_html => { :rows => '6' } %>
+	</div>
+	<div class="span6">
+		<%= f.input :cust_suggest, :as => :text, :label => '客户对我公司贷后服务的建议',
+		 						:input_html => { :rows => '6' } %>
+	</div>
+</div>

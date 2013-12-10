@@ -1,0 +1,115 @@
+<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+<%= f.input :current_step, as: :hidden, input_html: { value: 3 } %>
+<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+<fieldset>
+	<p class="lead"><legend><strong>管理及经营</strong></legend></p>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :first_charge_man, :label => "实际控制人（1）" %>
+			</div>
+			<div class="span6">
+				<%= f.input :first_charge_man_changed, as: :select, :label => "变化状况" %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :second_charge_man, :label => "实际控制人（2）" %>
+			</div>
+			<div class="span6">
+				<%= f.input :second_charge_man_changed, as: :select, :label => "变化状况" %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span6">
+				<%= f.input :financial_charge_man, :label => "财务负责人" %>
+			</div>
+			<div class="span6">
+				<%= f.input :financail_charge_man_changed, as: :select, :label => "变化状况" %>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span12">
+				<%= f.input :sales_team_number, :label => "销售团队规模" %>
+			</div>
+		</div>
+</fieldset>
+<fieldset>
+	<p class="lead"><legend><strong>公司主要客户</strong></legend></p>
+		<div class="row-fluid">
+			<div class="span12">
+				<%= f.input :clients_detail, :as => :text, :label => '本年度公司上下游客户变化情况',
+				 						:input_html => { :class => "input-xlarge", :rows => '6' } %>
+			</div>
+		</div>
+</fieldset>
+<fieldset>
+	<p class="lead"><legend><strong>公司财务状况</strong></legend></p>
+	<p><strong>1） 资产负债结构</strong></p>
+	<p><strong>2） 现金流状况</strong> （现金流周期：贷款之日起--至今）</p>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :loan_bank_cash_stream, :as => :text, :label => '存款银行现金流',
+			 						:input_html => { :rows => '6' } %>
+		</div>
+		<div class="span6">
+			<%= f.input :other_bank_cash_stream, :as => :text, :label => '非存款银行现金流',
+			 						:input_html => { :rows => '6' } %>
+		</div>
+	</div>
+	<p><strong>3） 盈利能力</strong></p>
+	<div class="row-fluid">
+		<div class="span4">
+			<%= f.input :turnover_1, :label => '淡季营业额', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :turnover_2, :label => '旺季营业额', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :turnover_3, :label => '年度营业额', :input_html => { :class => "input-small" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			<%= f.input :gross_profit_1, :label => '淡季毛利润', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :gross_profit_2, :label => '旺季毛利润', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :gross_profit_3, :label => '年度毛利润', :input_html => { :class => "input-small" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			<%= f.input :cost_1, :label => '淡季费用', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :cost_2, :label => '旺季费用', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :cost_3, :label => '年度费用', :input_html => { :class => "input-small" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span4">
+			<%= f.input :pure_profit_1, :label => '淡季净利润', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :pure_profit_2, :label => '旺季净利润', :input_html => { :class => "input-small" } %>
+		</div>
+		<div class="span4">
+			<%= f.input :pure_profit_3, :label => '年度净利润', :input_html => { :class => "input-small" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<%= f.input :bussiness_period, :label => '行业淡旺季周期', :input_html => { :class => "input-xlarge" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<%= f.input :period_gap, :label => '淡旺季销售差距', :input_html => { :class => "input-xlarge" } %>
+		</div>
+	</div>
+</fieldset>
