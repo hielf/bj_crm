@@ -23,7 +23,7 @@ end
 #  estate_area           :string(255)
 #  estate_owner          :string(255)
 #  stream_status         :string(255)
-#  cust_request_type     :integer
+#  cust_request_type     :string(255)
 #  custtype              :integer
 #  invoice_status        :string(255)
 #  tex_status            :string(255)

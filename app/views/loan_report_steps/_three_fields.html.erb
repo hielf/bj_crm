@@ -42,10 +42,38 @@
 				 						:input_html => { :class => "input-xlarge", :rows => '6' } %>
 			</div>
 		</div>
+		<p class="text-center"><h4>客户列表</h4></p>
+		<%= f.simple_fields_for :loanreportcustomers do |builder| %>
+			<%= render 'loanreportcustomer_fields', f: builder %>
+	  <% end %>
+		<%= link_to_add_fields "新增", f, :loanreportcustomers %>
 </fieldset>
 <fieldset>
 	<p class="lead"><legend><strong>公司财务状况</strong></legend></p>
 	<p><strong>1） 资产负债结构</strong></p>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :estate_1, :label => '房产1' %>
+		</div>
+		<div class="span6">
+			<%= f.input :estate_2, :label => '房产2' %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :automobile, :label => '汽车' %>
+		</div>
+		<div class="span6">
+			<%= f.input :assets, :label => '存款或理财产品' %>
+		</div>
+	</div>
+	<fieldset>
+	<p><strong>负债情况</strong></p>
+		<%= f.simple_fields_for :loanreportbanks do |builder| %>
+			<%= render 'loanreportbank_fields', f: builder %>
+	  <% end %>
+		<%= link_to_add_fields "新增", f, :loanreportbanks %>
+	</fieldset>
 	<p><strong>2） 现金流状况</strong> （现金流周期：贷款之日起--至今）</p>
 	<div class="row-fluid">
 		<div class="span6">

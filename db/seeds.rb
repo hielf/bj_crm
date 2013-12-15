@@ -31,6 +31,12 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '转账', :dict_typ
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '现金', :dict_type => 'paymentType', :code => 2})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '其他', :dict_type => 'paymentType', :code => 3})
 
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '上游客户', :dict_type => 'reportcustType', :code => 1})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '下游客户', :dict_type => 'reportcustType', :code => 2})
+
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '上海客户', :dict_type => 'custRegion', :code => 1})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '外地客户', :dict_type => 'custRegion', :code => 2})
+
 #银行
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '招商银行', :dict_type => 'custBank', :code => 1})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '建设银行', :dict_type => 'custBank', :code => 2})

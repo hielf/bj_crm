@@ -13,6 +13,8 @@ class LoanReportStepsController < ApplicationController
       @title = "贷后调查报告"
     when :three
       @title = "贷后调查报告"
+      @loanreport.loanreportcustomers.build unless !@loanreport.loanreportcustomers.blank?
+      @loanreport.loanreportbanks.build unless !@loanreport.loanreportbanks.blank?
     when :four
       @title = "贷后调查报告"
     end

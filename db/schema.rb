@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131209172100) do
+ActiveRecord::Schema.define(:version => 20131215150436) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -218,6 +218,32 @@ ActiveRecord::Schema.define(:version => 20131209172100) do
     t.integer  "cust_id"
   end
 
+  create_table "loanreportbanks", :force => true do |t|
+    t.integer  "loanreport_id"
+    t.integer  "cust_id"
+    t.float    "loan_amount"
+    t.integer  "trust_type"
+    t.integer  "guarantee_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "bank"
+  end
+
+  create_table "loanreportcustomers", :force => true do |t|
+    t.integer  "loanreport_id"
+    t.integer  "cust_type"
+    t.integer  "cust_region"
+    t.string   "company_name"
+    t.string   "boss"
+    t.string   "contact"
+    t.string   "address"
+    t.string   "financial"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "loanreportcustomers", ["loanreport_id"], :name => "index_loanreportcustomers_on_loanreport_id"
+
   create_table "loanreports", :force => true do |t|
     t.integer  "cust_id"
     t.string   "cust_name"
@@ -278,6 +304,10 @@ ActiveRecord::Schema.define(:version => 20131209172100) do
     t.datetime "updated_at",                   :null => false
     t.integer  "current_step"
     t.integer  "user_id"
+    t.string   "estate_1"
+    t.string   "estate_2"
+    t.string   "automobile"
+    t.string   "assets"
   end
 
   add_index "loanreports", ["cust_id"], :name => "index_loanreports_on_cust_id"

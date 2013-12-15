@@ -1,0 +1,20 @@
+<fieldset>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => '借款银行' %>
+		</div>
+		<div class="span6">
+			<%= f.input :loan_amount, :label => '借款金额（万）', input_html: { :class => "input-small" } %>
+		</div>
+	</div>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :trust_type, :collection => get_dict_by_type("reportcustType"), :label => '授信种类' %>
+		</div>
+		<div class="span6">
+			<%= f.input :guarantee_type, :collection => get_dict_by_type("guaranteeType"), :label => '担保方式' %>
+		</div>
+	</div>
+		  <%= f.hidden_field :_destroy %>
+		  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>
