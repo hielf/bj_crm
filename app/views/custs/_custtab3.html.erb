@@ -1,0 +1,20 @@
+<% if @loanreports.any? %>
+<div class="accordion" id="accordion4">
+	<% @loanreports.each do |t| %>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#collapse<%=t.id%>">
+					贷后调查报告 #<%= t.created_at.to_s.to_date if !t.created_at.nil? %>
+				</a>
+			</div>
+			<div id="collapse<%=t.id%>" <% if @loanreports.first.id == t.id %>class="collapse in"<% else %>class="collapse"<% end %>>
+				<div class="accordion-inner">
+					<%= render :partial => 'loanreports/loanreport', :locals => { :object => loan_report(t.id) } %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>
+<% else %>
+<p class="text-center muted">没有客户调查报告</p>
+<% end %>

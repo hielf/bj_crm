@@ -18,6 +18,7 @@ class CustsController < ApplicationController
     @title = @cust.fullname
     if user_type(current_user) == 2
       @custloans = @cust.custloans.status3
+      @loanreports = @cust.loanreports
     else
       @custloans = @cust.custloans
     end
