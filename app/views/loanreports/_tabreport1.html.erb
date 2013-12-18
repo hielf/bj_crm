@@ -1,0 +1,41 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>客户基本信息</strong></legend></p>
+		<% if @loanreport.cust_name? %>
+		  <dt>姓名:</dt>
+		  <dd><%= @loanreport.cust_name %></dd>
+		<% end %>
+		<% if @loanreport.loan_cust_name? %>
+		  <dt>借款人或实际控制人:</dt>
+		  <dd><%= @loanreport.loan_cust_name %></dd>
+		<% end %>
+		<% if @loanreport.company_name? %>
+		  <dt>企业名称:</dt>
+		  <dd><%= @loanreport.company_name %></dd>
+		<% end %>
+		<% if @loanreport.mobile? %>
+		  <dt>手机:</dt>
+		  <dd><%= @loanreport.mobile %></dd>
+		<% end %>
+		<% if @loanreport.company_address? %>
+		  <dt>办公地址:</dt>
+		  <dd><%= @loanreport.company_address %></dd>
+		<% end %>
+		<% if @loanreport.home_address? %>
+		  <dt>家庭住址:</dt>
+		  <dd><%= @loanreport.home_address %></dd>
+		<% end %>
+		<% if @loanreport.financial_manager? %>
+		  <dt>财务负责人:</dt>
+		  <dd><%= @loanreport.financial_manager %></dd>
+		<% end %>
+		<% if @loanreport.financial_phone? %>
+		  <dt>负责人电话:</dt>
+		  <dd><%= @loanreport.financial_phone %></dd>
+		<% end %>
+		<% if @loanreport.financial_mobile? %>
+		  <dt>手机:</dt>
+		  <dd><%= @loanreport.financial_mobile %></dd>
+		<% end %>
+	</dl>
+</div>

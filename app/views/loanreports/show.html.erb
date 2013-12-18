@@ -1,0 +1,45 @@
+<div class="row-fluid">
+	<div class="span9">
+		<div class="broker-score tabbable tabs">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a href="#1" data-toggle="tab">1.</a></li>
+		    <li><a href="#2" data-toggle="tab">2.</a></li>
+				<li><a href="#3" data-toggle="tab">3.</a></li>
+				<li><a href="#4" data-toggle="tab">4.</a></li>
+		  </ul>
+		  <div class="tab-content">
+		    <div class="tab-pane active" id="1">
+					<%= render 'loanreports/tabreport1' %>
+		    </div>
+		    <div class="tab-pane" id="2">
+					<%= render 'loanreports/tabreport2' %>
+		    </div>
+		    <div class="tab-pane" id="3">
+					<%= render 'loanreports/tabreport3' %>
+		    </div>
+		    <div class="tab-pane" id="4">
+					<%= render 'loanreports/tabreport4' %>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<div class="span3">
+		<%= render 'custs/sidebarcust1' %>
+		<% if user_type(current_user) == 3 %>
+			<%= render 'loanreports/memo/loanreport_memo' %>
+		<% end %>
+	</div>
+</div>
+<div class="row-fluid">
+	<% if @loanreport.user == current_user %>
+	<div class="well">
+		<p class="text-center">
+		<% if @current_step == 'four'  %>
+			<%= link_to '修改调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+		<% else %>
+		  <%= link_to '继续填写调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+		<% end %>
+		</p>
+	</div>
+	<% end %>
+</div>

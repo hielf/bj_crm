@@ -6,7 +6,7 @@ class LoanreportsController < ApplicationController
     @loanreport = Loanreport.find(params[:id])
     # @loanreport.loansteptwos.build
     @cust = Cust.find(@loanreport.cust_id)
-    @title = "信贷记录"
+    @title = "贷后调查报告"
     current_step = @loanreport.current_step
     case current_step
     when 1

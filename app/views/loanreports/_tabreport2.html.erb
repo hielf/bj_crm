@@ -1,0 +1,113 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>融资基本信息</strong></legend></p>
+		<% if @loanreport.loan_amont? %>
+		  <dt>借款金额（万）:</dt>
+		  <dd><%= @loanreport.loan_amont %></dd>
+		<% end %>
+		<% if @loanreport.loan_type? %>
+		  <dt>担保方式:</dt>
+		  <dd><%= get_dict_by_id(@loanreport.loan_type).name %></dd>
+		<% end %>
+		<% if @loanreport.withdrawal_date? %>
+		  <dt>借款提款日:</dt>
+		  <dd><%= @loanreport.withdrawal_date %></dd>
+		<% end %>
+		<% if @loanreport.credit_deadline? %>
+		  <dt>授信期限:</dt>
+		  <dd><%= @loanreport.credit_deadline %></dd>
+		<% end %>
+		<% if @loanreport.guaranty_detail? %>
+		  <dt>抵押物明细:</dt>
+		  <dd><%= @loanreport.guaranty_detail %></dd>
+		<% end %>
+		<% if @loanreport.interest_rate? %>
+		  <dt>利率（年）:</dt>
+		  <dd><%= @loanreport.interest_rate %> %</dd>
+		<% end %>
+		<% if @loanreport.guaranty_address? %>
+		  <dt>抵押物地址:</dt>
+		  <dd><%= @loanreport.guaranty_address %></dd>
+		<% end %>
+		<% if @loanreport.bank? %>
+		  <dt>借款银行:</dt>
+		  <dd><%= get_dict_by_id(@loanreport.bank).name %></dd>
+		<% end %>
+		<% if @loanreport.evaluate_price? %>
+		  <dt>评估价（万）:</dt>
+		  <dd><%= @loanreport.evaluate_price %></dd>
+		<% end %>
+		<% if @loanreport.bank_broker? %>
+		  <dt>银行客户经理:</dt>
+		  <dd><%= @loanreport.bank_broker %></dd>
+		<% end %>
+		<% if @loanreport.bank_broker_mobile? %>
+		  <dt>客户经理手机:</dt>
+		  <dd><%= @loanreport.bank_broker_mobile %></dd>
+		<% end %>
+		
+
+		<fieldset>
+			<p class="lead"><legend><strong>收费信息</strong></legend></p>
+				<div class="row-fluid">
+					<div class="span6">
+						<% if @loanreport.first_year_charge_rate? %>
+						  <dt>首年收费比例:</dt>
+						  <dd><%= @loanreport.first_year_charge_rate %> %</dd>
+						<% end %>
+					</div>
+					<div class="span6">
+						<% if @loanreport.first_year_charge? %>
+						  <dt>实际收费金额(元):</dt>
+						  <dd><%= @loanreport.first_year_charge %></dd>
+						<% end %>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span6">
+						<% if @loanreport.second_year_charge_rate? %>
+						  <dt>次年收费比例:</dt>
+						  <dd><%= @loanreport.second_year_charge_rate %> %</dd>
+						<% end %>
+					</div>
+					<div class="span6">
+						<% if @loanreport.second_year_charge? %>
+						  <dt>实际收费金额(元):</dt>
+						  <dd><%= @loanreport.second_year_charge %></dd>
+						<% end %>
+					</div>
+				</div>
+		</fieldset>
+		<fieldset>
+			<p class="lead"><legend><strong>首年成本支出</strong></legend></p>
+				<div class="row-fluid">
+					<div class="span6">
+						<% if @loanreport.evaluate_fee? %>
+						  <dt>评估费(元):</dt>
+						  <dd><%= @loanreport.evaluate_fee %></dd>
+						<% end %>
+					</div>
+					<div class="span6">
+						<% if @loanreport.notarial_fee? %>
+						  <dt>公证费(元):</dt>
+						  <dd><%= @loanreport.notarial_fee %></dd>
+						<% end %>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span6">
+						<% if @loanreport.insurance? %>
+						  <dt>保险费(元):</dt>
+						  <dd><%= @loanreport.insurance %></dd>
+						<% end %>
+					</div>
+					<div class="span6">
+						<% if @loanreport.registration_fee? %>
+						  <dt>抵押登记费(元):</dt>
+						  <dd><%= @loanreport.registration_fee %></dd>
+						<% end %>
+					</div>
+				</div>
+		</fieldset>
+	</dl>
+</div>

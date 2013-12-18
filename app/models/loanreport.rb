@@ -14,6 +14,8 @@ class Loanreport < ActiveRecord::Base
                   :loanreportbanks_attributes
                   
   belongs_to :cust
+  belongs_to :user
+  
   has_many   :loanreportcustomers
   has_many   :loanreportbanks
   

@@ -1,0 +1,13 @@
+<div class="well">
+	<dl class="dl-horizontal">
+		<p class="lead text-center"><legend><strong>贷后服务建议</strong></legend></p>
+			<% if @loanreport.bank_suggest? %>
+			  <dt>客户贷款完成后对银行的建议:</dt>
+			  <dd><%= @loanreport.bank_suggest %></dd>
+			<% end %>
+			<% if @loanreport.cust_suggest? %>
+			  <dt>客户对我公司贷后服务的建议:</dt>
+			  <dd><%= @loanreport.cust_suggest %></dd>
+			<% end %>
+	</dl>
+</div>
