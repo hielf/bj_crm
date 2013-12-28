@@ -41,6 +41,9 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    birthday (0.2.0)
+      activerecord
+      activesupport
     bootstrap-will_paginate (0.0.9)
       will_paginate
     builder (3.0.4)
@@ -209,6 +212,7 @@ DEPENDENCIES
   annotate (~> 2.4.1.beta)
   better_errors
   binding_of_caller
+  birthday (~> 0.2.0)
   bootstrap-will_paginate (~> 0.0.6)
   capistrano
   carrierwave

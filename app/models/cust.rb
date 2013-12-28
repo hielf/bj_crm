@@ -1,4 +1,5 @@
 class Cust < ActiveRecord::Base
+  acts_as_birthday :birthday
   attr_accessible :company, :custtype, :fullname, :phone, :workaddress, :user_ids, :birthday, :partner_birthday
   
   has_many :custrel#, :class_name => "Custrel", :foreign_key => "cust"  
@@ -9,7 +10,6 @@ class Cust < ActiveRecord::Base
   
   validates :custtype,  :presence   => true
   validates :fullname,  :presence   => true
-  
 end
 # == Schema Information
 #

@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       render 'new'
     else
       sign_in user
+      get_note(user)
       redirect_back_or root_path #user #friendly redirect
     end
   end

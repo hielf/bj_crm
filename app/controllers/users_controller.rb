@@ -78,12 +78,12 @@ class UsersController < ApplicationController
   end
   
   def user_cancel
-    @title = "注销"
+    @title = "用户注销"
     @user = User.find(params[:id])
     if @user
       @user.update_attribute :status, get_dict("userStatus", 2).id
     end
-    redirect_to @user, :flash => { :error => "用户已注销" }
+    redirect_to @user, :flash => { :error => "用户已销户" }
   end
   
   private 

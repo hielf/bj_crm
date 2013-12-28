@@ -30,6 +30,7 @@ gem 'yajl-ruby', :require => "yajl"
 gem 'gon'
 gem 'wicked'
 gem 'carrierwave'
+gem 'birthday', '~> 0.2.0'
 gem 'datetimepicker-rails', :require => 'datetimepicker-rails', 
                             :git => 'git://github.com/zpaulovics/datetimepicker-rails.git'
 # gem 'ui_datepicker-rails3'
