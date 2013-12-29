@@ -1,0 +1,7 @@
+<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+
+	<%= f.simple_fields_for :loaninterestplans do |builder| %>
+		<%= render 'loaninterestplan_fields', f: builder %>
+  <% end %>
+	<%= link_to_add_fields "新增", f, :loaninterestplans %>

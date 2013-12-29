@@ -1,0 +1,12 @@
+<fieldset>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :plan_date, :label => '计划日期' %>
+		</div>
+		<div class="span6">
+			<%= f.input :interest, :label => '还息金额' %>
+		</div>
+	</div>
+		  <%= f.hidden_field :_destroy %>
+		  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>

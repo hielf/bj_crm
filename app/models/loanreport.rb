@@ -11,17 +11,19 @@ class Loanreport < ActiveRecord::Base
                   :second_charge_man_changed, :second_year_charge, :second_year_charge_rate, :turnover_1, 
                   :turnover_2, :turnover_3, :withdrawal_date, :current_step, :user_id,
                   :loanreportcustomers_attributes, :estate_1, :estate_2, :automobile, :assets,
-                  :loanreportbanks_attributes
+                  :loanreportbanks_attributes, :loaninterestplans_attributes
                   
   belongs_to :cust
   belongs_to :user
   
   has_many   :loanreportcustomers
   has_many   :loanreportbanks
+  has_many   :loaninterestplans
   
   accepts_nested_attributes_for :loanreportcustomers
   accepts_nested_attributes_for :loanreportbanks
-       
+  accepts_nested_attributes_for :loaninterestplans
+  
 end
 # == Schema Information
 #

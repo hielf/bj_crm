@@ -1,0 +1,15 @@
+<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
+<%= f.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
+<fieldset>
+	<div class="row-fluid">
+		<div class="span6">
+			<%= f.input :plan_date, input_html: { :class => "span4" }, :label => '计划日期' %>
+		</div>
+		<div class="span6">
+			<%= f.input :interest, input_html: { :class => "input-small" }, :label => '还息金额' %>
+		</div>
+	</div>
+		  <%= f.hidden_field :_destroy %>
+		  <%= link_to "删除", '#', class: "remove_fields" %>
+</fieldset>
+

@@ -49,6 +49,32 @@
 						</td>	
 						
 					</tr>
+					
+					<% when get_dict('noteType', 5).id %>
+					<tr>
+						<td><%= n.note %></td>
+						<td><%= User.find(n.user_id).name %></td>
+						<td><%= link_to Cust.find(n.cust_id).fullname, cust_path(n.cust_id) %></td>	
+						<td><%= n.updated_at %></td>
+						<td><%= Dict.find(n.note_type).name %></td>
+						<td>
+							<a href="#myModal<%=n.id%>" role="button" class="btn btn-mini pull-right" data-toggle="modal">查看</a>
+						</td>	
+						
+					</tr>
+					
+					<% when get_dict('noteType', 4).id %>
+					<tr>
+						<td><%= n.note %></td>
+						<td><%= User.find(n.user_id).name %></td>
+						<td><%= link_to Cust.find(n.cust_id).fullname, cust_path(n.cust_id) %></td>	
+						<td><%= n.updated_at %></td>
+						<td><%= Dict.find(n.note_type).name %></td>
+						<td>
+							<a href="#myModal<%=n.id%>" role="button" class="btn btn-mini pull-right" data-toggle="modal">查看</a>
+						</td>	
+						
+					</tr>
 					<% end %>
 				<% end %>
 		  </tbody>

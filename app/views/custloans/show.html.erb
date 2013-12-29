@@ -109,16 +109,16 @@
 	<div class="well">
 		<p class="text-center">
 		<% if @current_step == 'ten'  %>
-			<%= link_to '修改流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+			<%= link_to '修改流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
 		<% else %>
-		  <%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+		  <%= link_to '继续流程', custloan_loan_step_path(@custloan, :id => @next_step), :class => 'btn btn-primary' %>
 		<% end %>
 		</p>
 	</div>
 	<% elsif @custloan.serv_user_id == current_user.id && get_dict_by_id(@custloan.status).code == 2 %>
 	<div class="well">
 		<p class="text-center">
-		  <%= link_to '还款计划', paymentplan_custloan_path(@custloan), :class => 'btn btn-large btn-primary' %>
+		  <%= link_to '还款计划', paymentplan_custloan_path(@custloan), :class => 'btn btn-primary' %>
 		</p>
 	</div>
 	<% end %>

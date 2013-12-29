@@ -22,6 +22,7 @@
 		    </div>
 		  </div>
 		</div>
+		<%= render 'loanreports/loan_interest_plan' %>
 	</div>
 	<div class="span3">
 		<%= render 'custs/sidebarcust1' %>
@@ -35,10 +36,11 @@
 	<div class="well">
 		<p class="text-center">
 		<% if @current_step == 'four'  %>
-			<%= link_to '修改调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+			<%= link_to '修改调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-primary' %>
 		<% else %>
-		  <%= link_to '继续填写调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-large btn-primary' %>
+		  <%= link_to '继续填写调查报告', loanreport_loan_report_step_path(@loanreport, :id => @next_step), :class => 'btn btn-primary' %>
 		<% end %>
+		<%= link_to '提交还息计划', loan_interest_loanreport_path(@loanreport), :class => 'btn btn-danger' %>
 		</p>
 	</div>
 	<% end %>

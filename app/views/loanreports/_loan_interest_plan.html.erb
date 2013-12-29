@@ -1,0 +1,14 @@
+<div class="row-fluid">
+	<div class="well">
+		<legend>
+			<h4>还息计划</h4>
+		</legend>
+		<% @loanreport.loaninterestplans.order("plan_date").each_with_index do |p, index| %>
+			<div class="row-fluid">
+				<div class="span12">#<%= index+1 %></div>
+				<div class="span4">还息日期： <%= p.plan_date %></div>
+				<div class="span4">还息金额： <%= p.interest %></div>
+			</div>
+		<% end %>
+	</div>
+</div>

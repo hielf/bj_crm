@@ -40,7 +40,11 @@ class LoanreportsController < ApplicationController
   def update
     @loanreport = Loanreport.find(params[:id])
     if @loanreport.update_attributes(params[:loanreport])
-      redirect_to loanreport_loan_report_step_path(@loanreport, :two)
+      if !params[:loanreport][:loaninterestplans_attributes].nil?
+        redirect_to loan_interest_loanreport_path(@loanreport)
+      else
+        redirect_to loanreport_loan_report_step_path(@loanreport, :two)
+      end
     else  
       @title = "贷后调查报告"
       render 'edit'
@@ -62,4 +66,12 @@ class LoanreportsController < ApplicationController
       end
     end
   end
+  
+  def loan_interest
+    @title = "客户还息计划"
+    @loanreport = Loanreport.find(params[:id])
+    @cust = Cust.find(@loanreport.cust_id)
+    @loanreport.loaninterestplans.build unless !@loanreport.loaninterestplans.blank?
+  end
+  
 end

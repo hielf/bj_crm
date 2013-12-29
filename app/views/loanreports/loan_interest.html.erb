@@ -1,0 +1,17 @@
+<div class="row-fluid">
+	<div class="span9">
+		<div class="well">
+			<p class="lead text-center"><legend><strong>客户还息计划</strong></legend></p>
+			<%= simple_form_for @loanreport, :html => { :class => 'form-horizontal' } do |f| %>
+				<%= render 'interest_fields', :f => f %>
+				<div class="form-actions">
+					<%= f.submit "确认", :class => 'btn btn-primary' %>
+					<%= link_to '取消', loanreport_path(@loanreport), :class => 'btn' %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="span3">
+		<%= render 'loanreports/helps/helps' %>
+	</div>
+</div>

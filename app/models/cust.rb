@@ -1,5 +1,5 @@
 class Cust < ActiveRecord::Base
-  acts_as_birthday :birthday
+  acts_as_birthday :birthday, :partner_birthday
   attr_accessible :company, :custtype, :fullname, :phone, :workaddress, :user_ids, :birthday, :partner_birthday
   
   has_many :custrel#, :class_name => "Custrel", :foreign_key => "cust"  

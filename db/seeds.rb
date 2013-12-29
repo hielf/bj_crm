@@ -39,6 +39,7 @@ Dict.find_or_create_by_name_and_dict_type_and_code({:name => '外地客户', :di
 
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '生日提醒', :dict_type => 'noteType', :code => 3})
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '还息提醒', :dict_type => 'noteType', :code => 4})
+Dict.find_or_create_by_name_and_dict_type_and_code({:name => '配偶生日提醒', :dict_type => 'noteType', :code => 5})
 
 #银行
 Dict.find_or_create_by_name_and_dict_type_and_code({:name => '招商银行', :dict_type => 'custBank', :code => 1})

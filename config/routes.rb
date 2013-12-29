@@ -26,6 +26,7 @@ Cmwp::Application.routes.draw do
   end
   resources :loanreports do
     resources :loan_report_steps
+    get 'loan_interest', :on => :member
   end
   resources :custrels
   resources :sessions, :only => [:new, :create, :destroy]
