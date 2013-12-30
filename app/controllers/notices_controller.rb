@@ -18,4 +18,10 @@ class NoticesController < ApplicationController
     @title = "通知"
   end
   
+  def update
+    @notice = Notice.find(params[:id])
+    if @notice.update_attributes(params[:notice])
+      redirect_to root_path
+    end
+  end
 end

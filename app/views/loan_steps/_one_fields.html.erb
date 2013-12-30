@@ -39,7 +39,7 @@
 	<%= p.input :stream_status_other, :as => :text, :label => '流水情况（其他）',
 							:input_html => { :class => "input-xlarge", :rows => '6' } %>
 	<%= p.input :cust_request_type, :label => '客户需求点' %>
-	<%= p.input :custtype,:collection => @custtype, :label => '经营主体性质' %>
+	<%= p.input :custtype,:collection => @custtype, :label => '经营主体性质', :include_blank => false %>
 	<%= p.input :invoice_status, :label => '开票状况', :input_html => { :class => "span5" } %>
 	<%= p.input :tex_status, :label => '纳税状况', :input_html => { :class => "span5" } %>
 </fieldset>

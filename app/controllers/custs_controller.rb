@@ -21,6 +21,7 @@ class CustsController < ApplicationController
       @loanreports = @cust.loanreports
     else
       @custloans = @cust.custloans
+      @loanreports = @cust.loanreports
     end
     
   end

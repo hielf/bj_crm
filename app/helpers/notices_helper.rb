@@ -39,6 +39,7 @@ module NoticesHelper
                              :vaild_date => Time.now,
                              :status => get_dict('noteStatus', 1).id,
                              :note_type => get_dict('noteType', 4).id,
+                             :loaninterestplan_id => p.id,
                              :note => "客户#{c.fullname}到期还息提醒" } )
           end         
         end

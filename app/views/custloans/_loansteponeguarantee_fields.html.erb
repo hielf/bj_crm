@@ -3,7 +3,7 @@
   <%= f.input :address, :label => '地址', :input_html => { :class => "input-xlarge" } %>
   <%= f.input :area, :label => '面积' %>
 	<%= f.input :owner, :label => '产权证上所有者' %>
-	<%= f.input :estate_type, :collection => get_dict_by_type("estateType"), :label => '类型' %>
+	<%= f.input :estate_type, :collection => get_dict_by_type("estateType"), :label => '类型', :include_blank => false %>
 	<%= f.input :complete_year, :label => '竣工年限' %>
 	<%= f.input :floor, :label => '层数' %>
 	<%= f.input :describe, :as => :text, :label => '评估信息',

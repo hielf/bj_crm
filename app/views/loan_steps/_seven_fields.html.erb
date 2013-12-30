@@ -3,5 +3,5 @@
 <%= f.simple_fields_for :loanstepsevens do |p| %>
 	<%= p.input :cust_id, as: :hidden, input_html: { value: @cust.id } %>
 	<%= p.input :bank_account_type, :collection => get_dict_by_type('accountOpenType'), 
-							:label => '开户类型', required: true %>
+							:label => '开户类型', required: true, :include_blank => false %>
 <% end %>

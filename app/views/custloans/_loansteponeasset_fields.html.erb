@@ -1,6 +1,6 @@
 <fieldset>
 	<%= f.input :cust_id, as: :hidden, :input_html => { value: @cust.id } %>
-	<%= f.input :asset_type, :collection => get_dict_by_type("assetType"), :label => '类型' %>
+	<%= f.input :asset_type, :collection => get_dict_by_type("assetType"), :label => '类型', :include_blank => false %>
 	<%= f.input :describe, :as => :text, :label => '描述',
 	 						:input_html => { :class => "input-xlarge", :rows => '6' } %>
   <%= f.hidden_field :_destroy %>

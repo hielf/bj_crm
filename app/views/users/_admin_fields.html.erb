@@ -1,6 +1,6 @@
 <%= f.input :name, :label => '姓名', :required => true %>
 <%= f.input :usercode, :label => '用户代码', :required => false %>
-<%= f.input :usertype, :collection => @usertype, :label => '用户类型' %>
+<%= f.input :usertype, :collection => @usertype, :label => '用户类型', :include_blank => false %>
 <%= f.input :status, as: :hidden, :input_html => { value: get_dict("userStatus", 1).id } %>
 <!-- # f.input :usertype, :label => '用户类型', :required => false -->
 <%= f.input :password, :label => '密码', :class => "help-inline", :required => false %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229070120) do
+ActiveRecord::Schema.define(:version => 20131230073754) do
 
   create_table "branches", :force => true do |t|
     t.string   "code"
@@ -706,10 +706,11 @@ ActiveRecord::Schema.define(:version => 20131229070120) do
     t.integer  "status"
     t.datetime "vaild_date"
     t.string   "note"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.integer  "custloan_id"
     t.integer  "note_type"
+    t.integer  "loaninterestplan_id"
   end
 
   add_index "notices", ["cust_id"], :name => "index_notices_on_cust_id"

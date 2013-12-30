@@ -7,16 +7,17 @@ end
 #
 # Table name: notices
 #
-#  id             :integer         not null, primary key
-#  user_id        :integer
-#  cust_id        :integer
-#  assist_user_id :integer
-#  status         :integer
-#  vaild_date     :datetime
-#  note           :string(255)
-#  created_at     :datetime        not null
-#  updated_at     :datetime        not null
-#  custloan_id    :integer
-#  note_type      :integer
+#  id                  :integer         not null, primary key
+#  user_id             :integer
+#  cust_id             :integer
+#  assist_user_id      :integer
+#  status              :integer
+#  vaild_date          :datetime
+#  note                :string(255)
+#  created_at          :datetime        not null
+#  updated_at          :datetime        not null
+#  custloan_id         :integer
+#  note_type           :integer
+#  loaninterestplan_id :integer
 #
 

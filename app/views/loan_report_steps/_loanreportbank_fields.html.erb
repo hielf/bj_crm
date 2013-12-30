@@ -1,7 +1,7 @@
 <fieldset>
 	<div class="row-fluid">
 		<div class="span6">
-			<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => '借款银行' %>
+			<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => '借款银行', :include_blank => false %>
 		</div>
 		<div class="span6">
 			<%= f.input :loan_amount, :label => '借款金额（万）', input_html: { :class => "input-small" } %>
@@ -9,10 +9,10 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span6">
-			<%= f.input :trust_type, :collection => get_dict_by_type("reportcustType"), :label => '授信种类' %>
+			<%= f.input :trust_type, :collection => get_dict_by_type("reportcustType"), :label => '授信种类', :include_blank => false %>
 		</div>
 		<div class="span6">
-			<%= f.input :guarantee_type, :collection => get_dict_by_type("guaranteeType"), :label => '担保方式' %>
+			<%= f.input :guarantee_type, :collection => get_dict_by_type("guaranteeType"), :label => '担保方式', :include_blank => false %>
 		</div>
 	</div>
 		  <%= f.hidden_field :_destroy %>

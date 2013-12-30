@@ -4,7 +4,7 @@
 
 
 <%= f.input :loan_amont, :label => "借款金额（万）" %>
-<%= f.input :loan_type, :collection => get_dict_by_type("guaranteeType"), :label => "担保方式" %>
+<%= f.input :loan_type, :collection => get_dict_by_type("guaranteeType"), :label => "担保方式", :include_blank => false %>
 <%= f.input :withdrawal_date, :as => :date_picker, :label => "借款提款日" %>
 <%= f.input :credit_deadline, :label => "授信期限" %>
 <%= f.input :guaranty_detail, :input_html => { :class => "span6" }, :label => "抵押物明细" %>
@@ -12,7 +12,7 @@
 	<%= f.input_field :interest_rate %><span class="add-on">%</span>
 <% end %>
 <%= f.input :guaranty_address, :input_html => { :class => "span6" }, :label => "抵押物地址" %>
-<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => "借款银行" %>
+<%= f.input :bank, :collection => get_dict_by_type("custBank"), :label => "借款银行", :include_blank => false %>
 <%= f.input :evaluate_price, :label => "评估价（万）" %>
 <%= f.input :bank_broker, :label => "银行客户经理" %>
 <%= f.input :bank_broker_mobile, :label => "客户经理手机" %>
