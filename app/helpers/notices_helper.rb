@@ -1,3 +1,4 @@
+# encoding: utf-8
 module NoticesHelper
   def get_note(user)
     custs = current_user.custs.find_birthdays_for(Time.now, -7.days.ago)

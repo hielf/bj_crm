@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(:version => 20131230073754) do
     t.integer  "cust_id"
     t.integer  "status"
     t.integer  "user_id"
-    t.float    "total_amount"
+    t.decimal  "total_amount"
     t.integer  "guarantee_type"
     t.datetime "begin_date"
     t.datetime "end_date"
@@ -368,16 +368,6 @@ ActiveRecord::Schema.define(:version => 20131230073754) do
 
   add_index "loanstepfifths", ["custloan_id"], :name => "index_loanstepfifths_on_custloan_id", :unique => true
 
-  create_table "loanstepfives", :force => true do |t|
-    t.integer  "cust_id"
-    t.integer  "custloan_id"
-    t.boolean  "pass"
-    t.boolean  "requirement"
-    t.string   "requirement_detail"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
   create_table "loanstepfourassets", :force => true do |t|
     t.integer  "custloan_id"
     t.integer  "cust_id"
@@ -423,8 +413,8 @@ ActiveRecord::Schema.define(:version => 20131230073754) do
     t.string   "stream_status"
     t.string   "cust_request_type"
     t.integer  "custtype"
-    t.integer  "invoice_status"
-    t.integer  "tex_status"
+    t.string   "invoice_status"
+    t.string   "tex_status"
     t.datetime "request_date"
     t.string   "stream_status_company"
     t.string   "stream_status_other"
