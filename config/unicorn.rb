@@ -1,4 +1,4 @@
-root = "/home/root/apps/bj_crm/current"
+root = "/home/deployer/apps/bj_crm/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"
 stderr_path "#{root}/log/err.log"

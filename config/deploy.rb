@@ -1,9 +1,9 @@
 require "bundler/capistrano"
 
-server "192.168.0.188", :web, :app, :db, primary: true
+server "192.168.11.17", :web, :app, :db, primary: true
 
 set :application, "bj_crm"
-set :user, "root"
+set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
