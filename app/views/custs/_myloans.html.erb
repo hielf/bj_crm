@@ -1,0 +1,36 @@
+<div class="span6">
+	<div class="well well-small">
+		<h3><p class="lead text-info text-center"><%= link_to '申报客户', custloans_path %></p></h3>
+		<table class="table table-condensed table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>
+						<h5>客户姓名</h5>
+					</th>
+					<th>
+						<h5>申请金额</h5>
+					</th>
+					<th>
+						<h5>申请利率</h5>
+					</th>
+					<th>
+						<h5>当前进度</h5>
+					</th>
+				</tr>
+			</thead>
+		  <tbody>
+			<% if !@custloans.nil? %>
+				<% @custloans.each do |l| %>
+					<tr>
+						<td><%= link_to l.cust.fullname, custloan_path(l) %></td>
+						<td><%= l.loanstepones.first.request_amont.to_s %>万</td>
+						<td><%= l.loanstepones.first.request_interest %>%</td>
+						<td><%= current_step(l.current_step) %></td>
+					</tr>
+				<% end %>
+			<% end %>
+		  </tbody>
+		</table>
+	</div>
+</div>
+

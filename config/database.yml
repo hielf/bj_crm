@@ -9,16 +9,25 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: postgresql
-  encoding: unicode
-  # host: hielf.no-ip.biz
-  # host: 10.0.0.13
-  host: 192.168.0.189
-  port: 5432
-  database: productiondb
-  pool: 5
-  username: dbuser
-  password: password
+  # adapter: postgresql
+  # encoding: unicode
+  # # host: hielf.no-ip.biz
+  # # host: 10.0.0.13
+  # host: 192.168.0.189
+  # port: 5432
+  # database: productiondb
+  # pool: 5
+  # username: dbuser
+  # password: password
+    adapter: postgresql
+    encoding: unicode
+    host: 192.168.0.189
+    # host: 192.168.11.129
+    port: 5432
+    database: productiondb
+    pool: 5
+    username: dbuser
+    password: password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

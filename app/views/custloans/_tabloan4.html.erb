@@ -1,19 +1,19 @@
 <div class="well">
 	<dl class="dl-horizontal">
 		<p class="lead text-center"><legend><strong>基本资料</strong></legend></p>
-	<% if !@custloan.loanstepfours.first.companyname.nil? %>
+	<% if !@custloan.loanstepfours.first.companyname.empty? %>
 	  <dt>公司名称:</dt>
 	  <dd><%= @custloan.loanstepfours.first.companyname %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.companyaddress.nil? %>
+	<% if !@custloan.loanstepfours.first.companyaddress.empty? %>
 		<dt>办公地址:</dt>
 	  <dd><%= @custloan.loanstepfours.first.companyaddress %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.custname.nil? %>
+	<% if !@custloan.loanstepfours.first.custname.empty? %>
 		<dt>客户姓名:</dt>
 	  <dd><%= @custloan.loanstepfours.first.custname %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.phone.nil? %>
+	<% if !@custloan.loanstepfours.first.phone.empty? %>
 		<dt>联系电话:</dt>
 	  <dd><%= @custloan.loanstepfours.first.phone %></dd>
 	<% end %>
@@ -105,19 +105,19 @@
 		<% end %>
 	<br/>
 		<p class="lead text-center"><legend><strong>财务状况</strong></legend></p>
-	<% if !@custloan.loanstepfours.first.stream_status.nil? %>
+	<% if !@custloan.loanstepfours.first.stream_status.empty? %>
 		<dt>流水情况（个人）:</dt>
 	  <dd><%= @custloan.loanstepfours.first.stream_status %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.stream_status_company.nil? %>
+	<% if !@custloan.loanstepfours.first.stream_status_company.empty? %>
 		<dt>流水情况（公司）:</dt>
 	  <dd><%= @custloan.loanstepfours.first.stream_status_company %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.stream_status_other.nil? %>
+	<% if !@custloan.loanstepfours.first.stream_status_other.empty? %>
 		<dt>流水情况（其他）:</dt>
 	  <dd><%= @custloan.loanstepfours.first.stream_status_other %></dd>
 	<% end %>
-	<% if !@custloan.loanstepfours.first.cust_request_type.nil? %>
+	<% if !@custloan.loanstepfours.first.cust_request_type.empty? %>
 		<dt>客户需求点:</dt>
 	  <dd><%= @custloan.loanstepfours.first.cust_request_type %></dd>
 	<% end %>

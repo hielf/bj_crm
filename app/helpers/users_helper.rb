@@ -14,4 +14,10 @@ module UsersHelper
     user.underlings.map{ |u| u.custs.map { |c| @c.push(Cust.find(c.id)) } unless u.custs.empty?}.compact
     @custs = @c.uniq{|x| x.id}
   end
+
+  def ownloans(user)
+    @c = []
+    user.underlings.map{ |u| u.custs.map { |c| @c.push(Custloan.find(c.id)) } unless u.custs.empty?}.compact
+    @custloans = @c.uniq{|x| x.id}
+  end
 end

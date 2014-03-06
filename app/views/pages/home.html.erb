@@ -5,7 +5,10 @@
 		</div>
 	</div> -->
 	<div class="mini-layout">
-		<%= render :partial => 'custs/mycusts', :locals => { :object => user_custs(current_user) } %>
+		<div class="row-fluid">
+			<%= render :partial => 'custs/mycusts', :locals => { :object => user_custs(current_user) } %>
+			<%= render :partial => 'custs/myloans', :locals => { :object => user_loans(current_user) } %>
+		</div>
 		<%= render :partial => 'notices/notice', :locals => { :object => user_notices(current_user) } %>
 	</div>
 <% else %>

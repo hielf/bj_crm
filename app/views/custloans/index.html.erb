@@ -1,0 +1,35 @@
+<div class="row-fluid">
+	<div class="span12">
+		<div class="well">
+			<p class="lead text-center"><legend><strong>申报列表</strong></legend></p>
+			<table class="table table-condensed table-striped table-bordered">
+				<thead>
+					<tr>
+						<th><h5>客户姓名</h5></th>
+						<th><h5>申请金额</h5></th>
+						<th><h5>申请利率</h5></th>
+						<th><h5>当前进度</h5></th>
+						<th><h5>起始日期</h5></th>
+						<th><h5>还款日期</h5></th>
+					</tr>
+				</thead>
+			  <tbody>
+				<% if !@custloans.nil? %>
+					<% @custloans.each do |l| %>
+						<tr>
+							<td><%= link_to l.cust.fullname, custloan_path(l) %></td>
+							<td><%= l.loanstepones.first.request_amont.to_s %>万</td>
+							<td><%= l.loanstepones.first.request_interest %>%</td>
+							<td><%= current_step(l.current_step) %></td>
+							<td><%= l.loanstepfours.first.request_date.to_s.to_date if !l.loanstepfours.first.nil? %></td>
+							<td><%= l.end_date.to_s.to_date %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			  </tbody>
+			</table>
+
+			<%= will_paginate @custs, previous_label: h("<"), next_label: h(">") %>
+		</div>
+	</div>
+</div>

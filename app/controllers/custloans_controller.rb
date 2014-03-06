@@ -6,7 +6,11 @@ class CustloansController < ApplicationController
   before_filter :authenticate, :only => [:index, :show, :edit, :update, :destroy]
   
   def index
-    @custloan  = Custloan.find(params[:id])
+    if User.manager?(current_user)
+      @custloans = Custloan.order("updated_at DESC").paginate(:page => params[:page]).per_page(20)
+    else
+      @custloans = ownloans(current_user).sort_by{ |m| m.updated_at }.reverse!.paginate(:page => params[:page])
+    end
     @title = "信贷记录"
   end  
   

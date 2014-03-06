@@ -1,6 +1,6 @@
-<div>
+<div class="span6">
 	<div class="well well-small">
-		<h3><p class="lead text-info text-center">我的客户</p></h3>
+		<h3><p class="lead text-info text-center"><%= link_to '存量客户', custs_path %></p></h3>
 		<table class="table table-condensed table-striped table-bordered">
 			<thead>
 				<tr>
@@ -13,23 +13,17 @@
 					<th>
 						<h5>公司名称</h5>
 					</th>
-					<th>
-						<h5>办公地址</h5>
-					</th>
-					<th>
-						<h5>公司性质</h5>
-					</th>
-					<th>
-						<h5>客户生日</h5>
-					</th>
-					<th>
-						<h5>配偶生日</h5>
-					</th>
 				</tr>
 			</thead>
 		  <tbody>
 			<% if !@custs.nil? %>
-				<%= render @custs %>
+				<% @custs.each do |c| %>
+					<tr>
+						<td><%= link_to c.fullname, cust_path(c) %></td>
+						<td><%= c.phone %></td>
+						<td><%= c.company %></td>
+					</tr>
+				<% end %>
 			<% end %>
 		  </tbody>
 		</table>

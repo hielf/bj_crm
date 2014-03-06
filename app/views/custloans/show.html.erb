@@ -115,7 +115,7 @@
 		<% end %>
 		</p>
 	</div>
-	<% elsif @custloan.serv_user_id == current_user.id && get_dict_by_id(@custloan.status).code == 2 %>
+	<% elsif @custloan.serv_user_id == current_user.id %>
 	<div class="well">
 		<p class="text-center">
 		  <%= link_to '还款计划', paymentplan_custloan_path(@custloan), :class => 'btn btn-primary' %>

@@ -3,7 +3,7 @@
     <tr>
       <th>申请进度</th>
 			<th>当前状态</th>
-			<th>贷款金额</th>
+			<th>确认金额</th>
       <th>起始日期</th>
 			<th>还款日期</th>
 			<th></th>
@@ -24,7 +24,12 @@
 		</tr>
 		<tr>
 			<td colspan="6">
-				<p class="text-center"><%= link_to '详细信息', custloan_path(@cust_loan), :class => 'btn btn-primary' %></p>
+				<p class="text-center">
+					<%= link_to '详细信息', custloan_path(@cust_loan), :class => 'btn btn-primary' %>
+					<% if get_dict_by_id(@cust_loan.status).code != 1 %>
+					<%= link_to '还款计划', paymentplan_custloan_path(@cust_loan), :class => 'btn' %>
+					<% end %>
+				</p>
 			</td>
 		</tr>
 	</tbody>
