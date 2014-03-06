@@ -214,7 +214,7 @@ DEPENDENCIES
   binding_of_caller
   birthday (~> 0.2.0)
   bootstrap-will_paginate (~> 0.0.6)
-  capistrano
+  capistrano (~> 2.15)
   carrierwave
   coffee-rails (~> 3.2.2)
   datetimepicker-rails!
