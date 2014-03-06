@@ -225,6 +225,7 @@ DEPENDENCIES
   lazy_high_charts (~> 1.1.5)
   less-rails
   meta_request
+  net-ssh (= 2.7.0)
   pg
   rabl
   rails (= 3.2.11)
