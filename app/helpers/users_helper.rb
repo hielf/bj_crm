@@ -12,12 +12,12 @@ module UsersHelper
   def owncusts(user)
     @c = []
     user.underlings.map{ |u| u.custs.map { |c| @c.push(Cust.find(c.id)) } unless u.custs.empty?}.compact
-    @custs = @c.uniq{|x| x.id}
+    @custs = @c.uniq{|x| x.id unless x.nil?}
   end
 
   def ownloans(user)
-    @c = []
-    user.underlings.map{ |u| u.custs.map { |c| @c.push(Custloan.find_by_cust_id(c.id) ) } unless u.custs.empty?}.compact
-    @custloans = @c.uniq{|x| x.id}
+    @cl = []
+    user.underlings.map{ |u| u.custs.map { |c| c.custloans.map { |l| @cl.push(Custloan.find(l.id)) } } unless u.custs.empty? }.compact
+    @custloans = @cl.uniq{|x| x.id unless x.nil?}
   end
 end

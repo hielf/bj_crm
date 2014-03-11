@@ -21,9 +21,9 @@ development:
   # password: password
     adapter: postgresql
     encoding: unicode
-    host: 192.168.0.189
+    host: yeyu023.vicp.cc
     # host: 192.168.11.129
-    port: 5432
+    port: 42049
     database: productiondb
     pool: 5
     username: dbuser
