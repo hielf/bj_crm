@@ -145,7 +145,7 @@
 		  <dt>开户类型:</dt>
 		  <dd><%= get_dict_by_id(@custloan.loanstepsevenadditionals.first.bank_account_type).name %></dd>
 		<% end %>
-		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 1 %>
+		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 1 %>
 			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
 			  <dt>姓名:</dt>
 			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
@@ -170,7 +170,7 @@
 				</dd>
 			<% end %>
 		<% end %>
-		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 2 %>
+		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 2 %>
 			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
 			  <dt>公司名称:</dt>
 			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
@@ -251,7 +251,7 @@
 				</dd>
 			<% end %>
 		<% end %>
-		<% if steptypeseven(@custloan.loanstepsevenadditionals.first.id) == 3 %>
+		<% if steptypesevenadd1(@custloan.loanstepsevenadditionals.first.id) == 3 %>
 			<% if !@custloan.loanstepsevenadditionals.first.account_name.blank? %>
 			  <dt>名称:</dt>
 			  <dd><%= @custloan.loanstepsevenadditionals.first.account_name %></dd>
