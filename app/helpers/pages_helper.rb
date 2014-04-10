@@ -15,7 +15,7 @@ module PagesHelper
 
   def user_loans(user)
     if User.manager?(user)
-      @custloans = Custloan.order("updated_at DESC").paginate(:page => params[:page]).per_page(10)
+      @custloans = Custloan.status12.order("updated_at DESC").paginate(:page => params[:page]).per_page(10)
     else
       @custloans = ownloans(current_user).sort_by{ |m| m.updated_at }.reverse!
     end

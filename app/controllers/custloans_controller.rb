@@ -7,9 +7,9 @@ class CustloansController < ApplicationController
   
   def index
     if User.manager?(current_user)
-      @custloans = Custloan.order("updated_at DESC").paginate(:page => params[:page]).per_page(20)
+      @custloans = Custloan.status12.order("updated_at DESC").paginate(:page => params[:page]).per_page(20)
     else
-      @custloans = ownloans(current_user).sort_by{ |m| m.updated_at }.reverse!.paginate(:page => params[:page])
+      @custloans = ownloans(current_user).sort_by{ |m| m.updated_at }.reverse!
     end
     @title = "信贷记录"
   end  

@@ -28,8 +28,9 @@
 				<% end %>
 			  </tbody>
 			</table>
-
-			<%= will_paginate @custs, previous_label: h("<"), next_label: h(">") %>
+			<% if User.manager?(current_user) %>
+				<%= will_paginate @custloans, previous_label: h("<"), next_label: h(">") %>
+			<% end %>
 		</div>
 	</div>
 </div>
