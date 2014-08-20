@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 server "bojiajinrong.vicp.cc", :web, :app, :db, primary: true
-ssh_options[:port] = "33478"
+ssh_options[:port] = "49504"
 
 set :application, "bj_crm"
 set :user, "root"
